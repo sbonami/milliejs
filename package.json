@@ -1,0 +1,10 @@
+{
+  "name": "@milliejs/monorepo",
+  "private": true,
+  "author": "Scott BonAmi",
+  "packageManager": "yarn@3.4.1",
+  "workspaces": [
+    "examples/*",
+    "packages/*"
+  ]
+}
