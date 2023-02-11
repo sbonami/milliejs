@@ -2,6 +2,10 @@
 ## macOS
 .DS_Store
 
+# Code styles
+## ESLint
+.eslintcache
+
 # Package Manager
 ## NPM
 node_modules/
