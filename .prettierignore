@@ -4,3 +4,6 @@ node_modules/
 ## Yarn (https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored)
 **/.yarn/*
 **/.pnp.*
+
+# Built packages
+**/packages/**/dist

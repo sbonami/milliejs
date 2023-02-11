@@ -17,3 +17,6 @@ node_modules/
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# Built packages
+packages/*/dist/

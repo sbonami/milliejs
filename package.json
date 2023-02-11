@@ -3,8 +3,14 @@
   "private": true,
   "author": "Scott BonAmi",
   "scripts": {
+    "build": "yarn workspaces foreach --parallel --verbose run build",
+    "clean": "yarn clean:dist",
+    "clean:dist": "rimraf -- ./packages/*/dist",
     "format": "prettier --ignore-path .prettierignore --write .",
     "lint": "eslint ."
+  },
+  "engines": {
+    "node": ">=14.0.0 || >=16.0.0 || >=18.0.0"
   },
   "packageManager": "yarn@3.4.1",
   "workspaces": [
@@ -12,9 +18,16 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@tsconfig/node14": "^1.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.51.0",
+    "@typescript-eslint/parser": "^5.51.0",
     "eslint": "^8.34.0",
     "eslint-config-prettier": "^8.6.0",
+    "eslint-import-resolver-typescript": "^3.5.3",
+    "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-markdown": "^3.0.0",
-    "prettier": "^2.8.4"
+    "prettier": "^2.8.4",
+    "rimraf": "^4.1.2",
+    "typescript": "^4.9.5"
   }
 }
