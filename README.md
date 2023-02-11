@@ -27,13 +27,9 @@ further notice.**
 
 ## Getting Started
 
-
-
 ### Examples
 
 ## Contributing
-
-
 
 **Note:** Large portions of this README and all other documentation has been written
 using ChatGPT.

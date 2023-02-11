@@ -4,3 +4,4 @@ env:
 extends:
   - eslint:recommended
   - plugin:markdown/recommended
+  - prettier # last in order to override other configs

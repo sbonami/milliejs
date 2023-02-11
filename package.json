@@ -3,6 +3,7 @@
   "private": true,
   "author": "Scott BonAmi",
   "scripts": {
+    "format": "prettier --ignore-path .prettierignore --write .",
     "lint": "eslint ."
   },
   "packageManager": "yarn@3.4.1",
@@ -12,6 +13,8 @@
   ],
   "devDependencies": {
     "eslint": "^8.34.0",
-    "eslint-plugin-markdown": "^3.0.0"
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-markdown": "^3.0.0",
+    "prettier": "^2.8.4"
   }
 }
