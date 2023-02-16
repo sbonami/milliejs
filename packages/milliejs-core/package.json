@@ -1,15 +1,17 @@
 {
-  "name": "millie",
+  "name": "@milliejs/core",
   "version": "0.0.0",
   "description": "A composable, multi-platform library delivering progressive data synchronization over familiar interfaces",
-  "author": "Scott BonAmi",
   "license": "MIT",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/sbonami/milliejs.git",
-    "directory": "packages/milliejs"
+    "directory": "packages/milliejs-core"
+  },
+  "bugs": {
+    "url": "https://github.com/sbonami/milliejs/issues"
   },
   "files": [
     "dist"
@@ -18,10 +20,8 @@
     "build": "tsc --build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "@milliejs/core": "workspace:^"
-  },
   "devDependencies": {
-    "@types/node": "^18.13.0"
+    "@types/node": "^18.13.0",
+    "typescript": "^4.9.5"
   }
 }

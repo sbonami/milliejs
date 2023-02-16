@@ -18,11 +18,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {\
         "name": "millie",\
         "reference": "workspace:packages/milliejs"\
+      },\
+      {\
+        "name": "@milliejs/core",\
+        "reference": "workspace:packages/milliejs-core"\
       }\
     ],\
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
+      ["@milliejs/core", ["workspace:packages/milliejs-core"]],\
       ["@milliejs/monorepo", ["workspace:."]],\
       ["millie", ["workspace:packages/milliejs"]]\
     ],\
@@ -1231,6 +1236,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jridgewell/sourcemap-codec", "npm:1.4.14"]\
           ],\
           "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@milliejs/core", [\
+        ["workspace:packages/milliejs-core", {\
+          "packageLocation": "./packages/milliejs-core/",\
+          "packageDependencies": [\
+            ["@milliejs/core", "workspace:packages/milliejs-core"],\
+            ["@types/node", "npm:18.13.0"],\
+            ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
+          ],\
+          "linkType": "SOFT"\
         }]\
       ]],\
       ["@milliejs/monorepo", [\
@@ -5109,6 +5125,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/milliejs/",\
           "packageDependencies": [\
             ["millie", "workspace:packages/milliejs"],\
+            ["@milliejs/core", "workspace:packages/milliejs-core"],\
             ["@types/node", "npm:18.13.0"]\
           ],\
           "linkType": "SOFT"\
