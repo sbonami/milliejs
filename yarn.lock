@@ -997,6 +997,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:^18.13.0":
+  version: 18.13.0
+  resolution: "@types/node@npm:18.13.0"
+  checksum: 4ea10f8802848b01672bce938f678b6774ca2cee0c9774f12275ab064ae07818419c3e2e41d6257ce7ba846d1ea26c63214aa1dfa4166fa3746291752b8c6416
+  languageName: node
+  linkType: hard
+
 "@types/prettier@npm:^2.1.5":
   version: 2.7.2
   resolution: "@types/prettier@npm:2.7.2"
@@ -3942,6 +3949,14 @@ __metadata:
   checksum: 02a17b671c06e8fefeeb6ef996119c1e597c942e632a21ef589154f23898c9c6a9858526246abb14f8bca6e77734aa9dcf65476fca47cedfb80d9577d52843fc
   languageName: node
   linkType: hard
+
+"millie@workspace:packages/milliejs":
+  version: 0.0.0-use.local
+  resolution: "millie@workspace:packages/milliejs"
+  dependencies:
+    "@types/node": ^18.13.0
+  languageName: unknown
+  linkType: soft
 
 "mimic-fn@npm:^2.1.0":
   version: 2.1.0
