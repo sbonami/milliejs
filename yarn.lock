@@ -791,6 +791,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@milliejs/store-base@workspace:^, @milliejs/store-base@workspace:packages/milliejs-store-base":
+  version: 0.0.0-use.local
+  resolution: "@milliejs/store-base@workspace:packages/milliejs-store-base"
+  dependencies:
+    "@milliejs/core": "workspace:^"
+    "@types/node": ^18.13.0
+    typescript: ^4.9.5
+  languageName: unknown
+  linkType: soft
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -3964,6 +3974,7 @@ __metadata:
   resolution: "millie@workspace:packages/milliejs"
   dependencies:
     "@milliejs/core": "workspace:^"
+    "@milliejs/store-base": "workspace:^"
     "@types/node": ^18.13.0
   languageName: unknown
   linkType: soft

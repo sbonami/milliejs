@@ -22,6 +22,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {\
         "name": "@milliejs/core",\
         "reference": "workspace:packages/milliejs-core"\
+      },\
+      {\
+        "name": "@milliejs/store-base",\
+        "reference": "workspace:packages/milliejs-store-base"\
       }\
     ],\
     "enableTopLevelFallback": true,\
@@ -29,6 +33,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "fallbackExclusionList": [\
       ["@milliejs/core", ["workspace:packages/milliejs-core"]],\
       ["@milliejs/monorepo", ["workspace:."]],\
+      ["@milliejs/store-base", ["workspace:packages/milliejs-store-base"]],\
       ["millie", ["workspace:packages/milliejs"]]\
     ],\
     "fallbackPool": [\
@@ -1267,6 +1272,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["prettier", "npm:2.8.4"],\
             ["rimraf", "npm:4.1.2"],\
             ["ts-jest", "virtual:907e5c0bf131e40fd4d8efd9c3314bb84bc4e009bd76cd3a2ec6f53a41a9350ae9331dd3db9142323f1284d1472d3fbac70d4b9f96438ff1e21adf9e4323a958#npm:29.0.5"],\
+            ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["@milliejs/store-base", [\
+        ["workspace:packages/milliejs-store-base", {\
+          "packageLocation": "./packages/milliejs-store-base/",\
+          "packageDependencies": [\
+            ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
+            ["@milliejs/core", "workspace:packages/milliejs-core"],\
+            ["@types/node", "npm:18.13.0"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
           ],\
           "linkType": "SOFT"\
@@ -5126,6 +5143,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["millie", "workspace:packages/milliejs"],\
             ["@milliejs/core", "workspace:packages/milliejs-core"],\
+            ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
             ["@types/node", "npm:18.13.0"]\
           ],\
           "linkType": "SOFT"\
