@@ -1,5 +1,5 @@
 import { EventEmitter } from "node:events"
-import type { Resource } from "@milliejs/core"
+import type { Entity, Query, Resource } from "@milliejs/core"
 import {
   PublisherActionInterface,
   SubscriberActionInterface,
@@ -46,6 +46,34 @@ export class PublisherActionEventWrapper<R extends Resource>
 {
   constructor(private readonly store: PublisherActionInterface<R>) {
     super()
+  }
+
+  create(entity: Entity<R>): Entity<R> | Promise<Entity<R>> {
+    throw new Error("Not Implemented")
+  }
+
+  read(query: Query): Entity<R>[] | Promise<Entity<R>[]> {
+    throw new Error("Not Implemented")
+  }
+
+  update(
+    entityOrQuery: Query | Entity<R>,
+    data: Entity<R>["data"],
+  ): Entity<R>[] | Promise<Entity<R>[]> {
+    throw new Error("Not Implemented")
+  }
+
+  patch(
+    entityOrQuery: Query | Entity<R>,
+    patch: any,
+  ): Entity<R>[] | Promise<Entity<R>[]> {
+    throw new Error("Not Implemented")
+  }
+
+  delete(
+    entityOrQuery: Query | Entity<R>,
+  ): boolean | Entity<R>[] | Promise<boolean | Entity<R>[]> {
+    throw new Error("Not Implemented")
   }
 }
 

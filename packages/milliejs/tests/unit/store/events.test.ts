@@ -1,10 +1,24 @@
 import EventEmitter from "node:events"
-import type { Resource } from "@milliejs/core"
+import type { Entity, Query, Resource } from "@milliejs/core"
 import type { PublisherActionInterface } from "@milliejs/store-base"
 import * as StoreBaseModule from "@milliejs/store-base"
 import * as StoreEventModule from "../../../src/store/events"
+import { makeMockPublisher } from "../mocks/publisher"
 
 type MockResource = Resource
+const mockResource: Resource = {
+  id: "mock",
+}
+const mockEntity: Entity<MockResource> = {
+  id: "a",
+  resource: mockResource,
+  data: {},
+}
+const mockQuery: Query = {
+  resource: mockResource,
+  cardinality: "many",
+  attributes: {},
+}
 
 describe("events", () => {
   describe("isEventEmitter", () => {
@@ -49,8 +63,26 @@ describe("events", () => {
   describe("isPublisherActionEventInterface", () => {
     const { isPublisherActionEventInterface } = StoreEventModule
     const conformingObject: EventEmitter &
-      PublisherActionInterface<MockResource> =
-      new (class extends EventEmitter {})()
+      PublisherActionInterface<MockResource> = new (class extends EventEmitter {
+      create(entity: Entity<MockResource>) {
+        return Promise.resolve(mockEntity)
+      }
+      read(query: Query) {
+        return Promise.resolve([])
+      }
+      update(
+        entityOrQuery: Entity<MockResource> | Query,
+        data: Entity<MockResource>["data"],
+      ) {
+        return Promise.resolve([])
+      }
+      patch(entityOrQuery: Entity<MockResource> | Query, patch: any) {
+        return Promise.resolve([])
+      }
+      delete(entityOrQuery: Entity<MockResource> | Query) {
+        return Promise.resolve([])
+      }
+    })()
 
     describe("when the passed object conforms to the EventEmitter and PublisherActionEventInterface interfaces", () => {
       it("should return true", () => {
@@ -83,5 +115,55 @@ describe("events", () => {
     })
   })
 
-  describe("PublisherActionEventWrapper", () => {})
+  describe("PublisherActionEventWrapper", () => {
+    const { PublisherActionEventWrapper } = StoreEventModule
+    const mockUneventfulStore = makeMockPublisher()
+    let mockWrapper: StoreEventModule.PublisherActionEventInterface<MockResource> &
+      StoreBaseModule.SubscriberActionInterface
+    beforeEach(() => {
+      mockWrapper = new PublisherActionEventWrapper<MockResource>(
+        mockUneventfulStore,
+      )
+    })
+
+    describe("create", () => {
+      it('throws a "Not Implemented" Error', () => {
+        expect(() => {
+          mockWrapper.create(mockEntity)
+        }).toThrow("Not Implemented")
+      })
+    })
+
+    describe("read", () => {
+      it('throws a "Not Implemented" Error', () => {
+        expect(() => {
+          mockWrapper.read(mockQuery)
+        }).toThrow("Not Implemented")
+      })
+    })
+
+    describe("update", () => {
+      it('throws a "Not Implemented" Error', () => {
+        expect(() => {
+          mockWrapper.update(mockQuery, {})
+        }).toThrow("Not Implemented")
+      })
+    })
+
+    describe("patch", () => {
+      it('throws a "Not Implemented" Error', () => {
+        expect(() => {
+          mockWrapper.patch(mockQuery, {})
+        }).toThrow("Not Implemented")
+      })
+    })
+
+    describe("delete", () => {
+      it('throws a "Not Implemented" Error', () => {
+        expect(() => {
+          mockWrapper.delete(mockQuery)
+        }).toThrow("Not Implemented")
+      })
+    })
+  })
 })

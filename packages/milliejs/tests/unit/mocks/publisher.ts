@@ -6,6 +6,11 @@ import { makeMockSubscriber } from "./subscriber"
 export const makeMockPublisher = <R extends Resource>(
   partial?: Partial<PublisherActionInterface<R>>,
 ): PublisherActionInterface<R> => ({
+  create: jest.fn(),
+  read: jest.fn(),
+  update: jest.fn(),
+  patch: jest.fn(),
+  delete: jest.fn(),
   ...partial,
 })
 
