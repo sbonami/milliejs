@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MillieJS registerSourcePublisher when the resource has not yet been registered throws an error 1`] = `"Invariant failed: Resource is not registered with this store"`;
+
+exports[`MillieJS registerSourceSubscriber when the resource has not yet been registered throws an error 1`] = `"Invariant failed: Resource is not registered with this store"`;

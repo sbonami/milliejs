@@ -3,7 +3,7 @@ module.exports = {
   preset: "ts-jest",
   testEnvironment: "node",
 
-  testRegex: "packages/(.*)/tests/(unit|integration)/(.*).(spec|test).ts",
+  testRegex: "packages/(.*)/tests/(unit|integration)/(.*).(spec|test).ts$",
 
   resetMocks: true,
 }
