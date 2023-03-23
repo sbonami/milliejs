@@ -7,7 +7,9 @@
     "clean": "yarn clean:dist && yarn clean:test",
     "clean:dist": "rimraf -- ./packages/*/dist ./packages/*/tsconfig.tsbuildinfo",
     "clean:test": "rimraf -- ./coverage",
-    "format": "prettier --ignore-path .prettierignore --write .",
+    "format:script": "prettier --ignore-path .prettierignore .",
+    "format": "yarn format:script --write",
+    "format:ci": "yarn format:script --check",
     "lint": "eslint .",
     "test": "jest"
   },
