@@ -1,5 +1,6 @@
 import EventEmitter from "node:events"
 import type { Entity, Query, Resource } from "@milliejs/core"
+import { LifecycleEvents } from "@milliejs/core"
 import type { PublisherActionInterface } from "@milliejs/store-base"
 import * as StoreBaseModule from "@milliejs/store-base"
 import * as StoreEventModule from "../../../src/store/events"
@@ -127,42 +128,338 @@ describe("events", () => {
     })
 
     describe("create", () => {
-      it('throws a "Not Implemented" Error', () => {
-        expect(() => {
-          mockWrapper.create(mockEntity)
-        }).toThrow("Not Implemented")
+      it("passes the entity to the store", () => {
+        const mockInputEntity: Entity<MockResource> = {
+          id: "a",
+          resource: mockResource,
+          data: {},
+        }
+        const mockOutputEntity: Entity<MockResource> = {
+          id: "a",
+          resource: mockResource,
+          data: {},
+        }
+        ;(mockUneventfulStore as any).create.mockResolvedValue(mockOutputEntity)
+        const actionSpy = jest.spyOn(
+          PublisherActionEventWrapper.prototype,
+          "create",
+        )
+
+        mockWrapper.create(mockInputEntity)
+        expect(actionSpy).toHaveBeenCalledWith(mockInputEntity)
+      })
+
+      it("emits a 'save' event for the store's created entity", (done) => {
+        expect.assertions(1)
+
+        const mockInputEntity: Entity<MockResource> = {
+          id: "a",
+          resource: mockResource,
+          data: {},
+        }
+        const mockOutputEntity: Entity<MockResource> = {
+          id: "a",
+          resource: mockResource,
+          data: {},
+        }
+        ;(mockUneventfulStore as any).create.mockResolvedValue(mockOutputEntity)
+
+        mockWrapper.on(LifecycleEvents.Save, (entity: Entity<MockResource>) => {
+          try {
+            expect(entity).toBe(mockOutputEntity)
+            done()
+          } catch (error) {
+            done(error)
+          }
+        })
+        mockWrapper.create(mockInputEntity)
+      })
+
+      it("returns the store's created entity", () => {
+        const mockInputEntity: Entity<MockResource> = {
+          id: "a",
+          resource: mockResource,
+          data: {},
+        }
+        const mockOutputEntity: Entity<MockResource> = {
+          id: "a",
+          resource: mockResource,
+          data: {},
+        }
+        ;(mockUneventfulStore as any).create.mockResolvedValue(mockOutputEntity)
+
+        expect(mockWrapper.create(mockInputEntity)).resolves.toBe(
+          mockOutputEntity,
+        )
       })
     })
 
     describe("read", () => {
-      it('throws a "Not Implemented" Error', () => {
-        expect(() => {
-          mockWrapper.read(mockQuery)
-        }).toThrow("Not Implemented")
+      it("passes the query to the store", () => {
+        const mockInputQuery: Query = {
+          resource: mockResource,
+          cardinality: "many",
+          attributes: {},
+        }
+        const mockOutputEntity: Entity<MockResource> = {
+          id: "a",
+          resource: mockResource,
+          data: {},
+        }
+        ;(mockUneventfulStore as any).read.mockResolvedValue([mockOutputEntity])
+        const actionSpy = jest.spyOn(
+          PublisherActionEventWrapper.prototype,
+          "read",
+        )
+
+        mockWrapper.read(mockInputQuery)
+        expect(actionSpy).toHaveBeenCalledWith(mockInputQuery)
+      })
+
+      it("returns the store's found entities", () => {
+        const mockInputQuery: Query = {
+          resource: mockResource,
+          cardinality: "many",
+          attributes: {},
+        }
+        const mockOutputEntity: Entity<MockResource> = {
+          id: "a",
+          resource: mockResource,
+          data: {},
+        }
+        ;(mockUneventfulStore as any).read.mockResolvedValue([mockOutputEntity])
+
+        expect(mockWrapper.read(mockInputQuery)).resolves.toEqual([
+          mockOutputEntity,
+        ])
       })
     })
 
     describe("update", () => {
-      it('throws a "Not Implemented" Error', () => {
-        expect(() => {
-          mockWrapper.update(mockQuery, {})
-        }).toThrow("Not Implemented")
+      it("passes the Query and data payload to the store", () => {
+        const mockInputQuery: Query = {
+          resource: mockResource,
+          cardinality: "many",
+          attributes: {},
+        }
+        const mockInputPayload = {}
+        const mockOutputEntity: Entity<MockResource> = {
+          id: "a",
+          resource: mockResource,
+          data: {},
+        }
+        ;(mockUneventfulStore as any).update.mockResolvedValue([
+          mockOutputEntity,
+        ])
+        const actionSpy = jest.spyOn(
+          PublisherActionEventWrapper.prototype,
+          "update",
+        )
+
+        mockWrapper.update(mockInputQuery, mockInputPayload)
+        expect(actionSpy).toHaveBeenCalledWith(mockInputQuery, mockInputPayload)
+      })
+
+      it("emits a 'save' event for the store's updated entity", (done) => {
+        expect.assertions(1)
+
+        const mockInputQuery: Query = {
+          resource: mockResource,
+          cardinality: "many",
+          attributes: {},
+        }
+        const mockInputPayload = {}
+        const mockOutputEntity: Entity<MockResource> = {
+          id: "a",
+          resource: mockResource,
+          data: {},
+        }
+        ;(mockUneventfulStore as any).update.mockResolvedValue([
+          mockOutputEntity,
+        ])
+
+        mockWrapper.on(LifecycleEvents.Save, (entity: Entity<MockResource>) => {
+          try {
+            expect(entity).toBe(mockOutputEntity)
+            done()
+          } catch (error) {
+            done(error)
+          }
+        })
+        mockWrapper.update(mockInputQuery, mockInputPayload)
+      })
+
+      it("returns the store's updated entity", () => {
+        const mockInputQuery: Query = {
+          resource: mockResource,
+          cardinality: "many",
+          attributes: {},
+        }
+        const mockInputPayload = {}
+        const mockOutputEntity: Entity<MockResource> = {
+          id: "a",
+          resource: mockResource,
+          data: {},
+        }
+        ;(mockUneventfulStore as any).update.mockResolvedValue([
+          mockOutputEntity,
+        ])
+
+        expect(
+          mockWrapper.update(mockInputQuery, mockInputPayload),
+        ).resolves.toEqual([mockOutputEntity])
       })
     })
 
     describe("patch", () => {
-      it('throws a "Not Implemented" Error', () => {
-        expect(() => {
-          mockWrapper.patch(mockQuery, {})
-        }).toThrow("Not Implemented")
+      it("passes the Query and patch to the store", () => {
+        const mockInputQuery: Query = {
+          resource: mockResource,
+          cardinality: "many",
+          attributes: {},
+        }
+        const mockInputPatch = {}
+        const mockOutputEntity: Entity<MockResource> = {
+          id: "a",
+          resource: mockResource,
+          data: {},
+        }
+        ;(mockUneventfulStore as any).patch.mockResolvedValue([
+          mockOutputEntity,
+        ])
+        const actionSpy = jest.spyOn(
+          PublisherActionEventWrapper.prototype,
+          "patch",
+        )
+
+        mockWrapper.patch(mockInputQuery, mockInputPatch)
+        expect(actionSpy).toHaveBeenCalledWith(mockInputQuery, mockInputPatch)
+      })
+
+      it("emits a 'save' event for the store's patched entity", (done) => {
+        expect.assertions(1)
+
+        const mockInputQuery: Query = {
+          resource: mockResource,
+          cardinality: "many",
+          attributes: {},
+        }
+        const mockInputPatch = {}
+        const mockOutputEntity: Entity<MockResource> = {
+          id: "a",
+          resource: mockResource,
+          data: {},
+        }
+        ;(mockUneventfulStore as any).patch.mockResolvedValue([
+          mockOutputEntity,
+        ])
+
+        mockWrapper.on(LifecycleEvents.Save, (entity: Entity<MockResource>) => {
+          try {
+            expect(entity).toBe(mockOutputEntity)
+            done()
+          } catch (error) {
+            done(error)
+          }
+        })
+        mockWrapper.patch(mockInputQuery, mockInputPatch)
+      })
+
+      it("returns the store's updated entity", () => {
+        const mockInputQuery: Query = {
+          resource: mockResource,
+          cardinality: "many",
+          attributes: {},
+        }
+        const mockInputPayload = {}
+        const mockOutputEntity: Entity<MockResource> = {
+          id: "a",
+          resource: mockResource,
+          data: {},
+        }
+        ;(mockUneventfulStore as any).update.mockResolvedValue([
+          mockOutputEntity,
+        ])
+
+        expect(
+          mockWrapper.update(mockInputQuery, mockInputPayload),
+        ).resolves.toEqual([mockOutputEntity])
       })
     })
 
     describe("delete", () => {
-      it('throws a "Not Implemented" Error', () => {
-        expect(() => {
-          mockWrapper.delete(mockQuery)
-        }).toThrow("Not Implemented")
+      it("passes the Query to the store", () => {
+        const mockInputQuery: Query = {
+          resource: mockResource,
+          cardinality: "many",
+          attributes: {},
+        }
+        const mockOutputEntity: Entity<MockResource> = {
+          id: "a",
+          resource: mockResource,
+          data: {},
+        }
+        ;(mockUneventfulStore as any).delete.mockResolvedValue([
+          mockOutputEntity,
+        ])
+        const actionSpy = jest.spyOn(
+          PublisherActionEventWrapper.prototype,
+          "delete",
+        )
+
+        mockWrapper.delete(mockInputQuery)
+        expect(actionSpy).toHaveBeenCalledWith(mockInputQuery)
+      })
+
+      it("emits a 'delete' event for the store's deleted entities", (done) => {
+        expect.assertions(1)
+
+        const mockInputQuery: Query = {
+          resource: mockResource,
+          cardinality: "many",
+          attributes: {},
+        }
+        const mockOutputEntity: Entity<MockResource> = {
+          id: "a",
+          resource: mockResource,
+          data: {},
+        }
+        ;(mockUneventfulStore as any).delete.mockResolvedValue([
+          mockOutputEntity,
+        ])
+
+        mockWrapper.on(
+          LifecycleEvents.Delete,
+          (entity: Entity<MockResource>) => {
+            try {
+              expect(entity).toBe(mockOutputEntity)
+              done()
+            } catch (error) {
+              done(error)
+            }
+          },
+        )
+        mockWrapper.delete(mockInputQuery)
+      })
+
+      it("returns the store's deleted entity", () => {
+        const mockInputQuery: Query = {
+          resource: mockResource,
+          cardinality: "many",
+          attributes: {},
+        }
+        const mockOutputEntity: Entity<MockResource> = {
+          id: "a",
+          resource: mockResource,
+          data: {},
+        }
+        ;(mockUneventfulStore as any).delete.mockResolvedValue([
+          mockOutputEntity,
+        ])
+
+        expect(mockWrapper.delete(mockInputQuery)).resolves.toEqual([
+          mockOutputEntity,
+        ])
       })
     })
   })

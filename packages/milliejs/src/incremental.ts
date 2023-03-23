@@ -15,6 +15,8 @@ import { ReadAction } from "./incremental/actions/read"
 import { UpdateAction } from "./incremental/actions/update"
 import { PatchAction } from "./incremental/actions/patch"
 import { DeleteAction } from "./incremental/actions/delete"
+import { deltaEventForwarder } from "./incremental/deltaEventForwarder"
+import { replicaEventPulldown } from "./incremental/replicaEventPulldown"
 
 export type StoreConstructorSourceOptions<R extends Resource> = {
   sourcePublisher?:
@@ -63,6 +65,8 @@ export class IncrementalStore<R extends Resource = Resource>
     this._replicaStore = isPublisherActionEventInterface(newReplicaStore)
       ? newReplicaStore
       : new PublisherActionEventWrapper(newReplicaStore)
+
+    deltaEventForwarder(this, this._replicaStore)
   }
 
   get replicaStore() {
@@ -83,6 +87,8 @@ export class IncrementalStore<R extends Resource = Resource>
       )
         ? newSourcePublisher
         : new PublisherActionEventWrapper(newSourcePublisher)
+
+      deltaEventForwarder(this, this._sourcePublisher)
     }
   }
 
@@ -97,6 +103,8 @@ export class IncrementalStore<R extends Resource = Resource>
       this._sourceSubscriber = undefined
     } else {
       this._sourceSubscriber = newSourceSubscriber
+      deltaEventForwarder(this, this._sourceSubscriber)
+      replicaEventPulldown(this, this._sourceSubscriber)
     }
   }
 

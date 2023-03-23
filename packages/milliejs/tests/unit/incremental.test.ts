@@ -13,6 +13,10 @@ import { UpdateAction } from "../../src/incremental/actions/update"
 import { PatchAction } from "../../src/incremental/actions/patch"
 import { DeleteAction } from "../../src/incremental/actions/delete"
 
+jest.mock("../../src/incremental/deltaEventForwarder")
+jest.mock("../../src/incremental/replicaEventPulldown")
+jest.mock("../../src/store/events")
+
 type MockResource = Resource
 
 describe("IncrementalStore", () => {
@@ -54,6 +58,10 @@ describe("IncrementalStore", () => {
 
     describe("[replicaStore]", () => {
       describe("when the provided replicaStore is also an event interface", () => {
+        beforeEach(() => {
+          ;(events.isPublisherActionEventInterface as any).mockReturnValue(true)
+        })
+
         it("should set the replicaStore directly", () => {
           const mockResource: MockResource = {
             id: "MOCK RESOURCE",
@@ -91,6 +99,12 @@ describe("IncrementalStore", () => {
     describe("[sourcePublisher]", () => {
       describe("when the store is instantiated with only the sourcePublisher interface option", () => {
         describe("when the provided sourcePublisher is also an event interface", () => {
+          beforeEach(() => {
+            ;(events.isPublisherActionEventInterface as any).mockReturnValue(
+              true,
+            )
+          })
+
           it("should create an instance of IncrementalStore with the sourcePublisher", () => {
             const mockResource: MockResource = {
               id: "MOCK RESOURCE",
@@ -138,6 +152,10 @@ describe("IncrementalStore", () => {
 
     describe("[sourceSubscriber]", () => {
       describe("when the store is instantiated with only the sourceSubscriber interface option", () => {
+        beforeEach(() => {
+          ;(events.isPublisherActionEventInterface as any).mockReturnValue(true)
+        })
+
         it("should create an instance of IncrementalStore with only sourceSubscriber", () => {
           const mockResource: MockResource = {
             id: "MOCK RESOURCE",
@@ -197,6 +215,10 @@ describe("IncrementalStore", () => {
     })
 
     describe("when the new sourcePublisher is also an event interface", () => {
+      beforeEach(() => {
+        ;(events.isPublisherActionEventInterface as any).mockReturnValue(true)
+      })
+
       it("updates the Incremental Store's _sourcePublisher to the provided sourcePublisher", () => {
         const mockResource: MockResource = {
           id: "MOCK RESOURCE",

@@ -8,9 +8,21 @@ const mockResource: MockResource = {
   id: "MOCK RESOURCE",
 }
 const mockReplicaStore = makeMockPublisherWithEvents()
-const mockStore = new IncrementalStore(mockResource, mockReplicaStore)
+const mockSourcePublisher = makeMockPublisherWithEvents()
+const mockStore = new IncrementalStore(mockResource, mockReplicaStore, {
+  sourcePublisher: mockSourcePublisher,
+})
 
 describe("UpdateAction", () => {
+  beforeEach(() => {
+    jest
+      .spyOn(IncrementalStore.prototype, "replicaStore", "get")
+      .mockReturnValue(mockReplicaStore)
+    jest
+      .spyOn(IncrementalStore.prototype, "sourcePublisher", "get")
+      .mockReturnValue(mockSourcePublisher)
+  })
+
   describe("new UpdateAction", () => {
     it("should create an instance of ReadAction", () => {
       const action = new UpdateAction(mockStore)
@@ -21,19 +33,57 @@ describe("UpdateAction", () => {
   })
 
   describe("update", () => {
-    it('throws a "Not Implemented" Error', () => {
-      const mockQuery: Query = {
+    it("updates the resource in the replicaStore", async () => {
+      const mockInputQuery: Query = {
         resource: mockResource,
         cardinality: "many",
         attributes: {},
       }
+      const mockInputPayload = {}
 
       const action = new UpdateAction(mockStore)
-      const data = {}
+      await action.update(mockInputQuery, mockInputPayload)
 
-      expect(() => {
-        action.update(mockQuery, data)
-      }).toThrow("Not Implemented")
+      expect(mockReplicaStore.update).toHaveBeenCalledWith(
+        mockInputQuery,
+        mockInputPayload,
+      )
+    })
+
+    it("updates the source resource via the Publisher", async () => {
+      const mockInputQuery: Query = {
+        resource: mockResource,
+        cardinality: "many",
+        attributes: {},
+      }
+      const mockInputPayload = {}
+
+      const action = new UpdateAction(mockStore)
+      await action.update(mockInputQuery, mockInputPayload)
+
+      expect(mockSourcePublisher.update).toHaveBeenCalledWith(
+        mockInputQuery,
+        mockInputPayload,
+      )
+    })
+
+    it("returns the updated resource from the replicaStore", () => {
+      const mockInputQuery: Query = {
+        resource: mockResource,
+        cardinality: "many",
+        attributes: {},
+      }
+      const mockInputPayload = {}
+      const mockReplicaEntity = jest.fn()
+      ;(mockReplicaStore as any).update.mockResolvedValue([mockReplicaEntity])
+      const mockSourceEntity = jest.fn()
+      ;(mockSourcePublisher as any).update.mockResolvedValue([mockSourceEntity])
+
+      const action = new UpdateAction(mockStore)
+
+      expect(action.update(mockInputQuery, mockInputPayload)).resolves.toEqual([
+        mockReplicaEntity,
+      ])
     })
   })
 })

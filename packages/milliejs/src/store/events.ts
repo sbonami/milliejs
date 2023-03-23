@@ -1,6 +1,7 @@
 import { EventEmitter } from "node:events"
 import type { Entity, Query, Resource } from "@milliejs/core"
 import {
+  LifecycleEvents,
   PublisherActionInterface,
   SubscriberActionInterface,
   isPublisherActionInterface,
@@ -48,32 +49,48 @@ export class PublisherActionEventWrapper<R extends Resource>
     super()
   }
 
-  create(entity: Entity<R>): Entity<R> | Promise<Entity<R>> {
-    throw new Error("Not Implemented")
+  async create(entity: Entity<R>) {
+    const newEntity = await this.store.create(entity)
+
+    this.emit(LifecycleEvents.Save, newEntity)
+
+    return newEntity
   }
 
-  read(query: Query): Entity<R>[] | Promise<Entity<R>[]> {
-    throw new Error("Not Implemented")
+  async read(query: Query) {
+    return this.store.read(query)
   }
 
-  update(
-    entityOrQuery: Query | Entity<R>,
-    data: Entity<R>["data"],
-  ): Entity<R>[] | Promise<Entity<R>[]> {
-    throw new Error("Not Implemented")
+  async update(entityOrQuery: Query | Entity<R>, data: Entity<R>["data"]) {
+    const entities = await this.store.update(entityOrQuery, data)
+
+    entities.forEach((entity) => {
+      this.emit(LifecycleEvents.Save, entity)
+    })
+
+    return entities
   }
 
-  patch(
-    entityOrQuery: Query | Entity<R>,
-    patch: any,
-  ): Entity<R>[] | Promise<Entity<R>[]> {
-    throw new Error("Not Implemented")
+  async patch(entityOrQuery: Query | Entity<R>, patch: any) {
+    const entities = await this.store.patch(entityOrQuery, patch)
+
+    entities.forEach((entity) => {
+      this.emit(LifecycleEvents.Save, entity)
+    })
+
+    return entities
   }
 
-  delete(
-    entityOrQuery: Query | Entity<R>,
-  ): boolean | Entity<R>[] | Promise<boolean | Entity<R>[]> {
-    throw new Error("Not Implemented")
+  async delete(entityOrQuery: Query | Entity<R>) {
+    const entities = await this.store.delete(entityOrQuery)
+
+    if (typeof entities !== "boolean") {
+      entities.forEach((entity) => {
+        this.emit(LifecycleEvents.Delete, entity)
+      })
+    }
+
+    return entities
   }
 }
 

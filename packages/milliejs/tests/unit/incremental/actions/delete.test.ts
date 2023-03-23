@@ -8,9 +8,21 @@ const mockResource: MockResource = {
   id: "MOCK RESOURCE",
 }
 const mockReplicaStore = makeMockPublisherWithEvents()
-const mockStore = new IncrementalStore(mockResource, mockReplicaStore)
+const mockSourcePublisher = makeMockPublisherWithEvents()
+const mockStore = new IncrementalStore(mockResource, mockReplicaStore, {
+  sourcePublisher: mockSourcePublisher,
+})
 
 describe("DeleteAction", () => {
+  beforeEach(() => {
+    jest
+      .spyOn(IncrementalStore.prototype, "replicaStore", "get")
+      .mockReturnValue(mockReplicaStore)
+    jest
+      .spyOn(IncrementalStore.prototype, "sourcePublisher", "get")
+      .mockReturnValue(mockSourcePublisher)
+  })
+
   describe("new DeleteAction", () => {
     it("should create an instance of DeleteAction", () => {
       const action = new DeleteAction(mockStore)
@@ -21,18 +33,46 @@ describe("DeleteAction", () => {
   })
 
   describe("delete", () => {
-    it('throws a "Not Implemented" Error', () => {
-      const mockQuery: Query = {
+    it("delete the resource in the replicaStore", async () => {
+      const mockInputQuery: Query = {
         resource: mockResource,
         cardinality: "many",
         attributes: {},
       }
 
       const action = new DeleteAction(mockStore)
+      await action.delete(mockInputQuery)
 
-      expect(() => {
-        action.delete(mockQuery)
-      }).toThrow("Not Implemented")
+      expect(mockReplicaStore.delete).toHaveBeenCalledWith(mockInputQuery)
+    })
+
+    it("deletes the source resource via the Publisher", async () => {
+      const mockInputQuery: Query = {
+        resource: mockResource,
+        cardinality: "many",
+        attributes: {},
+      }
+
+      const action = new DeleteAction(mockStore)
+      await action.delete(mockInputQuery)
+
+      expect(mockSourcePublisher.delete).toHaveBeenCalledWith(mockInputQuery)
+    })
+
+    it("returns the resource deleted by the replicaStore", () => {
+      const mockInputQuery: Query = {
+        resource: mockResource,
+        cardinality: "many",
+        attributes: {},
+      }
+      const mockReplicaEntity = jest.fn()
+      ;(mockReplicaStore as any).delete.mockResolvedValue([mockReplicaEntity])
+      const mockSourceEntity = jest.fn()
+      ;(mockSourcePublisher as any).delete.mockResolvedValue([mockSourceEntity])
+
+      const action = new DeleteAction(mockStore)
+
+      expect(action.delete(mockInputQuery)).resolves.toBe(true)
     })
   })
 })
