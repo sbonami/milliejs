@@ -1,3 +1,4 @@
+import invariant from "tiny-invariant"
 import type { Resource } from "@milliejs/core"
 import type {
   PublisherActionInterface,
@@ -40,25 +41,56 @@ export class IncrementalStore<R extends Resource> {
   private set replicaStore(
     newReplicaStore:
       | PublisherActionEventInterface<R>
-      | PublisherActionInterface<R>,
+      | PublisherActionInterface<R>
+      | undefined,
   ) {
+    invariant(
+      typeof newReplicaStore !== "undefined",
+      "Replica store cannot be unset",
+    )
+
     this._replicaStore = isPublisherActionEventInterface(newReplicaStore)
       ? newReplicaStore
       : new PublisherActionEventWrapper(newReplicaStore)
   }
 
-  private set sourcePublisher(
-    newSourcePublisher:
-      | PublisherActionEventInterface<R>
-      | PublisherActionInterface<R>,
-  ) {
-    this._sourcePublisher = isPublisherActionEventInterface(newSourcePublisher)
-      ? newSourcePublisher
-      : new PublisherActionEventWrapper(newSourcePublisher)
+  get replicaStore() {
+    return this._replicaStore
   }
 
-  private set sourceSubscriber(newSourceSubscriber: SubscriberActionInterface) {
-    this._sourceSubscriber = newSourceSubscriber
+  set sourcePublisher(
+    newSourcePublisher:
+      | PublisherActionEventInterface<R>
+      | PublisherActionInterface<R>
+      | undefined,
+  ) {
+    if (typeof newSourcePublisher === "undefined") {
+      this._sourcePublisher = undefined
+    } else {
+      this._sourcePublisher = isPublisherActionEventInterface(
+        newSourcePublisher,
+      )
+        ? newSourcePublisher
+        : new PublisherActionEventWrapper(newSourcePublisher)
+    }
+  }
+
+  get sourcePublisher() {
+    return this._sourcePublisher
+  }
+
+  set sourceSubscriber(
+    newSourceSubscriber: SubscriberActionInterface | undefined,
+  ) {
+    if (typeof newSourceSubscriber === "undefined") {
+      this._sourceSubscriber = undefined
+    } else {
+      this._sourceSubscriber = newSourceSubscriber
+    }
+  }
+
+  get sourceSubscriber() {
+    return this._sourceSubscriber
   }
 }
 

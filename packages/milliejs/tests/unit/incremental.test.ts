@@ -152,4 +152,163 @@ describe("IncrementalStore", () => {
       })
     })
   })
+
+  describe("get [replicaStore]", () => {
+    it("returns the IncrementalStore's _replicaStore", () => {
+      const mockResource: MockResource = {
+        id: "MOCK RESOURCE",
+      }
+      const mockReplicaStore = makeMockPublisherWithEvents()
+      const mockSourcePublisher = makeMockPublisherWithEvents()
+      const mockSourceSubscriber = makeMockSubscriber()
+      const store = new IncrementalStore(mockResource, mockReplicaStore, {
+        sourcePublisher: mockSourcePublisher,
+        sourceSubscriber: mockSourceSubscriber,
+      })
+
+      expect(store.replicaStore).toBe(store["_replicaStore"])
+    })
+  })
+
+  describe("set [sourcePublisher]", () => {
+    describe("when the new sourcePublisher is undefined", () => {
+      it("updates the Incremental Store's _sourcePublisher to undefined", () => {
+        const mockResource: MockResource = {
+          id: "MOCK RESOURCE",
+        }
+        const mockReplicaStore = makeMockPublisherWithEvents()
+        const mockSourcePublisher = makeMockPublisherWithEvents()
+        const mockSourceSubscriber = makeMockSubscriber()
+        const store = new IncrementalStore(mockResource, mockReplicaStore, {
+          sourcePublisher: mockSourcePublisher,
+          sourceSubscriber: mockSourceSubscriber,
+        })
+
+        store.sourcePublisher = undefined
+
+        expect(store["_sourcePublisher"]).toBeUndefined()
+      })
+    })
+
+    describe("when the new sourcePublisher is also an event interface", () => {
+      it("updates the Incremental Store's _sourcePublisher to the provided sourcePublisher", () => {
+        const mockResource: MockResource = {
+          id: "MOCK RESOURCE",
+        }
+        const mockReplicaStore = makeMockPublisherWithEvents()
+        const mockSourcePublisher = makeMockPublisherWithEvents()
+        const mockSourceSubscriber = makeMockSubscriber()
+        const store = new IncrementalStore(mockResource, mockReplicaStore, {
+          sourcePublisher: mockSourcePublisher,
+          sourceSubscriber: mockSourceSubscriber,
+        })
+
+        const newSourcePublisher = makeMockPublisherWithEvents()
+        store.sourcePublisher = newSourcePublisher
+
+        expect(store["_sourcePublisher"]).toBe(newSourcePublisher)
+      })
+    })
+
+    describe("when the new sourcePublisher does not provide an event interface", () => {
+      it("updates the Incremental Store's _sourcePublisher to the sourcePublisher wrapped by the PublisherActionEventWrapper", () => {
+        const mockResource: MockResource = {
+          id: "MOCK RESOURCE",
+        }
+        const mockReplicaStore = makeMockPublisherWithEvents()
+        const mockSourcePublisher = makeMockPublisherWithEvents()
+        const mockSourceSubscriber = makeMockSubscriber()
+        const store = new IncrementalStore(mockResource, mockReplicaStore, {
+          sourcePublisher: mockSourcePublisher,
+          sourceSubscriber: mockSourceSubscriber,
+        })
+        const mockWrappedSourcePublisher =
+          makeMockPublisherWithEvents() as unknown as jest.Mocked<
+            events.PublisherActionEventWrapper<MockResource>
+          >
+        const wrapperSpy = jest
+          .spyOn(events, "PublisherActionEventWrapper")
+          .mockReturnValue(mockWrappedSourcePublisher)
+
+        const newSourcePublisher = makeMockPublisher()
+        store.sourcePublisher = newSourcePublisher
+
+        expect(wrapperSpy).toHaveBeenCalledWith(newSourcePublisher)
+        expect(store["_sourcePublisher"]).toBe(mockWrappedSourcePublisher)
+      })
+    })
+  })
+
+  describe("get [sourcePublisher]", () => {
+    it("returns the IncrementalStore's _sourcePublisher", () => {
+      const mockResource: MockResource = {
+        id: "MOCK RESOURCE",
+      }
+      const mockReplicaStore = makeMockPublisherWithEvents()
+      const mockSourcePublisher = makeMockPublisherWithEvents()
+      const mockSourceSubscriber = makeMockSubscriber()
+      const store = new IncrementalStore(mockResource, mockReplicaStore, {
+        sourcePublisher: mockSourcePublisher,
+        sourceSubscriber: mockSourceSubscriber,
+      })
+
+      expect(store.sourcePublisher).toBe(store["_sourcePublisher"])
+    })
+  })
+
+  describe("set [sourceSubscriber]", () => {
+    it("updates the Incremental Store's _sourceSubscriber", () => {
+      const mockResource: MockResource = {
+        id: "MOCK RESOURCE",
+      }
+      const mockReplicaStore = makeMockPublisherWithEvents()
+      const mockSourcePublisher = makeMockPublisherWithEvents()
+      const mockSourceSubscriber = makeMockSubscriber()
+      const store = new IncrementalStore(mockResource, mockReplicaStore, {
+        sourcePublisher: mockSourcePublisher,
+        sourceSubscriber: mockSourceSubscriber,
+      })
+
+      const newSourceSubscriber = makeMockSubscriber()
+      store.sourceSubscriber = newSourceSubscriber
+
+      expect(store["_sourceSubscriber"]).toBe(newSourceSubscriber)
+    })
+
+    describe("when the new sourceSubscriber is undefined", () => {
+      it("updates the Incremental Store's _sourceSubscriber to undefined", () => {
+        const mockResource: MockResource = {
+          id: "MOCK RESOURCE",
+        }
+        const mockReplicaStore = makeMockPublisherWithEvents()
+        const mockSourcePublisher = makeMockPublisherWithEvents()
+        const mockSourceSubscriber = makeMockSubscriber()
+        const store = new IncrementalStore(mockResource, mockReplicaStore, {
+          sourcePublisher: mockSourcePublisher,
+          sourceSubscriber: mockSourceSubscriber,
+        })
+
+        store.sourceSubscriber = undefined
+
+        expect(store["_sourceSubscriber"]).toBeUndefined()
+      })
+    })
+  })
+
+  describe("get [sourceSubscriber]", () => {
+    it("returns the IncrementalStore's _sourceSubscriber", () => {
+      const mockResource: MockResource = {
+        id: "MOCK RESOURCE",
+      }
+      const mockReplicaStore = makeMockPublisherWithEvents()
+      const mockSourcePublisher = makeMockPublisherWithEvents()
+      const mockSourceSubscriber = makeMockSubscriber()
+      const store = new IncrementalStore(mockResource, mockReplicaStore, {
+        sourcePublisher: mockSourcePublisher,
+        sourceSubscriber: mockSourceSubscriber,
+      })
+
+      expect(store.sourceSubscriber).toBe(store["_sourceSubscriber"])
+    })
+  })
 })
