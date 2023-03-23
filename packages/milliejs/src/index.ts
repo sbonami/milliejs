@@ -1,15 +1,22 @@
 import type { Entity, Query, Resource } from "@milliejs/core"
-import type {
+import {
   PublisherActionInterface,
   SubscriberActionInterface,
+  isStoreLifecycleInterface,
+  StoreLifecycleInterface,
 } from "@milliejs/store-base"
 import invariant from "tiny-invariant"
 import { IncrementalStore, StoreConstructorSourceOptions } from "./incremental"
+import Worker from "./worker"
 
 export type { Entity, Query, Resource }
 
-class MillieJS {
+class MillieJS extends Worker {
   readonly stores: Record<Resource["id"], IncrementalStore> = {}
+
+  constructor() {
+    super()
+  }
 
   registerResource<R extends Resource>(
     resource: R,
@@ -37,6 +44,7 @@ class MillieJS {
     )
 
     this.stores[resource.id].sourcePublisher = store
+
     return this.storeForResource<R>(resource)
   }
 
@@ -50,16 +58,43 @@ class MillieJS {
     )
 
     this.stores[resource.id].sourceSubscriber = store
+
     return this.storeForResource<R>(resource)
   }
 
-  private storeForResource<R extends Resource>(resource: R): IncrementalStore<R> {
+  private storeForResource<R extends Resource>(
+    resource: R,
+  ): IncrementalStore<R> {
     invariant(
       this.stores[resource.id],
       "Resource is not registered with this store",
     )
 
     return this.stores[resource.id] as IncrementalStore<R>
+  }
+
+  protected get connections(): Array<StoreLifecycleInterface> {
+    return Object.values(this.stores).reduce<Array<StoreLifecycleInterface>>(
+      (_connections, store: IncrementalStore<Resource<any>>) => {
+        const storeConnections = []
+
+        if (isStoreLifecycleInterface(store.replicaStore))
+          storeConnections.push(store.replicaStore)
+        if (
+          store.sourcePublisher &&
+          isStoreLifecycleInterface(store.sourcePublisher)
+        )
+          storeConnections.push(store.sourcePublisher)
+        if (
+          store.sourceSubscriber &&
+          isStoreLifecycleInterface(store.sourceSubscriber)
+        )
+          storeConnections.push(store.sourceSubscriber)
+
+        return [..._connections, ...storeConnections]
+      },
+      [],
+    )
   }
 }
 
