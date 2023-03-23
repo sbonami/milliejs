@@ -1,3 +1,4 @@
+import { EventEmitter } from "node:events"
 import invariant from "tiny-invariant"
 import type { Resource } from "@milliejs/core"
 import type {
@@ -9,6 +10,11 @@ import {
   PublisherActionEventInterface,
   PublisherActionEventWrapper,
 } from "./store/events"
+import { CreateAction } from "./incremental/actions/create"
+import { ReadAction } from "./incremental/actions/read"
+import { UpdateAction } from "./incremental/actions/update"
+import { PatchAction } from "./incremental/actions/patch"
+import { DeleteAction } from "./incremental/actions/delete"
 
 export type StoreConstructorSourceOptions<R extends Resource> = {
   sourcePublisher?:
@@ -17,7 +23,10 @@ export type StoreConstructorSourceOptions<R extends Resource> = {
   sourceSubscriber?: SubscriberActionInterface
 }
 
-export class IncrementalStore<R extends Resource> {
+export class IncrementalStore<R extends Resource = Resource>
+  extends EventEmitter
+  implements PublisherActionEventInterface<R>
+{
   private _replicaStore?: PublisherActionEventInterface<R>
   private _sourcePublisher?: PublisherActionEventInterface<R>
   private _sourceSubscriber?: SubscriberActionInterface
@@ -29,6 +38,8 @@ export class IncrementalStore<R extends Resource> {
       | PublisherActionInterface<R>,
     sourceInterfaces?: StoreConstructorSourceOptions<R>,
   ) {
+    super()
+
     this.replicaStore = replicaStore
 
     if (sourceInterfaces?.sourcePublisher)
@@ -91,6 +102,40 @@ export class IncrementalStore<R extends Resource> {
 
   get sourceSubscriber() {
     return this._sourceSubscriber
+  }
+
+  /**
+   * Delegated Publisher Actions
+   **/
+
+  create(
+    ...args: Parameters<CreateAction<R>["create"]>
+  ): ReturnType<CreateAction<R>["create"]> {
+    return new CreateAction(this).create(...args)
+  }
+
+  read(
+    ...args: Parameters<ReadAction<R>["read"]>
+  ): ReturnType<ReadAction<R>["read"]> {
+    return new ReadAction(this).read(...args)
+  }
+
+  update(
+    ...args: Parameters<UpdateAction<R>["update"]>
+  ): ReturnType<UpdateAction<R>["update"]> {
+    return new UpdateAction(this).update(...args)
+  }
+
+  patch(
+    ...args: Parameters<PatchAction<R>["patch"]>
+  ): ReturnType<PatchAction<R>["patch"]> {
+    return new PatchAction(this).patch(...args)
+  }
+
+  delete(
+    ...args: Parameters<DeleteAction<R>["delete"]>
+  ): ReturnType<DeleteAction<R>["delete"]> {
+    return new DeleteAction(this).delete(...args)
   }
 }
 

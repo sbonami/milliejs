@@ -1,4 +1,4 @@
-import type { Resource } from "@milliejs/core"
+import type { Entity, Query, Resource } from "@milliejs/core"
 import { IncrementalStore } from "../../src/incremental"
 import * as events from "../../src/store/events"
 import {
@@ -6,6 +6,12 @@ import {
   makeMockPublisherWithEvents,
 } from "./mocks/publisher"
 import { makeMockSubscriber } from "./mocks/subscriber"
+
+import { CreateAction } from "../../src/incremental/actions/create"
+import { ReadAction } from "../../src/incremental/actions/read"
+import { UpdateAction } from "../../src/incremental/actions/update"
+import { PatchAction } from "../../src/incremental/actions/patch"
+import { DeleteAction } from "../../src/incremental/actions/delete"
 
 type MockResource = Resource
 
@@ -309,6 +315,148 @@ describe("IncrementalStore", () => {
       })
 
       expect(store.sourceSubscriber).toBe(store["_sourceSubscriber"])
+    })
+  })
+
+  describe("[create]", () => {
+    it("forwards calls to the CreateAction", () => {
+      const mockResource: MockResource = {
+        id: "MOCK RESOURCE",
+      }
+      const mockReplicaStore = makeMockPublisherWithEvents()
+      const mockInputEntity: Entity<MockResource> = {
+        id: "a",
+        resource: mockResource,
+        data: {},
+      }
+
+      const mockOutputEntity: Entity<MockResource> = {
+        id: "a",
+        resource: mockResource,
+        data: {},
+      }
+      const actionSpy = jest
+        .spyOn(CreateAction.prototype, "create")
+        .mockResolvedValue(mockOutputEntity)
+      const store = new IncrementalStore(mockResource, mockReplicaStore)
+
+      const response = store.create(mockInputEntity, true)
+      expect(actionSpy).toHaveBeenCalledWith(mockInputEntity, true)
+      expect(response).resolves.toBe(mockOutputEntity)
+    })
+  })
+
+  describe("[read]", () => {
+    it("forwards calls to the ReadAction", () => {
+      const mockResource: MockResource = {
+        id: "MOCK RESOURCE",
+      }
+      const mockReplicaStore = makeMockPublisherWithEvents()
+      const mockInputQuery: Query = {
+        resource: mockResource,
+        cardinality: "many",
+        attributes: {},
+      }
+
+      const mockOutputEntity: Entity<MockResource> = {
+        id: "a",
+        resource: mockResource,
+        data: {},
+      }
+      const actionSpy = jest
+        .spyOn(ReadAction.prototype, "read")
+        .mockResolvedValue([mockOutputEntity])
+      const store = new IncrementalStore(mockResource, mockReplicaStore)
+
+      const response = store.read(mockInputQuery, true)
+      expect(actionSpy).toHaveBeenCalledWith(mockInputQuery, true)
+      expect(response).resolves.toEqual([mockOutputEntity])
+    })
+  })
+
+  describe("[update]", () => {
+    it("forwards calls to the UpdateAction", () => {
+      const mockResource: MockResource = {
+        id: "MOCK RESOURCE",
+      }
+      const mockReplicaStore = makeMockPublisherWithEvents()
+      const mockInputQuery: Query = {
+        resource: mockResource,
+        cardinality: "many",
+        attributes: {},
+      }
+      const mockData = {}
+
+      const mockOutputEntity: Entity<MockResource> = {
+        id: "a",
+        resource: mockResource,
+        data: {},
+      }
+      const actionSpy = jest
+        .spyOn(UpdateAction.prototype, "update")
+        .mockResolvedValue([mockOutputEntity])
+      const store = new IncrementalStore(mockResource, mockReplicaStore)
+
+      const response = store.update(mockInputQuery, mockData)
+      expect(actionSpy).toHaveBeenCalledWith(mockInputQuery, mockData)
+      expect(response).resolves.toEqual([mockOutputEntity])
+    })
+  })
+
+  describe("[patch]", () => {
+    it("forwards calls to the PatchAction", () => {
+      const mockResource: MockResource = {
+        id: "MOCK RESOURCE",
+      }
+      const mockReplicaStore = makeMockPublisherWithEvents()
+      const mockInputQuery: Query = {
+        resource: mockResource,
+        cardinality: "many",
+        attributes: {},
+      }
+      const mockPatch = {}
+
+      const mockOutputEntity: Entity<MockResource> = {
+        id: "a",
+        resource: mockResource,
+        data: {},
+      }
+      const actionSpy = jest
+        .spyOn(PatchAction.prototype, "patch")
+        .mockResolvedValue([mockOutputEntity])
+      const store = new IncrementalStore(mockResource, mockReplicaStore)
+
+      const response = store.patch(mockInputQuery, mockPatch)
+      expect(actionSpy).toHaveBeenCalledWith(mockInputQuery, mockPatch)
+      expect(response).resolves.toEqual([mockOutputEntity])
+    })
+  })
+
+  describe("[delete]", () => {
+    it("forwards calls to the DeleteAction", () => {
+      const mockResource: MockResource = {
+        id: "MOCK RESOURCE",
+      }
+      const mockReplicaStore = makeMockPublisherWithEvents()
+      const mockInputQuery: Query = {
+        resource: mockResource,
+        cardinality: "many",
+        attributes: {},
+      }
+
+      const mockOutputEntity: Entity<MockResource> = {
+        id: "a",
+        resource: mockResource,
+        data: {},
+      }
+      const actionSpy = jest
+        .spyOn(DeleteAction.prototype, "delete")
+        .mockResolvedValue([mockOutputEntity])
+      const store = new IncrementalStore(mockResource, mockReplicaStore)
+
+      const response = store.delete(mockInputQuery)
+      expect(actionSpy).toHaveBeenCalledWith(mockInputQuery)
+      expect(response).resolves.toEqual([mockOutputEntity])
     })
   })
 })
