@@ -5,7 +5,7 @@
   "scripts": {
     "build": "yarn workspaces foreach --parallel --verbose run build",
     "clean": "yarn clean:dist && yarn clean:test",
-    "clean:dist": "rimraf -- ./packages/*/dist",
+    "clean:dist": "rimraf -- ./packages/*/dist ./packages/*/tsconfig.tsbuildinfo",
     "clean:test": "rimraf -- ./coverage",
     "format": "prettier --ignore-path .prettierignore --write .",
     "lint": "eslint .",

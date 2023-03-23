@@ -3,6 +3,9 @@
   "compilerOptions": {
     // build entire project tree
     "composite": true,
+    // output build cache
+    "incremental": true,
+
     // output .d.ts declaration files for consumers
     "declaration": true,
     "declarationMap": true,
