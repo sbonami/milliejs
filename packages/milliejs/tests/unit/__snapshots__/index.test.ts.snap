@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`MillieJS [create] when MillieJS has not yet registered the resource throws a helpful error 1`] = `"Invariant failed: Resource is not registered with this store"`;
+
+exports[`MillieJS [delete] when MillieJS has not yet registered the resource throws a helpful error 1`] = `"Invariant failed: Resource is not registered with this store"`;
+
+exports[`MillieJS [patch] when MillieJS has not yet registered the resource throws a helpful error 1`] = `"Invariant failed: Resource is not registered with this store"`;
+
+exports[`MillieJS [read] when MillieJS has not yet registered the resource throws a helpful error 1`] = `"Invariant failed: Resource is not registered with this store"`;
+
+exports[`MillieJS [read] when the Query payload's resource does not match the passed resource throws a helpful error 1`] = `"Invariant failed: Query resource does not match"`;
+
+exports[`MillieJS [update] when MillieJS has not yet registered the resource throws a helpful error 1`] = `"Invariant failed: Resource is not registered with this store"`;
+
 exports[`MillieJS registerSourcePublisher when the resource has not yet been registered throws an error 1`] = `"Invariant failed: Resource is not registered with this store"`;
 
 exports[`MillieJS registerSourceSubscriber when the resource has not yet been registered throws an error 1`] = `"Invariant failed: Resource is not registered with this store"`;

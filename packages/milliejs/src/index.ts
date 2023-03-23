@@ -73,6 +73,10 @@ class MillieJS extends Worker {
     return this.stores[resource.id] as IncrementalStore<R>
   }
 
+  /**
+   * Worker configuration
+   **/
+
   protected get connections(): Array<StoreLifecycleInterface> {
     return Object.values(this.stores).reduce<Array<StoreLifecycleInterface>>(
       (_connections, store: IncrementalStore<Resource<any>>) => {
@@ -95,6 +99,71 @@ class MillieJS extends Worker {
       },
       [],
     )
+  }
+
+  /**
+   * Delegated Incremental Store Actions
+   **/
+
+  create<R extends Resource>(
+    resource: R,
+    ...args: Parameters<IncrementalStore<R>["create"]>
+  ): ReturnType<IncrementalStore<R>["create"]> {
+    invariant(
+      this.stores[resource.id],
+      "Resource is not registered with this store",
+    )
+
+    return this.storeForResource<R>(resource).create(...args)
+  }
+
+  read<R extends Resource>(
+    resource: R,
+    ...args: Parameters<IncrementalStore<R>["read"]>
+  ): ReturnType<IncrementalStore<R>["read"]> {
+    invariant(
+      this.stores[resource.id],
+      "Resource is not registered with this store",
+    )
+    invariant(args[0].resource === resource, "Query resource does not match")
+
+    return this.storeForResource<R>(resource).read(...args)
+  }
+
+  update<R extends Resource>(
+    resource: R,
+    ...args: Parameters<IncrementalStore<R>["update"]>
+  ): ReturnType<IncrementalStore<R>["update"]> {
+    invariant(
+      this.stores[resource.id],
+      "Resource is not registered with this store",
+    )
+
+    return this.storeForResource<R>(resource).update(...args)
+  }
+
+  patch<R extends Resource>(
+    resource: R,
+    ...args: Parameters<IncrementalStore<R>["patch"]>
+  ): ReturnType<IncrementalStore<R>["patch"]> {
+    invariant(
+      this.stores[resource.id],
+      "Resource is not registered with this store",
+    )
+
+    return this.storeForResource<R>(resource).patch(...args)
+  }
+
+  delete<R extends Resource>(
+    resource: R,
+    ...args: Parameters<IncrementalStore<R>["delete"]>
+  ): ReturnType<IncrementalStore<R>["delete"]> {
+    invariant(
+      this.stores[resource.id],
+      "Resource is not registered with this store",
+    )
+
+    return this.storeForResource<R>(resource).delete(...args)
   }
 }
 

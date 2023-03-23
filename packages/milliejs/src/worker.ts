@@ -41,22 +41,26 @@ export abstract class Worker {
   }
 
   private async init() {
+    console.log("starting")
     this._state = WorkerState.starting
 
     await Promise.all(
       this.connections.map((connection) => connection.connect()),
     )
 
+    console.log("running")
     this._state = WorkerState.running
   }
 
   async close(callback?: () => void) {
+    console.log("exiting")
     this._state = WorkerState.exiting
 
     await Promise.all(
       this.connections.map((connection) => connection.disconnect()),
     )
 
+    console.log("terminated")
     this._state = WorkerState.terminated
 
     if (callback) callback()
