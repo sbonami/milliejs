@@ -5144,7 +5144,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["millie", "workspace:packages/milliejs"],\
             ["@milliejs/core", "workspace:packages/milliejs-core"],\
             ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
-            ["@types/node", "npm:18.13.0"]\
+            ["@types/node", "npm:18.13.0"],\
+            ["tiny-invariant", "npm:1.3.1"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -6307,6 +6308,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["tiny-glob", "npm:0.2.9"],\
             ["globalyzer", "npm:0.1.0"],\
             ["globrex", "npm:0.1.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["tiny-invariant", [\
+        ["npm:1.3.1", {\
+          "packageLocation": "./.yarn/cache/tiny-invariant-npm-1.3.1-a8ca214e49-872dbd1ff2.zip/node_modules/tiny-invariant/",\
+          "packageDependencies": [\
+            ["tiny-invariant", "npm:1.3.1"]\
           ],\
           "linkType": "HARD"\
         }]\
