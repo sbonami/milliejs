@@ -24,6 +24,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/milliejs-core"\
       },\
       {\
+        "name": "@milliejs/jest-utils",\
+        "reference": "workspace:packages/milliejs-jest-utils"\
+      },\
+      {\
         "name": "@milliejs/store-base",\
         "reference": "workspace:packages/milliejs-store-base"\
       }\
@@ -32,6 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
       ["@milliejs/core", ["workspace:packages/milliejs-core"]],\
+      ["@milliejs/jest-utils", ["workspace:packages/milliejs-jest-utils"]],\
       ["@milliejs/monorepo", ["workspace:."]],\
       ["@milliejs/store-base", ["workspace:packages/milliejs-store-base"]],\
       ["millie", ["workspace:packages/milliejs"]]\
@@ -862,6 +867,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@faker-js/faker", [\
+        ["npm:7.6.0", {\
+          "packageLocation": "./.yarn/cache/@faker-js-faker-npm-7.6.0-fa135883e9-942af62217.zip/node_modules/@faker-js/faker/",\
+          "packageDependencies": [\
+            ["@faker-js/faker", "npm:7.6.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@gar/promisify", [\
         ["npm:1.1.3", {\
           "packageLocation": "./.yarn/cache/@gar-promisify-npm-1.1.3-ac1a325862-4059f790e2.zip/node_modules/@gar/promisify/",\
@@ -1254,6 +1268,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT"\
         }]\
       ]],\
+      ["@milliejs/jest-utils", [\
+        ["workspace:packages/milliejs-jest-utils", {\
+          "packageLocation": "./packages/milliejs-jest-utils/",\
+          "packageDependencies": [\
+            ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
+            ["@faker-js/faker", "npm:7.6.0"],\
+            ["@milliejs/core", "workspace:packages/milliejs-core"],\
+            ["@types/jest", "npm:29.5.0"],\
+            ["@types/node", "npm:18.13.0"],\
+            ["jest", "virtual:907e5c0bf131e40fd4d8efd9c3314bb84bc4e009bd76cd3a2ec6f53a41a9350ae9331dd3db9142323f1284d1472d3fbac70d4b9f96438ff1e21adf9e4323a958#npm:29.5.0"],\
+            ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
       ["@milliejs/monorepo", [\
         ["workspace:.", {\
           "packageLocation": "./",\
@@ -1283,6 +1312,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
             ["@milliejs/core", "workspace:packages/milliejs-core"],\
+            ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
             ["@types/node", "npm:18.13.0"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
           ],\
@@ -5143,6 +5173,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["millie", "workspace:packages/milliejs"],\
             ["@milliejs/core", "workspace:packages/milliejs-core"],\
+            ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
             ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
             ["@types/node", "npm:18.13.0"],\
             ["tiny-invariant", "npm:1.3.1"]\

@@ -1,25 +1,18 @@
 import EventEmitter from "node:events"
 import type { Entity, Query, Resource } from "@milliejs/core"
 import { LifecycleEvents } from "@milliejs/core"
+import {
+  makeMockEntity,
+  makeMockQuery,
+  makeMockResource,
+} from "@milliejs/jest-utils"
 import type { PublisherActionInterface } from "@milliejs/store-base"
 import * as StoreBaseModule from "@milliejs/store-base"
 import * as StoreEventModule from "../../../src/store/events"
 import { makeMockPublisher } from "../mocks/publisher"
 
 type MockResource = Resource
-const mockResource: Resource = {
-  id: "mock",
-}
-const mockEntity: Entity<MockResource> = {
-  id: "a",
-  resource: mockResource,
-  data: {},
-}
-const mockQuery: Query = {
-  resource: mockResource,
-  cardinality: "many",
-  attributes: {},
-}
+const mockResource = makeMockResource()
 
 describe("events", () => {
   describe("isEventEmitter", () => {
@@ -62,6 +55,9 @@ describe("events", () => {
   })
 
   describe("isPublisherActionEventInterface", () => {
+    const mockEntity = makeMockEntity<MockResource>({
+      resource: mockResource,
+    })
     const { isPublisherActionEventInterface } = StoreEventModule
     const conformingObject: EventEmitter &
       PublisherActionInterface<MockResource> = new (class extends EventEmitter {
@@ -129,16 +125,13 @@ describe("events", () => {
 
     describe("create", () => {
       it("passes the entity to the store", () => {
-        const mockInputEntity: Entity<MockResource> = {
-          id: "a",
+        const mockInputEntity = makeMockEntity<MockResource>({
           resource: mockResource,
-          data: {},
-        }
-        const mockOutputEntity: Entity<MockResource> = {
-          id: "a",
+        })
+        const mockOutputEntity = makeMockEntity<MockResource>({
           resource: mockResource,
-          data: {},
-        }
+        })
+
         ;(mockUneventfulStore as any).create.mockResolvedValue(mockOutputEntity)
         const actionSpy = jest.spyOn(
           PublisherActionEventWrapper.prototype,
@@ -152,16 +145,12 @@ describe("events", () => {
       it("emits a 'save' event for the store's created entity", (done) => {
         expect.assertions(1)
 
-        const mockInputEntity: Entity<MockResource> = {
-          id: "a",
+        const mockInputEntity = makeMockEntity<MockResource>({
           resource: mockResource,
-          data: {},
-        }
-        const mockOutputEntity: Entity<MockResource> = {
-          id: "a",
+        })
+        const mockOutputEntity = makeMockEntity<MockResource>({
           resource: mockResource,
-          data: {},
-        }
+        })
         ;(mockUneventfulStore as any).create.mockResolvedValue(mockOutputEntity)
 
         mockWrapper.on(LifecycleEvents.Save, (entity: Entity<MockResource>) => {
@@ -176,16 +165,12 @@ describe("events", () => {
       })
 
       it("returns the store's created entity", () => {
-        const mockInputEntity: Entity<MockResource> = {
-          id: "a",
+        const mockInputEntity = makeMockEntity<MockResource>({
           resource: mockResource,
-          data: {},
-        }
-        const mockOutputEntity: Entity<MockResource> = {
-          id: "a",
+        })
+        const mockOutputEntity = makeMockEntity<MockResource>({
           resource: mockResource,
-          data: {},
-        }
+        })
         ;(mockUneventfulStore as any).create.mockResolvedValue(mockOutputEntity)
 
         expect(mockWrapper.create(mockInputEntity)).resolves.toBe(
@@ -196,16 +181,12 @@ describe("events", () => {
 
     describe("read", () => {
       it("passes the query to the store", () => {
-        const mockInputQuery: Query = {
+        const mockInputQuery = makeMockQuery({
           resource: mockResource,
-          cardinality: "many",
-          attributes: {},
-        }
-        const mockOutputEntity: Entity<MockResource> = {
-          id: "a",
+        })
+        const mockOutputEntity = makeMockEntity<MockResource>({
           resource: mockResource,
-          data: {},
-        }
+        })
         ;(mockUneventfulStore as any).read.mockResolvedValue([mockOutputEntity])
         const actionSpy = jest.spyOn(
           PublisherActionEventWrapper.prototype,
@@ -217,16 +198,12 @@ describe("events", () => {
       })
 
       it("returns the store's found entities", () => {
-        const mockInputQuery: Query = {
+        const mockInputQuery = makeMockQuery({
           resource: mockResource,
-          cardinality: "many",
-          attributes: {},
-        }
-        const mockOutputEntity: Entity<MockResource> = {
-          id: "a",
+        })
+        const mockOutputEntity = makeMockEntity<MockResource>({
           resource: mockResource,
-          data: {},
-        }
+        })
         ;(mockUneventfulStore as any).read.mockResolvedValue([mockOutputEntity])
 
         expect(mockWrapper.read(mockInputQuery)).resolves.toEqual([
@@ -237,17 +214,13 @@ describe("events", () => {
 
     describe("update", () => {
       it("passes the Query and data payload to the store", () => {
-        const mockInputQuery: Query = {
+        const mockInputQuery = makeMockQuery({
           resource: mockResource,
-          cardinality: "many",
-          attributes: {},
-        }
+        })
         const mockInputPayload = {}
-        const mockOutputEntity: Entity<MockResource> = {
-          id: "a",
+        const mockOutputEntity = makeMockEntity<MockResource>({
           resource: mockResource,
-          data: {},
-        }
+        })
         ;(mockUneventfulStore as any).update.mockResolvedValue([
           mockOutputEntity,
         ])
@@ -263,17 +236,13 @@ describe("events", () => {
       it("emits a 'save' event for the store's updated entity", (done) => {
         expect.assertions(1)
 
-        const mockInputQuery: Query = {
+        const mockInputQuery = makeMockQuery({
           resource: mockResource,
-          cardinality: "many",
-          attributes: {},
-        }
+        })
         const mockInputPayload = {}
-        const mockOutputEntity: Entity<MockResource> = {
-          id: "a",
+        const mockOutputEntity = makeMockEntity<MockResource>({
           resource: mockResource,
-          data: {},
-        }
+        })
         ;(mockUneventfulStore as any).update.mockResolvedValue([
           mockOutputEntity,
         ])
@@ -290,17 +259,13 @@ describe("events", () => {
       })
 
       it("returns the store's updated entity", () => {
-        const mockInputQuery: Query = {
+        const mockInputQuery = makeMockQuery({
           resource: mockResource,
-          cardinality: "many",
-          attributes: {},
-        }
+        })
         const mockInputPayload = {}
-        const mockOutputEntity: Entity<MockResource> = {
-          id: "a",
+        const mockOutputEntity = makeMockEntity<MockResource>({
           resource: mockResource,
-          data: {},
-        }
+        })
         ;(mockUneventfulStore as any).update.mockResolvedValue([
           mockOutputEntity,
         ])
@@ -313,17 +278,13 @@ describe("events", () => {
 
     describe("patch", () => {
       it("passes the Query and patch to the store", () => {
-        const mockInputQuery: Query = {
+        const mockInputQuery = makeMockQuery({
           resource: mockResource,
-          cardinality: "many",
-          attributes: {},
-        }
+        })
         const mockInputPatch = {}
-        const mockOutputEntity: Entity<MockResource> = {
-          id: "a",
+        const mockOutputEntity = makeMockEntity<MockResource>({
           resource: mockResource,
-          data: {},
-        }
+        })
         ;(mockUneventfulStore as any).patch.mockResolvedValue([
           mockOutputEntity,
         ])
@@ -339,17 +300,13 @@ describe("events", () => {
       it("emits a 'save' event for the store's patched entity", (done) => {
         expect.assertions(1)
 
-        const mockInputQuery: Query = {
+        const mockInputQuery = makeMockQuery({
           resource: mockResource,
-          cardinality: "many",
-          attributes: {},
-        }
+        })
         const mockInputPatch = {}
-        const mockOutputEntity: Entity<MockResource> = {
-          id: "a",
+        const mockOutputEntity = makeMockEntity<MockResource>({
           resource: mockResource,
-          data: {},
-        }
+        })
         ;(mockUneventfulStore as any).patch.mockResolvedValue([
           mockOutputEntity,
         ])
@@ -366,39 +323,31 @@ describe("events", () => {
       })
 
       it("returns the store's updated entity", () => {
-        const mockInputQuery: Query = {
+        const mockInputQuery = makeMockQuery({
           resource: mockResource,
-          cardinality: "many",
-          attributes: {},
-        }
-        const mockInputPayload = {}
-        const mockOutputEntity: Entity<MockResource> = {
-          id: "a",
+        })
+        const mockInputPatch = {}
+        const mockOutputEntity = makeMockEntity<MockResource>({
           resource: mockResource,
-          data: {},
-        }
+        })
         ;(mockUneventfulStore as any).update.mockResolvedValue([
           mockOutputEntity,
         ])
 
         expect(
-          mockWrapper.update(mockInputQuery, mockInputPayload),
+          mockWrapper.update(mockInputQuery, mockInputPatch),
         ).resolves.toEqual([mockOutputEntity])
       })
     })
 
     describe("delete", () => {
       it("passes the Query to the store", () => {
-        const mockInputQuery: Query = {
+        const mockInputQuery = makeMockQuery({
           resource: mockResource,
-          cardinality: "many",
-          attributes: {},
-        }
-        const mockOutputEntity: Entity<MockResource> = {
-          id: "a",
+        })
+        const mockOutputEntity = makeMockEntity<MockResource>({
           resource: mockResource,
-          data: {},
-        }
+        })
         ;(mockUneventfulStore as any).delete.mockResolvedValue([
           mockOutputEntity,
         ])
@@ -414,16 +363,12 @@ describe("events", () => {
       it("emits a 'delete' event for the store's deleted entities", (done) => {
         expect.assertions(1)
 
-        const mockInputQuery: Query = {
+        const mockInputQuery = makeMockQuery({
           resource: mockResource,
-          cardinality: "many",
-          attributes: {},
-        }
-        const mockOutputEntity: Entity<MockResource> = {
-          id: "a",
+        })
+        const mockOutputEntity = makeMockEntity<MockResource>({
           resource: mockResource,
-          data: {},
-        }
+        })
         ;(mockUneventfulStore as any).delete.mockResolvedValue([
           mockOutputEntity,
         ])
@@ -443,16 +388,12 @@ describe("events", () => {
       })
 
       it("returns the store's deleted entity", () => {
-        const mockInputQuery: Query = {
+        const mockInputQuery = makeMockQuery({
           resource: mockResource,
-          cardinality: "many",
-          attributes: {},
-        }
-        const mockOutputEntity: Entity<MockResource> = {
-          id: "a",
+        })
+        const mockOutputEntity = makeMockEntity<MockResource>({
           resource: mockResource,
-          data: {},
-        }
+        })
         ;(mockUneventfulStore as any).delete.mockResolvedValue([
           mockOutputEntity,
         ])

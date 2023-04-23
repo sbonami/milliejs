@@ -5,8 +5,5 @@
     "outDir": "dist"
   },
   "include": ["./src/**/*"],
-  "references": [
-    { "path": "../milliejs-core" },
-    { "path": "../milliejs-jest-utils" }
-  ]
+  "references": [{ "path": "../milliejs-core" }]
 }

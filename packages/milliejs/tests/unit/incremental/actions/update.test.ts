@@ -1,12 +1,9 @@
-import type { Query, Resource } from "@milliejs/core"
+import { makeMockQuery, makeMockResource } from "@milliejs/jest-utils"
 import { IncrementalStore } from "../../../../src/incremental"
 import { UpdateAction } from "../../../../src/incremental/actions/update"
 import { makeMockPublisherWithEvents } from "../../mocks/publisher"
 
-type MockResource = Resource
-const mockResource: MockResource = {
-  id: "MOCK RESOURCE",
-}
+const mockResource = makeMockResource()
 const mockReplicaStore = makeMockPublisherWithEvents()
 const mockSourcePublisher = makeMockPublisherWithEvents()
 const mockStore = new IncrementalStore(mockResource, mockReplicaStore, {
@@ -34,11 +31,7 @@ describe("UpdateAction", () => {
 
   describe("update", () => {
     it("updates the resource in the replicaStore", async () => {
-      const mockInputQuery: Query = {
-        resource: mockResource,
-        cardinality: "many",
-        attributes: {},
-      }
+      const mockInputQuery = makeMockQuery()
       const mockInputPayload = {}
 
       const action = new UpdateAction(mockStore)
@@ -51,11 +44,7 @@ describe("UpdateAction", () => {
     })
 
     it("updates the source resource via the Publisher", async () => {
-      const mockInputQuery: Query = {
-        resource: mockResource,
-        cardinality: "many",
-        attributes: {},
-      }
+      const mockInputQuery = makeMockQuery()
       const mockInputPayload = {}
 
       const action = new UpdateAction(mockStore)
@@ -68,11 +57,7 @@ describe("UpdateAction", () => {
     })
 
     it("returns the updated resource from the replicaStore", () => {
-      const mockInputQuery: Query = {
-        resource: mockResource,
-        cardinality: "many",
-        attributes: {},
-      }
+      const mockInputQuery = makeMockQuery()
       const mockInputPayload = {}
       const mockReplicaEntity = jest.fn()
       ;(mockReplicaStore as any).update.mockResolvedValue([mockReplicaEntity])

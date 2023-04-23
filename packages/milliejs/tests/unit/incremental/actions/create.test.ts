@@ -1,12 +1,9 @@
-import type { Entity, Resource } from "@milliejs/core"
+import { makeMockEntity, makeMockResource } from "@milliejs/jest-utils"
 import { IncrementalStore } from "../../../../src/incremental"
 import { CreateAction } from "../../../../src/incremental/actions/create"
 import { makeMockPublisherWithEvents } from "../../mocks/publisher"
 
-type MockResource = Resource
-const mockResource: MockResource = {
-  id: "MOCK RESOURCE",
-}
+const mockResource = makeMockResource()
 const mockReplicaStore = makeMockPublisherWithEvents()
 const mockSourcePublisher = makeMockPublisherWithEvents()
 const mockStore = new IncrementalStore(mockResource, mockReplicaStore, {
@@ -34,11 +31,9 @@ describe("CreateAction", () => {
 
   describe("create", () => {
     it("creates the resource in the replicaStore", async () => {
-      const mockEntity: Entity<MockResource> = {
-        id: "a",
+      const mockEntity = makeMockEntity({
         resource: mockResource,
-        data: {},
-      }
+      })
 
       const action = new CreateAction(mockStore)
       await action.create(mockEntity)
@@ -47,11 +42,9 @@ describe("CreateAction", () => {
     })
 
     it("creates the resource in the source via the Publisher", async () => {
-      const mockEntity: Entity<MockResource> = {
-        id: "a",
+      const mockEntity = makeMockEntity({
         resource: mockResource,
-        data: {},
-      }
+      })
 
       const action = new CreateAction(mockStore)
       await action.create(mockEntity)
@@ -60,11 +53,9 @@ describe("CreateAction", () => {
     })
 
     it("returns the resource created by the replicaStore", () => {
-      const mockInputEntity: Entity<MockResource> = {
-        id: "a",
+      const mockInputEntity = makeMockEntity({
         resource: mockResource,
-        data: {},
-      }
+      })
       const mockReplicaEntity = jest.fn()
       ;(mockReplicaStore as any).create.mockResolvedValue(mockReplicaEntity)
       const mockSourceEntity = jest.fn()

@@ -1,4 +1,5 @@
 import type { Entity, Resource } from "@milliejs/core"
+import { makeMockEntity, makeMockResource } from "@milliejs/jest-utils"
 import { LifecycleEvents } from "@milliejs/store-base"
 import { IncrementalStore } from "../../../src/incremental"
 import { replicaEventPulldown } from "../../../src/incremental/replicaEventPulldown"
@@ -6,10 +7,7 @@ import { makeMockPublisherWithEvents } from "../mocks/publisher"
 import { makeMockSubscriber } from "../mocks/subscriber"
 
 type MockResource = Resource
-const mockResource: MockResource = {
-  id: "MOCK RESOURCE",
-}
-
+const mockResource = makeMockResource()
 const mockReplicaStore = makeMockPublisherWithEvents()
 const mockSubscriber = makeMockSubscriber()
 
@@ -51,15 +49,7 @@ describe("replicaEventPulldown", () => {
       it("throws an error", (done) => {
         expect.assertions(1)
 
-        type AnotherMockResource = Resource
-        const mockResource2: AnotherMockResource = {
-          id: "ANOTHER MOCK RESOURCE",
-        }
-        const mockEntity: Entity<AnotherMockResource> = {
-          id: "a",
-          resource: mockResource2,
-          data: {},
-        }
+        const mockEntity = makeMockEntity()
 
         mockSubscriber.on("error", (error: Error) => {
           try {
@@ -87,11 +77,9 @@ describe("replicaEventPulldown", () => {
       it("throws an error", (done) => {
         expect.assertions(1)
 
-        const mockEntity: Entity<MockResource> = {
-          id: "a",
+        const mockEntity = makeMockEntity({
           resource: mockResource,
-          data: {},
-        }
+        })
 
         mockSubscriber.on("error", (error: Error) => {
           try {
@@ -112,11 +100,9 @@ describe("replicaEventPulldown", () => {
     it("forwards the created entity to the replicaStore", (done) => {
       expect.assertions(1)
 
-      const mockEntity: Entity<MockResource> = {
-        id: "a",
+      const mockEntity = makeMockEntity({
         resource: mockResource,
-        data: {},
-      }
+      })
 
       mockSubscriber.on(LifecycleEvents.Save, (...args: any[]) => {
         try {
@@ -140,11 +126,9 @@ describe("replicaEventPulldown", () => {
       it("throws an error", (done) => {
         expect.assertions(1)
 
-        const mockEntity: Entity<MockResource> = {
-          id: "a",
+        const mockEntity = makeMockEntity({
           resource: mockResource,
-          data: {},
-        }
+        })
 
         mockSubscriber.on("error", (error: Error) => {
           try {
@@ -165,11 +149,9 @@ describe("replicaEventPulldown", () => {
     it("forwards the deleted entity to the replicaStore", (done) => {
       expect.assertions(1)
 
-      const mockEntity: Entity<MockResource> = {
-        id: "a",
+      const mockEntity = makeMockEntity({
         resource: mockResource,
-        data: {},
-      }
+      })
 
       mockSubscriber.on(LifecycleEvents.Delete, (...args: any[]) => {
         try {

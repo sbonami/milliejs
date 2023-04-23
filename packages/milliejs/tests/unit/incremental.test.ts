@@ -1,4 +1,9 @@
-import type { Entity, Query, Resource } from "@milliejs/core"
+import type { Resource } from "@milliejs/core"
+import {
+  makeMockEntity,
+  makeMockQuery,
+  makeMockResource,
+} from "@milliejs/jest-utils"
 import { IncrementalStore } from "../../src/incremental"
 import * as events from "../../src/store/events"
 import {
@@ -22,9 +27,7 @@ type MockResource = Resource
 describe("IncrementalStore", () => {
   describe("new IncrementalStore", () => {
     it("should create an instance of IncrementalStore", () => {
-      const mockResource: MockResource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource = makeMockResource()
       const mockReplicaStore = makeMockPublisher()
 
       const store = new IncrementalStore<MockResource>(
@@ -42,9 +45,7 @@ describe("IncrementalStore", () => {
 
     describe("when the store is instantiated without the sourceInterface options", () => {
       it("should create an instance of IncrementalStore with undefined sourceInterfaces", () => {
-        const mockResource: MockResource = {
-          id: "MOCK RESOURCE",
-        }
+        const mockResource = makeMockResource()
         const mockReplicaStore = makeMockPublisher()
 
         const store = new IncrementalStore(mockResource, mockReplicaStore)
@@ -63,9 +64,7 @@ describe("IncrementalStore", () => {
         })
 
         it("should set the replicaStore directly", () => {
-          const mockResource: MockResource = {
-            id: "MOCK RESOURCE",
-          }
+          const mockResource = makeMockResource()
           const mockReplicaStore = makeMockPublisherWithEvents()
 
           const store = new IncrementalStore(mockResource, mockReplicaStore)
@@ -76,9 +75,7 @@ describe("IncrementalStore", () => {
 
       describe("when the provided replicaStore does not provide an event interface", () => {
         it("should set the replicaStore wrapped by the PublisherActionEventWrapper", () => {
-          const mockResource: MockResource = {
-            id: "MOCK RESOURCE",
-          }
+          const mockResource = makeMockResource()
           const mockReplicaStore = makeMockPublisher()
           const mockWrappedReplicaStore =
             makeMockPublisherWithEvents() as unknown as jest.Mocked<
@@ -106,9 +103,7 @@ describe("IncrementalStore", () => {
           })
 
           it("should create an instance of IncrementalStore with the sourcePublisher", () => {
-            const mockResource: MockResource = {
-              id: "MOCK RESOURCE",
-            }
+            const mockResource = makeMockResource()
             const mockReplicaStore = makeMockPublisherWithEvents()
             const mockSourcePublisher = makeMockPublisherWithEvents()
 
@@ -126,9 +121,7 @@ describe("IncrementalStore", () => {
 
         describe("when the provided sourcePublisher does not provide an event interface", () => {
           it("should create an instance of IncrementalStore with the sourcePublisher wrapped by the PublisherActionEventWrapper", () => {
-            const mockResource: MockResource = {
-              id: "MOCK RESOURCE",
-            }
+            const mockResource = makeMockResource()
             const mockReplicaStore = makeMockPublisherWithEvents()
             const mockSourcePublisher = makeMockPublisher()
             const mockWrappedSourcePublisher =
@@ -157,9 +150,7 @@ describe("IncrementalStore", () => {
         })
 
         it("should create an instance of IncrementalStore with only sourceSubscriber", () => {
-          const mockResource: MockResource = {
-            id: "MOCK RESOURCE",
-          }
+          const mockResource = makeMockResource()
           const mockReplicaStore = makeMockPublisherWithEvents()
           const mockSourceSubscriber = makeMockSubscriber()
 
@@ -179,9 +170,7 @@ describe("IncrementalStore", () => {
 
   describe("get [replicaStore]", () => {
     it("returns the IncrementalStore's _replicaStore", () => {
-      const mockResource: MockResource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource = makeMockResource()
       const mockReplicaStore = makeMockPublisherWithEvents()
       const mockSourcePublisher = makeMockPublisherWithEvents()
       const mockSourceSubscriber = makeMockSubscriber()
@@ -197,9 +186,7 @@ describe("IncrementalStore", () => {
   describe("set [sourcePublisher]", () => {
     describe("when the new sourcePublisher is undefined", () => {
       it("updates the Incremental Store's _sourcePublisher to undefined", () => {
-        const mockResource: MockResource = {
-          id: "MOCK RESOURCE",
-        }
+        const mockResource = makeMockResource()
         const mockReplicaStore = makeMockPublisherWithEvents()
         const mockSourcePublisher = makeMockPublisherWithEvents()
         const mockSourceSubscriber = makeMockSubscriber()
@@ -220,9 +207,7 @@ describe("IncrementalStore", () => {
       })
 
       it("updates the Incremental Store's _sourcePublisher to the provided sourcePublisher", () => {
-        const mockResource: MockResource = {
-          id: "MOCK RESOURCE",
-        }
+        const mockResource = makeMockResource()
         const mockReplicaStore = makeMockPublisherWithEvents()
         const mockSourcePublisher = makeMockPublisherWithEvents()
         const mockSourceSubscriber = makeMockSubscriber()
@@ -240,9 +225,7 @@ describe("IncrementalStore", () => {
 
     describe("when the new sourcePublisher does not provide an event interface", () => {
       it("updates the Incremental Store's _sourcePublisher to the sourcePublisher wrapped by the PublisherActionEventWrapper", () => {
-        const mockResource: MockResource = {
-          id: "MOCK RESOURCE",
-        }
+        const mockResource = makeMockResource()
         const mockReplicaStore = makeMockPublisherWithEvents()
         const mockSourcePublisher = makeMockPublisherWithEvents()
         const mockSourceSubscriber = makeMockSubscriber()
@@ -269,9 +252,7 @@ describe("IncrementalStore", () => {
 
   describe("get [sourcePublisher]", () => {
     it("returns the IncrementalStore's _sourcePublisher", () => {
-      const mockResource: MockResource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource = makeMockResource()
       const mockReplicaStore = makeMockPublisherWithEvents()
       const mockSourcePublisher = makeMockPublisherWithEvents()
       const mockSourceSubscriber = makeMockSubscriber()
@@ -286,9 +267,7 @@ describe("IncrementalStore", () => {
 
   describe("set [sourceSubscriber]", () => {
     it("updates the Incremental Store's _sourceSubscriber", () => {
-      const mockResource: MockResource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource = makeMockResource()
       const mockReplicaStore = makeMockPublisherWithEvents()
       const mockSourcePublisher = makeMockPublisherWithEvents()
       const mockSourceSubscriber = makeMockSubscriber()
@@ -305,9 +284,7 @@ describe("IncrementalStore", () => {
 
     describe("when the new sourceSubscriber is undefined", () => {
       it("updates the Incremental Store's _sourceSubscriber to undefined", () => {
-        const mockResource: MockResource = {
-          id: "MOCK RESOURCE",
-        }
+        const mockResource = makeMockResource()
         const mockReplicaStore = makeMockPublisherWithEvents()
         const mockSourcePublisher = makeMockPublisherWithEvents()
         const mockSourceSubscriber = makeMockSubscriber()
@@ -325,9 +302,7 @@ describe("IncrementalStore", () => {
 
   describe("get [sourceSubscriber]", () => {
     it("returns the IncrementalStore's _sourceSubscriber", () => {
-      const mockResource: MockResource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource = makeMockResource()
       const mockReplicaStore = makeMockPublisherWithEvents()
       const mockSourcePublisher = makeMockPublisherWithEvents()
       const mockSourceSubscriber = makeMockSubscriber()
@@ -342,21 +317,15 @@ describe("IncrementalStore", () => {
 
   describe("[create]", () => {
     it("forwards calls to the CreateAction", () => {
-      const mockResource: MockResource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource = makeMockResource()
       const mockReplicaStore = makeMockPublisherWithEvents()
-      const mockInputEntity: Entity<MockResource> = {
-        id: "a",
+      const mockInputEntity = makeMockEntity({
         resource: mockResource,
-        data: {},
-      }
+      })
+      const mockOutputEntity = makeMockEntity({
+        resource: mockResource,
+      })
 
-      const mockOutputEntity: Entity<MockResource> = {
-        id: "a",
-        resource: mockResource,
-        data: {},
-      }
       const actionSpy = jest
         .spyOn(CreateAction.prototype, "create")
         .mockResolvedValue(mockOutputEntity)
@@ -370,21 +339,15 @@ describe("IncrementalStore", () => {
 
   describe("[read]", () => {
     it("forwards calls to the ReadAction", () => {
-      const mockResource: MockResource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource = makeMockResource()
       const mockReplicaStore = makeMockPublisherWithEvents()
-      const mockInputQuery: Query = {
+      const mockInputQuery = makeMockQuery({
         resource: mockResource,
-        cardinality: "many",
-        attributes: {},
-      }
+      })
 
-      const mockOutputEntity: Entity<MockResource> = {
-        id: "a",
+      const mockOutputEntity = makeMockEntity({
         resource: mockResource,
-        data: {},
-      }
+      })
       const actionSpy = jest
         .spyOn(ReadAction.prototype, "read")
         .mockResolvedValue([mockOutputEntity])
@@ -398,22 +361,16 @@ describe("IncrementalStore", () => {
 
   describe("[update]", () => {
     it("forwards calls to the UpdateAction", () => {
-      const mockResource: MockResource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource = makeMockResource()
       const mockReplicaStore = makeMockPublisherWithEvents()
-      const mockInputQuery: Query = {
+      const mockInputQuery = makeMockQuery({
         resource: mockResource,
-        cardinality: "many",
-        attributes: {},
-      }
+      })
       const mockData = {}
 
-      const mockOutputEntity: Entity<MockResource> = {
-        id: "a",
+      const mockOutputEntity = makeMockEntity({
         resource: mockResource,
-        data: {},
-      }
+      })
       const actionSpy = jest
         .spyOn(UpdateAction.prototype, "update")
         .mockResolvedValue([mockOutputEntity])
@@ -427,22 +384,16 @@ describe("IncrementalStore", () => {
 
   describe("[patch]", () => {
     it("forwards calls to the PatchAction", () => {
-      const mockResource: MockResource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource = makeMockResource()
       const mockReplicaStore = makeMockPublisherWithEvents()
-      const mockInputQuery: Query = {
+      const mockInputQuery = makeMockQuery({
         resource: mockResource,
-        cardinality: "many",
-        attributes: {},
-      }
+      })
       const mockPatch = {}
-
-      const mockOutputEntity: Entity<MockResource> = {
-        id: "a",
+      const mockOutputEntity = makeMockEntity({
         resource: mockResource,
-        data: {},
-      }
+      })
+
       const actionSpy = jest
         .spyOn(PatchAction.prototype, "patch")
         .mockResolvedValue([mockOutputEntity])
@@ -456,21 +407,15 @@ describe("IncrementalStore", () => {
 
   describe("[delete]", () => {
     it("forwards calls to the DeleteAction", () => {
-      const mockResource: MockResource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource = makeMockResource()
       const mockReplicaStore = makeMockPublisherWithEvents()
-      const mockInputQuery: Query = {
+      const mockInputQuery = makeMockQuery({
         resource: mockResource,
-        cardinality: "many",
-        attributes: {},
-      }
+      })
+      const mockOutputEntity = makeMockEntity({
+        resource: mockResource,
+      })
 
-      const mockOutputEntity: Entity<MockResource> = {
-        id: "a",
-        resource: mockResource,
-        data: {},
-      }
       const actionSpy = jest
         .spyOn(DeleteAction.prototype, "delete")
         .mockResolvedValue([mockOutputEntity])

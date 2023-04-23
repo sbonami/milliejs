@@ -1,18 +1,13 @@
 import type { Entity, Query, Resource } from "@milliejs/core"
+import { makeMockEntity } from "@milliejs/jest-utils"
 import {
   PublisherActionInterface,
   isPublisherActionInterface,
 } from "../../src/publisher"
 
 type MockResource = Resource
-const mockResource: Resource = {
-  id: "mock",
-}
-const mockEntity: Entity<MockResource> = {
-  id: "a",
-  resource: mockResource,
-  data: {},
-}
+const mockEntity = makeMockEntity<MockResource>()
+
 const conformingObject: PublisherActionInterface<MockResource> = {
   create(entity: Entity<MockResource>) {
     return Promise.resolve(mockEntity)

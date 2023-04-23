@@ -1,4 +1,9 @@
-import type { Entity, Query, Resource } from "@milliejs/core"
+import type { Resource } from "@milliejs/core"
+import {
+  makeMockEntity,
+  makeMockQuery,
+  makeMockResource,
+} from "@milliejs/jest-utils"
 import * as StoreBaseModule from "@milliejs/store-base"
 import { IncrementalStore } from "../../src/incremental"
 import * as IncrementalStoreModule from "../../src/incremental"
@@ -17,9 +22,7 @@ describe("MillieJS", () => {
 
   describe("registerResource", () => {
     it("generates a new IncrementalStore for the resource", () => {
-      const mockResource: Resource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource = makeMockResource()
       const mockReplicaStore = makeMockPublisherWithEvents()
       const spy = jest
         .spyOn(IncrementalStoreModule, "IncrementalStore")
@@ -35,9 +38,7 @@ describe("MillieJS", () => {
 
     describe("when the resource is registered with a source publisher", () => {
       it("registers the source publisher for the resource", () => {
-        const mockResource: Resource = {
-          id: "MOCK RESOURCE",
-        }
+        const mockResource = makeMockResource()
         const mockReplicaStore = makeMockPublisherWithEvents()
         const mockSourcePublisher = makeMockPublisherWithEvents()
         jest
@@ -58,9 +59,7 @@ describe("MillieJS", () => {
 
     describe("when the resource is registered with a source subscriber", () => {
       it("registers the source subscriber for the resource", () => {
-        const mockResource: Resource = {
-          id: "MOCK RESOURCE",
-        }
+        const mockResource = makeMockResource()
         const mockReplicaStore = makeMockPublisherWithEvents()
         const mockSourceSubscriber = makeMockSubscriber()
         jest
@@ -80,9 +79,7 @@ describe("MillieJS", () => {
     })
 
     it("returns the resource's IncrementalStore", () => {
-      const mockResource: Resource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource = makeMockResource()
       const mockReplicaStore = makeMockPublisherWithEvents()
       const mockIncrementalStore = makeMockIncrementalStore(
         mockResource,
@@ -101,9 +98,7 @@ describe("MillieJS", () => {
   describe("registerSourcePublisher", () => {
     describe("when the resource has not yet been registered", () => {
       it("throws an error", () => {
-        const mockResource: Resource = {
-          id: "MOCK RESOURCE",
-        }
+        const mockResource = makeMockResource()
         const mockSourcePublisher = makeMockPublisherWithEvents()
 
         const millie = new MillieJS()
@@ -116,9 +111,7 @@ describe("MillieJS", () => {
     it("sets the sourcePublisher on the registered resource's IncrementalStore", (done) => {
       expect.assertions(1)
 
-      const mockResource: Resource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource = makeMockResource()
       const mockReplicaStore = makeMockPublisherWithEvents()
       const mockSourcePublisher = makeMockPublisherWithEvents()
       const mockIncrementalStore = makeMockIncrementalStore(
@@ -146,9 +139,7 @@ describe("MillieJS", () => {
     })
 
     it("returns the resource's IncrementalStore", () => {
-      const mockResource: Resource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource = makeMockResource()
       const mockReplicaStore = makeMockPublisherWithEvents()
       const mockSourcePublisher = makeMockPublisherWithEvents()
       const mockIncrementalStore = makeMockIncrementalStore(
@@ -173,9 +164,7 @@ describe("MillieJS", () => {
   describe("registerSourceSubscriber", () => {
     describe("when the resource has not yet been registered", () => {
       it("throws an error", () => {
-        const mockResource: Resource = {
-          id: "MOCK RESOURCE",
-        }
+        const mockResource = makeMockResource()
         const mockSourceSubscriber = makeMockSubscriber()
 
         const millie = new MillieJS()
@@ -188,9 +177,7 @@ describe("MillieJS", () => {
     it("sets the sourceSubscriber on the registered resource's IncrementalStore", (done) => {
       expect.assertions(1)
 
-      const mockResource: Resource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource = makeMockResource()
       const mockReplicaStore = makeMockPublisherWithEvents()
       const mockSourceSubscriber = makeMockSubscriber()
       const mockIncrementalStore = makeMockIncrementalStore(
@@ -218,9 +205,7 @@ describe("MillieJS", () => {
     })
 
     it("returns the resource's IncrementalStore", () => {
-      const mockResource: Resource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource = makeMockResource()
       const mockReplicaStore = makeMockPublisherWithEvents()
       const mockSourceSubscriber = makeMockSubscriber()
       const mockIncrementalStore = makeMockIncrementalStore(
@@ -255,9 +240,7 @@ describe("MillieJS", () => {
         let mockIncrementalStore: IncrementalStore
 
         beforeEach(() => {
-          mockResource = {
-            id: "MOCK RESOURCE",
-          }
+          mockResource = makeMockResource()
           mockReplicaStore = makeMockPublisherWithEvents()
 
           mockIncrementalStore = new IncrementalStore(
@@ -315,9 +298,7 @@ describe("MillieJS", () => {
         let mockIncrementalStore: IncrementalStore
 
         beforeEach(() => {
-          mockResource = {
-            id: "MOCK RESOURCE",
-          }
+          mockResource = makeMockResource()
           mockReplicaStore = makeMockPublisherWithEvents()
           mockSourcePublisher = makeMockPublisherWithEvents()
 
@@ -382,9 +363,7 @@ describe("MillieJS", () => {
         let mockIncrementalStore: IncrementalStore
 
         beforeEach(() => {
-          mockResource = {
-            id: "MOCK RESOURCE",
-          }
+          mockResource = makeMockResource()
           mockReplicaStore = makeMockPublisherWithEvents()
           mockSourceSubscriber = makeMockSubscriber()
 
@@ -446,9 +425,7 @@ describe("MillieJS", () => {
 
   describe("[create]", () => {
     it("forwards the create call to the resource's IncrementalStore", () => {
-      const mockResource1: Resource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource1 = makeMockResource()
       const mockReplicaStore1 = makeMockPublisherWithEvents()
       const mockIncrementalStore1 = makeMockIncrementalStore(
         mockResource1,
@@ -458,9 +435,7 @@ describe("MillieJS", () => {
         .spyOn(IncrementalStoreModule, "IncrementalStore")
         .mockImplementationOnce(() => mockIncrementalStore1)
 
-      const mockResource2: Resource = {
-        id: "MOCK RESOURCE 2",
-      }
+      const mockResource2 = makeMockResource()
       const mockReplicaStore2 = makeMockPublisherWithEvents()
       const mockIncrementalStore2 = makeMockIncrementalStore(
         mockResource2,
@@ -481,9 +456,7 @@ describe("MillieJS", () => {
     })
 
     it("returns the create response from the resource's IncrementalStore", () => {
-      const mockResource1: Resource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource1 = makeMockResource()
       const mockReplicaStore1 = makeMockPublisherWithEvents()
       const mockIncrementalStore1 = makeMockIncrementalStore(
         mockResource1,
@@ -493,24 +466,24 @@ describe("MillieJS", () => {
         .spyOn(IncrementalStoreModule, "IncrementalStore")
         .mockImplementationOnce(() => mockIncrementalStore1)
 
-      const mockOutputEntity: Entity<Resource> = {
-        id: "a",
+      const mockOutputEntity = makeMockEntity({
         resource: mockResource1,
-        data: {},
-      }
-      jest.spyOn(mockIncrementalStore1, "create").mockResolvedValue(mockOutputEntity)
+      })
+      jest
+        .spyOn(mockIncrementalStore1, "create")
+        .mockResolvedValue(mockOutputEntity)
 
       const mockData = jest.fn()
       const millie = new MillieJS()
       millie.registerResource(mockResource1, mockReplicaStore1)
-      expect(millie.create(mockResource1, mockData)).resolves.toBe(mockOutputEntity)
+      expect(millie.create(mockResource1, mockData)).resolves.toBe(
+        mockOutputEntity,
+      )
     })
 
     describe("when MillieJS has not yet registered the resource", () => {
       it("throws a helpful error", () => {
-        const mockResource1: Resource = {
-          id: "MOCK RESOURCE",
-        }
+        const mockResource1 = makeMockResource()
         const mockReplicaStore1 = makeMockPublisherWithEvents()
         const mockIncrementalStore1 = makeMockIncrementalStore(
           mockResource1,
@@ -520,9 +493,7 @@ describe("MillieJS", () => {
           .spyOn(IncrementalStoreModule, "IncrementalStore")
           .mockImplementationOnce(() => mockIncrementalStore1)
 
-        const mockResource2: Resource = {
-          id: "MOCK RESOURCE 2",
-        }
+        const mockResource2 = makeMockResource()
 
         const millie = new MillieJS()
         millie.registerResource(mockResource1, mockReplicaStore1)
@@ -538,9 +509,7 @@ describe("MillieJS", () => {
 
   describe("[read]", () => {
     it("forwards the read call to the resource's IncrementalStore", () => {
-      const mockResource1: Resource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource1 = makeMockResource()
       const mockReplicaStore1 = makeMockPublisherWithEvents()
       const mockIncrementalStore1 = makeMockIncrementalStore(
         mockResource1,
@@ -550,9 +519,7 @@ describe("MillieJS", () => {
         .spyOn(IncrementalStoreModule, "IncrementalStore")
         .mockImplementationOnce(() => mockIncrementalStore1)
 
-      const mockResource2: Resource = {
-        id: "MOCK RESOURCE 2",
-      }
+      const mockResource2 = makeMockResource()
       const mockReplicaStore2 = makeMockPublisherWithEvents()
       const mockIncrementalStore2 = makeMockIncrementalStore(
         mockResource2,
@@ -566,20 +533,16 @@ describe("MillieJS", () => {
       millie.registerResource(mockResource1, mockReplicaStore1)
       millie.registerResource(mockResource2, mockReplicaStore2)
 
-      const mockInputQuery: Query = {
+      const mockInputQuery = makeMockQuery({
         resource: mockResource1,
-        cardinality: "many",
-        attributes: {},
-      }
+      })
       millie.read(mockResource1, mockInputQuery)
       expect(mockIncrementalStore1.read).toHaveBeenCalledWith(mockInputQuery)
       expect(mockIncrementalStore2.read).not.toHaveBeenCalled()
     })
 
     it("returns the read response from the resource's IncrementalStore", () => {
-      const mockResource1: Resource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource1 = makeMockResource()
       const mockReplicaStore1 = makeMockPublisherWithEvents()
       const mockIncrementalStore1 = makeMockIncrementalStore(
         mockResource1,
@@ -589,28 +552,26 @@ describe("MillieJS", () => {
         .spyOn(IncrementalStoreModule, "IncrementalStore")
         .mockImplementationOnce(() => mockIncrementalStore1)
 
-      const mockOutputEntity: Entity<Resource> = {
-        id: "a",
+      const mockOutputEntity = makeMockEntity({
         resource: mockResource1,
-        data: {},
-      }
-      jest.spyOn(mockIncrementalStore1, "read").mockResolvedValue([mockOutputEntity])
+      })
+      jest
+        .spyOn(mockIncrementalStore1, "read")
+        .mockResolvedValue([mockOutputEntity])
 
-      const mockInputQuery: Query = {
+      const mockInputQuery = makeMockQuery({
         resource: mockResource1,
-        cardinality: "many",
-        attributes: {},
-      }
+      })
       const millie = new MillieJS()
       millie.registerResource(mockResource1, mockReplicaStore1)
-      expect(millie.read(mockResource1, mockInputQuery)).resolves.toEqual([mockOutputEntity])
+      expect(millie.read(mockResource1, mockInputQuery)).resolves.toEqual([
+        mockOutputEntity,
+      ])
     })
 
     describe("when MillieJS has not yet registered the resource", () => {
       it("throws a helpful error", () => {
-        const mockResource1: Resource = {
-          id: "MOCK RESOURCE",
-        }
+        const mockResource1 = makeMockResource()
         const mockReplicaStore1 = makeMockPublisherWithEvents()
         const mockIncrementalStore1 = makeMockIncrementalStore(
           mockResource1,
@@ -620,18 +581,14 @@ describe("MillieJS", () => {
           .spyOn(IncrementalStoreModule, "IncrementalStore")
           .mockImplementationOnce(() => mockIncrementalStore1)
 
-        const mockResource2: Resource = {
-          id: "MOCK RESOURCE 2",
-        }
+        const mockResource2 = makeMockResource()
 
         const millie = new MillieJS()
         millie.registerResource(mockResource1, mockReplicaStore1)
 
-        const mockInputQuery: Query = {
+        const mockInputQuery = makeMockQuery({
           resource: mockResource2,
-          cardinality: "many",
-          attributes: {},
-        }
+        })
         expect(() => {
           millie.read(mockResource2, mockInputQuery)
         }).toThrowErrorMatchingSnapshot()
@@ -640,9 +597,7 @@ describe("MillieJS", () => {
 
     describe("when the Query payload's resource does not match the passed resource", () => {
       it("throws a helpful error", () => {
-        const mockResource1: Resource = {
-          id: "MOCK RESOURCE",
-        }
+        const mockResource1 = makeMockResource()
         const mockReplicaStore1 = makeMockPublisherWithEvents()
         const mockIncrementalStore1 = makeMockIncrementalStore(
           mockResource1,
@@ -652,20 +607,16 @@ describe("MillieJS", () => {
           .spyOn(IncrementalStoreModule, "IncrementalStore")
           .mockImplementationOnce(() => mockIncrementalStore1)
 
-        const mockResource2: Resource = {
-          id: "MOCK RESOURCE 2",
-        }
+        const mockResource2 = makeMockResource()
 
         const millie = new MillieJS()
         millie.registerResource(mockResource1, mockReplicaStore1)
 
         const mockData = jest.fn()
 
-        const mockInputQuery: Query = {
+        const mockInputQuery = makeMockQuery({
           resource: mockResource2,
-          cardinality: "many",
-          attributes: {},
-        }
+        })
         expect(() => {
           millie.read(mockResource1, mockInputQuery)
         }).toThrowErrorMatchingSnapshot()
@@ -675,9 +626,7 @@ describe("MillieJS", () => {
 
   describe("[update]", () => {
     it("forwards the update call to the resource's IncrementalStore", () => {
-      const mockResource1: Resource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource1 = makeMockResource()
       const mockReplicaStore1 = makeMockPublisherWithEvents()
       const mockIncrementalStore1 = makeMockIncrementalStore(
         mockResource1,
@@ -687,9 +636,7 @@ describe("MillieJS", () => {
         .spyOn(IncrementalStoreModule, "IncrementalStore")
         .mockImplementationOnce(() => mockIncrementalStore1)
 
-      const mockResource2: Resource = {
-        id: "MOCK RESOURCE 2",
-      }
+      const mockResource2 = makeMockResource()
       const mockReplicaStore2 = makeMockPublisherWithEvents()
       const mockIncrementalStore2 = makeMockIncrementalStore(
         mockResource2,
@@ -704,20 +651,19 @@ describe("MillieJS", () => {
       millie.registerResource(mockResource2, mockReplicaStore2)
 
       const mockData = jest.fn()
-      const mockInputQuery: Query = {
+      const mockInputQuery = makeMockQuery({
         resource: mockResource1,
-        cardinality: "many",
-        attributes: {},
-      }
+      })
       millie.update(mockResource1, mockInputQuery, mockData)
-      expect(mockIncrementalStore1.update).toHaveBeenCalledWith(mockInputQuery, mockData)
+      expect(mockIncrementalStore1.update).toHaveBeenCalledWith(
+        mockInputQuery,
+        mockData,
+      )
       expect(mockIncrementalStore2.update).not.toHaveBeenCalled()
     })
 
     it("returns the update response from the resource's IncrementalStore", () => {
-      const mockResource1: Resource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource1 = makeMockResource()
       const mockReplicaStore1 = makeMockPublisherWithEvents()
       const mockIncrementalStore1 = makeMockIncrementalStore(
         mockResource1,
@@ -727,29 +673,27 @@ describe("MillieJS", () => {
         .spyOn(IncrementalStoreModule, "IncrementalStore")
         .mockImplementationOnce(() => mockIncrementalStore1)
 
-      const mockOutputEntity: Entity<Resource> = {
-        id: "a",
+      const mockOutputEntity = makeMockEntity({
         resource: mockResource1,
-        data: {},
-      }
-      jest.spyOn(mockIncrementalStore1, "update").mockResolvedValue([mockOutputEntity])
+      })
+      jest
+        .spyOn(mockIncrementalStore1, "update")
+        .mockResolvedValue([mockOutputEntity])
 
       const mockData = jest.fn()
-      const mockInputQuery: Query = {
+      const mockInputQuery = makeMockQuery({
         resource: mockResource1,
-        cardinality: "many",
-        attributes: {},
-      }
+      })
       const millie = new MillieJS()
       millie.registerResource(mockResource1, mockReplicaStore1)
-      expect(millie.update(mockResource1, mockInputQuery, mockData)).resolves.toEqual([mockOutputEntity])
+      expect(
+        millie.update(mockResource1, mockInputQuery, mockData),
+      ).resolves.toEqual([mockOutputEntity])
     })
 
     describe("when MillieJS has not yet registered the resource", () => {
       it("throws a helpful error", () => {
-        const mockResource1: Resource = {
-          id: "MOCK RESOURCE",
-        }
+        const mockResource1 = makeMockResource()
         const mockReplicaStore1 = makeMockPublisherWithEvents()
         const mockIncrementalStore1 = makeMockIncrementalStore(
           mockResource1,
@@ -759,19 +703,15 @@ describe("MillieJS", () => {
           .spyOn(IncrementalStoreModule, "IncrementalStore")
           .mockImplementationOnce(() => mockIncrementalStore1)
 
-        const mockResource2: Resource = {
-          id: "MOCK RESOURCE 2",
-        }
+        const mockResource2 = makeMockResource()
 
         const millie = new MillieJS()
         millie.registerResource(mockResource1, mockReplicaStore1)
 
         const mockData = jest.fn()
-        const mockInputQuery: Query = {
+        const mockInputQuery = makeMockQuery({
           resource: mockResource1,
-          cardinality: "many",
-          attributes: {},
-        }
+        })
 
         expect(() => {
           millie.update(mockResource2, mockInputQuery, mockData)
@@ -782,9 +722,7 @@ describe("MillieJS", () => {
 
   describe("[patch]", () => {
     it("forwards the patch call to the resource's IncrementalStore", () => {
-      const mockResource1: Resource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource1 = makeMockResource()
       const mockReplicaStore1 = makeMockPublisherWithEvents()
       const mockIncrementalStore1 = makeMockIncrementalStore(
         mockResource1,
@@ -794,9 +732,7 @@ describe("MillieJS", () => {
         .spyOn(IncrementalStoreModule, "IncrementalStore")
         .mockImplementationOnce(() => mockIncrementalStore1)
 
-      const mockResource2: Resource = {
-        id: "MOCK RESOURCE 2",
-      }
+      const mockResource2 = makeMockResource()
       const mockReplicaStore2 = makeMockPublisherWithEvents()
       const mockIncrementalStore2 = makeMockIncrementalStore(
         mockResource2,
@@ -811,20 +747,19 @@ describe("MillieJS", () => {
       millie.registerResource(mockResource2, mockReplicaStore2)
 
       const mockData = jest.fn()
-      const mockInputQuery: Query = {
+      const mockInputQuery = makeMockQuery({
         resource: mockResource1,
-        cardinality: "many",
-        attributes: {},
-      }
+      })
       millie.patch(mockResource1, mockInputQuery, mockData)
-      expect(mockIncrementalStore1.patch).toHaveBeenCalledWith(mockInputQuery, mockData)
+      expect(mockIncrementalStore1.patch).toHaveBeenCalledWith(
+        mockInputQuery,
+        mockData,
+      )
       expect(mockIncrementalStore2.patch).not.toHaveBeenCalled()
     })
 
     it("returns the patch response from the resource's IncrementalStore", () => {
-      const mockResource1: Resource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource1 = makeMockResource()
       const mockReplicaStore1 = makeMockPublisherWithEvents()
       const mockIncrementalStore1 = makeMockIncrementalStore(
         mockResource1,
@@ -834,29 +769,27 @@ describe("MillieJS", () => {
         .spyOn(IncrementalStoreModule, "IncrementalStore")
         .mockImplementationOnce(() => mockIncrementalStore1)
 
-      const mockOutputEntity: Entity<Resource> = {
-        id: "a",
+      const mockOutputEntity = makeMockEntity({
         resource: mockResource1,
-        data: {},
-      }
-      jest.spyOn(mockIncrementalStore1, "patch").mockResolvedValue([mockOutputEntity])
+      })
+      jest
+        .spyOn(mockIncrementalStore1, "patch")
+        .mockResolvedValue([mockOutputEntity])
 
       const mockData = jest.fn()
-      const mockInputQuery: Query = {
+      const mockInputQuery = makeMockQuery({
         resource: mockResource1,
-        cardinality: "many",
-        attributes: {},
-      }
+      })
       const millie = new MillieJS()
       millie.registerResource(mockResource1, mockReplicaStore1)
-      expect(millie.patch(mockResource1, mockInputQuery, mockData)).resolves.toEqual([mockOutputEntity])
+      expect(
+        millie.patch(mockResource1, mockInputQuery, mockData),
+      ).resolves.toEqual([mockOutputEntity])
     })
 
     describe("when MillieJS has not yet registered the resource", () => {
       it("throws a helpful error", () => {
-        const mockResource1: Resource = {
-          id: "MOCK RESOURCE",
-        }
+        const mockResource1 = makeMockResource()
         const mockReplicaStore1 = makeMockPublisherWithEvents()
         const mockIncrementalStore1 = makeMockIncrementalStore(
           mockResource1,
@@ -866,19 +799,15 @@ describe("MillieJS", () => {
           .spyOn(IncrementalStoreModule, "IncrementalStore")
           .mockImplementationOnce(() => mockIncrementalStore1)
 
-        const mockResource2: Resource = {
-          id: "MOCK RESOURCE 2",
-        }
+        const mockResource2 = makeMockResource()
 
         const millie = new MillieJS()
         millie.registerResource(mockResource1, mockReplicaStore1)
 
         const mockData = jest.fn()
-        const mockInputQuery: Query = {
+        const mockInputQuery = makeMockQuery({
           resource: mockResource1,
-          cardinality: "many",
-          attributes: {},
-        }
+        })
 
         expect(() => {
           millie.patch(mockResource2, mockInputQuery, mockData)
@@ -889,9 +818,7 @@ describe("MillieJS", () => {
 
   describe("[delete]", () => {
     it("forwards the delete call to the resource's IncrementalStore", () => {
-      const mockResource1: Resource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource1 = makeMockResource()
       const mockReplicaStore1 = makeMockPublisherWithEvents()
       const mockIncrementalStore1 = makeMockIncrementalStore(
         mockResource1,
@@ -901,9 +828,7 @@ describe("MillieJS", () => {
         .spyOn(IncrementalStoreModule, "IncrementalStore")
         .mockImplementationOnce(() => mockIncrementalStore1)
 
-      const mockResource2: Resource = {
-        id: "MOCK RESOURCE 2",
-      }
+      const mockResource2 = makeMockResource()
       const mockReplicaStore2 = makeMockPublisherWithEvents()
       const mockIncrementalStore2 = makeMockIncrementalStore(
         mockResource2,
@@ -917,20 +842,16 @@ describe("MillieJS", () => {
       millie.registerResource(mockResource1, mockReplicaStore1)
       millie.registerResource(mockResource2, mockReplicaStore2)
 
-      const mockInputQuery: Query = {
+      const mockInputQuery = makeMockQuery({
         resource: mockResource1,
-        cardinality: "many",
-        attributes: {},
-      }
+      })
       millie.delete(mockResource1, mockInputQuery)
       expect(mockIncrementalStore1.delete).toHaveBeenCalledWith(mockInputQuery)
       expect(mockIncrementalStore2.delete).not.toHaveBeenCalled()
     })
 
     it("returns the delete response from the resource's IncrementalStore", () => {
-      const mockResource1: Resource = {
-        id: "MOCK RESOURCE",
-      }
+      const mockResource1 = makeMockResource()
       const mockReplicaStore1 = makeMockPublisherWithEvents()
       const mockIncrementalStore1 = makeMockIncrementalStore(
         mockResource1,
@@ -940,28 +861,26 @@ describe("MillieJS", () => {
         .spyOn(IncrementalStoreModule, "IncrementalStore")
         .mockImplementationOnce(() => mockIncrementalStore1)
 
-      const mockOutputEntity: Entity<Resource> = {
-        id: "a",
+      const mockOutputEntity = makeMockEntity({
         resource: mockResource1,
-        data: {},
-      }
-      jest.spyOn(mockIncrementalStore1, "delete").mockResolvedValue([mockOutputEntity])
+      })
+      jest
+        .spyOn(mockIncrementalStore1, "delete")
+        .mockResolvedValue([mockOutputEntity])
 
-      const mockInputQuery: Query = {
+      const mockInputQuery = makeMockQuery({
         resource: mockResource1,
-        cardinality: "many",
-        attributes: {},
-      }
+      })
       const millie = new MillieJS()
       millie.registerResource(mockResource1, mockReplicaStore1)
-      expect(millie.delete(mockResource1, mockInputQuery)).resolves.toEqual([mockOutputEntity])
+      expect(millie.delete(mockResource1, mockInputQuery)).resolves.toEqual([
+        mockOutputEntity,
+      ])
     })
 
     describe("when MillieJS has not yet registered the resource", () => {
       it("throws a helpful error", () => {
-        const mockResource1: Resource = {
-          id: "MOCK RESOURCE",
-        }
+        const mockResource1 = makeMockResource()
         const mockReplicaStore1 = makeMockPublisherWithEvents()
         const mockIncrementalStore1 = makeMockIncrementalStore(
           mockResource1,
@@ -971,18 +890,14 @@ describe("MillieJS", () => {
           .spyOn(IncrementalStoreModule, "IncrementalStore")
           .mockImplementationOnce(() => mockIncrementalStore1)
 
-        const mockResource2: Resource = {
-          id: "MOCK RESOURCE 2",
-        }
+        const mockResource2 = makeMockResource()
 
         const millie = new MillieJS()
         millie.registerResource(mockResource1, mockReplicaStore1)
 
-        const mockInputQuery: Query = {
+        const mockInputQuery = makeMockQuery({
           resource: mockResource1,
-          cardinality: "many",
-          attributes: {},
-        }
+        })
 
         expect(() => {
           millie.delete(mockResource2, mockInputQuery)

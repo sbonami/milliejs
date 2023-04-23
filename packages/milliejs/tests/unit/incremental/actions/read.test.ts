@@ -1,12 +1,9 @@
-import type { Query, Resource } from "@milliejs/core"
+import { makeMockQuery, makeMockResource } from "@milliejs/jest-utils"
 import { IncrementalStore } from "../../../../src/incremental"
 import { ReadAction } from "../../../../src/incremental/actions/read"
 import { makeMockPublisherWithEvents } from "../../mocks/publisher"
 
-type MockResource = Resource
-const mockResource: MockResource = {
-  id: "MOCK RESOURCE",
-}
+const mockResource = makeMockResource()
 const mockReplicaStore = makeMockPublisherWithEvents()
 const mockSourcePublisher = makeMockPublisherWithEvents()
 const mockStore = new IncrementalStore(mockResource, mockReplicaStore, {
@@ -25,11 +22,7 @@ describe("ReadAction", () => {
 
   describe("read", () => {
     it("reads the resource from the replicaStore", async () => {
-      const mockInputQuery: Query = {
-        resource: mockResource,
-        cardinality: "many",
-        attributes: {},
-      }
+      const mockInputQuery = makeMockQuery()
 
       const action = new ReadAction(mockStore)
       await action.read(mockInputQuery)
@@ -38,11 +31,7 @@ describe("ReadAction", () => {
     })
 
     it("reads the resource from the source via the Publisher", async () => {
-      const mockInputQuery: Query = {
-        resource: mockResource,
-        cardinality: "many",
-        attributes: {},
-      }
+      const mockInputQuery = makeMockQuery()
 
       const action = new ReadAction(mockStore)
       await action.read(mockInputQuery)
@@ -51,11 +40,7 @@ describe("ReadAction", () => {
     })
 
     it("returns the resource created by the replicaStore", () => {
-      const mockInputQuery: Query = {
-        resource: mockResource,
-        cardinality: "many",
-        attributes: {},
-      }
+      const mockInputQuery = makeMockQuery()
       const mockReplicaEntity = jest.fn()
       ;(mockReplicaStore as any).read.mockResolvedValue([mockReplicaEntity])
       const mockSourceEntity = jest.fn()

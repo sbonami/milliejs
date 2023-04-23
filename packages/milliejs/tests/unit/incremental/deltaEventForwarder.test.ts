@@ -1,4 +1,5 @@
 import type { Entity, Resource } from "@milliejs/core"
+import { makeMockEntity, makeMockResource } from "@milliejs/jest-utils"
 import { LifecycleEvents, SubscriberActionInterface } from "@milliejs/store-base"
 import { IncrementalStore } from "../../../src/incremental"
 import { deltaEventForwarder } from "../../../src/incremental/deltaEventForwarder"
@@ -6,10 +7,7 @@ import { makeMockPublisherWithEvents } from "../mocks/publisher"
 import { makeMockSubscriber } from "../mocks/subscriber"
 
 type MockResource = Resource
-const mockResource: MockResource = {
-  id: "MOCK RESOURCE",
-}
-
+const mockResource = makeMockResource()
 const mockReplicaStore = makeMockPublisherWithEvents()
 
 describe("deltaEventForwarder", () => {
@@ -32,11 +30,9 @@ describe("deltaEventForwarder", () => {
         it(`re-emits the '${event}' event from the incremental store`, (done) => {
           expect.assertions(2)
 
-          const mockEntity: Entity<MockResource> = {
-            id: "a",
+          const mockEntity = makeMockEntity({
             resource: mockResource,
-            data: {},
-          }
+          })
 
           mockStore.on(
             event,
@@ -56,11 +52,9 @@ describe("deltaEventForwarder", () => {
         it(`emits the '${LifecycleEvents.Delta}' event from the incremental store`, (done) => {
           expect.assertions(2)
 
-          const mockEntity: Entity<MockResource> = {
-            id: "a",
+          const mockEntity = makeMockEntity({
             resource: mockResource,
-            data: {},
-          }
+          })
 
           mockStore.on(
             LifecycleEvents.Delta,
@@ -82,15 +76,7 @@ describe("deltaEventForwarder", () => {
         it("throws an error", (done) => {
           expect.assertions(1)
 
-          type AnotherMockResource = Resource
-          const mockResource2: AnotherMockResource = {
-            id: "ANOTHER MOCK RESOURCE",
-          }
-          const mockEntity: Entity<AnotherMockResource> = {
-            id: "a",
-            resource: mockResource2,
-            data: {},
-          }
+          const mockEntity = makeMockEntity()
 
           mockSubscriber.on("error", (error: Error) => {
             try {

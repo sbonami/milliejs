@@ -1,12 +1,9 @@
-import type { Query, Resource } from "@milliejs/core"
+import { makeMockQuery, makeMockResource } from "@milliejs/jest-utils"
 import { IncrementalStore } from "../../../../src/incremental"
 import { DeleteAction } from "../../../../src/incremental/actions/delete"
 import { makeMockPublisherWithEvents } from "../../mocks/publisher"
 
-type MockResource = Resource
-const mockResource: MockResource = {
-  id: "MOCK RESOURCE",
-}
+const mockResource = makeMockResource()
 const mockReplicaStore = makeMockPublisherWithEvents()
 const mockSourcePublisher = makeMockPublisherWithEvents()
 const mockStore = new IncrementalStore(mockResource, mockReplicaStore, {
@@ -34,11 +31,7 @@ describe("DeleteAction", () => {
 
   describe("delete", () => {
     it("delete the resource in the replicaStore", async () => {
-      const mockInputQuery: Query = {
-        resource: mockResource,
-        cardinality: "many",
-        attributes: {},
-      }
+      const mockInputQuery = makeMockQuery()
 
       const action = new DeleteAction(mockStore)
       await action.delete(mockInputQuery)
@@ -47,11 +40,7 @@ describe("DeleteAction", () => {
     })
 
     it("deletes the source resource via the Publisher", async () => {
-      const mockInputQuery: Query = {
-        resource: mockResource,
-        cardinality: "many",
-        attributes: {},
-      }
+      const mockInputQuery = makeMockQuery()
 
       const action = new DeleteAction(mockStore)
       await action.delete(mockInputQuery)
@@ -60,11 +49,7 @@ describe("DeleteAction", () => {
     })
 
     it("returns the resource deleted by the replicaStore", () => {
-      const mockInputQuery: Query = {
-        resource: mockResource,
-        cardinality: "many",
-        attributes: {},
-      }
+      const mockInputQuery = makeMockQuery()
       const mockReplicaEntity = jest.fn()
       ;(mockReplicaStore as any).delete.mockResolvedValue([mockReplicaEntity])
       const mockSourceEntity = jest.fn()
