@@ -10,7 +10,7 @@
     "format:script": "prettier --ignore-path .prettierignore .",
     "format": "yarn format:script --write",
     "format:ci": "yarn format:script --check",
-    "lint": "eslint .",
+    "lint": "eslint --ignore-path .gitignore .",
     "test": "jest"
   },
   "engines": {
