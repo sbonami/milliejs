@@ -8,14 +8,18 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x, 17.x, 18.x, 19.x, 20.x]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: ${{ matrix.node-version }}
           cache: "yarn"
       - run: yarn install --immutable --immutable-cache --check-cache
       - run: yarn build
@@ -23,31 +27,35 @@ jobs:
         uses: actions/cache@v3
         id: build-cache
         with:
-          key: build-${{ github.ref_name }}-${{ hashFiles('./packages/*/*.tsbuildinfo') }}
+          key: ${{ runner.os }}-build-${{ github.ref_name }}-${{ hashFiles('./packages/*/*.tsbuildinfo') }}
           path: |
             ./packages/*/dist
             ./packages/*/*.tsbuildinfo
 
   lint-eslint:
     needs: build
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x]
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: ${{ matrix.node-version }}
           cache: "yarn"
       - name: Restore Build cache
         id: cache-build-restore
         uses: actions/cache/restore@v3
         with:
-          key: build-${{ github.ref_name }}-${{ hashFiles('./packages/*/*.tsbuildinfo') }}
+          key: ${{ runner.os }}-build-${{ github.ref_name }}-${{ hashFiles('./packages/*/*.tsbuildinfo') }}
           restore-keys: |
-            build-${{ github.ref_name }}-
-            build-${{ github.head_ref }}-
-            build-main
+            ${{ runner.os }}-build-${{ github.ref_name }}-
+            ${{ runner.os }}-build-${{ github.head_ref }}-
+            ${{ runner.os }}-build-main
           path: |
             ./packages/*/dist
             ./packages/*/*.tsbuildinfo
@@ -55,24 +63,28 @@ jobs:
 
   lint-prettier:
     needs: build
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x]
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: ${{ matrix.node-version }}
           cache: "yarn"
       - name: Restore Build cache
         id: cache-build-restore
         uses: actions/cache/restore@v3
         with:
-          key: build-${{ github.ref_name }}-${{ hashFiles('./packages/*/*.tsbuildinfo') }}
+          key: ${{ runner.os }}-build-${{ github.ref_name }}-${{ hashFiles('./packages/*/*.tsbuildinfo') }}
           restore-keys: |
-            build-${{ github.ref_name }}-
-            build-${{ github.head_ref }}-
-            build-main
+            ${{ runner.os }}-build-${{ github.ref_name }}-
+            ${{ runner.os }}-build-${{ github.head_ref }}-
+            ${{ runner.os }}-build-main
           path: |
             ./packages/*/dist
             ./packages/*/*.tsbuildinfo
@@ -80,24 +92,28 @@ jobs:
 
   test-unit:
     needs: build
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x, 17.x, 18.x, 19.x, 20.x]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: ${{ matrix.node-version }}
           cache: "yarn"
       - name: Restore Build cache
         id: cache-build-restore
         uses: actions/cache/restore@v3
         with:
-          key: build-${{ github.ref_name }}-${{ hashFiles('./packages/*/*.tsbuildinfo') }}
+          key: ${{ runner.os }}-build-${{ github.ref_name }}-${{ hashFiles('./packages/*/*.tsbuildinfo') }}
           restore-keys: |
-            build-${{ github.ref_name }}-
-            build-${{ github.head_ref }}-
-            build-main
+            ${{ runner.os }}-build-${{ github.ref_name }}-
+            ${{ runner.os }}-build-${{ github.head_ref }}-
+            ${{ runner.os }}-build-main
           path: |
             ./packages/*/dist
             ./packages/*/*.tsbuildinfo
