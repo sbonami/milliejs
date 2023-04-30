@@ -1,6 +1,9 @@
 import type { Entity, Resource } from "@milliejs/core"
 import { makeMockEntity, makeMockResource } from "@milliejs/jest-utils"
-import { LifecycleEvents, SubscriberActionInterface } from "@milliejs/store-base"
+import {
+  LifecycleEvents,
+  SubscriberActionInterface,
+} from "@milliejs/store-base"
 import { IncrementalStore } from "../../../src/incremental"
 import { deltaEventForwarder } from "../../../src/incremental/deltaEventForwarder"
 import { makeMockPublisherWithEvents } from "../mocks/publisher"
