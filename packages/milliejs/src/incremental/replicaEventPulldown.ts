@@ -1,6 +1,9 @@
 import invariant from "tiny-invariant"
 import type { Entity, Query, Resource } from "@milliejs/core"
-import { LifecycleEvents, SubscriberActionInterface } from "@milliejs/store-base"
+import {
+  LifecycleEvents,
+  SubscriberActionInterface,
+} from "@milliejs/store-base"
 import type { IncrementalStore } from "../incremental"
 
 export const replicaEventPulldown = <R extends Resource = Resource>(
