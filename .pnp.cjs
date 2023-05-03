@@ -50,6 +50,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@tsconfig/node14", "npm:1.0.3"],\
             ["@types/jest", "npm:29.5.1"],\
+            ["@types/node", "npm:18.16.3"],\
             ["@typescript-eslint/eslint-plugin", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:5.59.1"],\
             ["@typescript-eslint/parser", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:5.51.0"],\
             ["eslint", "npm:8.34.0"],\
@@ -1322,6 +1323,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@milliejs/monorepo", "workspace:."],\
             ["@tsconfig/node14", "npm:1.0.3"],\
             ["@types/jest", "npm:29.5.1"],\
+            ["@types/node", "npm:18.16.3"],\
             ["@typescript-eslint/eslint-plugin", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:5.59.1"],\
             ["@typescript-eslint/parser", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:5.51.0"],\
             ["eslint", "npm:8.34.0"],\
@@ -1601,6 +1603,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-node-npm-18.15.5-8a64f4244c-5fbf3453bd.zip/node_modules/@types/node/",\
           "packageDependencies": [\
             ["@types/node", "npm:18.15.5"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:18.16.3", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-18.16.3-4036a5f5f3-816b39d45b.zip/node_modules/@types/node/",\
+          "packageDependencies": [\
+            ["@types/node", "npm:18.16.3"]\
           ],\
           "linkType": "HARD"\
         }]\
