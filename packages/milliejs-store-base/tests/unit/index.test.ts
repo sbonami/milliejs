@@ -1,4 +1,4 @@
-export { LifecycleEvents, isEntity, isQuery } from "@milliejs/core"
+import { LifecycleEvents, isEntity, isQuery } from "@milliejs/core"
 import * as StoreBaseModule from "../../src/index"
 import { isStoreLifecycleInterface } from "../../src/lifecycle"
 import { isPublisherActionInterface } from "../../src/publisher"
