@@ -60,7 +60,9 @@ describe("IncrementalStore", () => {
     describe("[replicaStore]", () => {
       describe("when the provided replicaStore is also an event interface", () => {
         beforeEach(() => {
-          ;(events.isPublisherActionEventInterface as any).mockReturnValue(true)
+          jest
+            .spyOn(events, "isPublisherActionEventInterface")
+            .mockReturnValue(true)
         })
 
         it("should set the replicaStore directly", () => {
@@ -97,9 +99,9 @@ describe("IncrementalStore", () => {
       describe("when the store is instantiated with only the sourcePublisher interface option", () => {
         describe("when the provided sourcePublisher is also an event interface", () => {
           beforeEach(() => {
-            ;(events.isPublisherActionEventInterface as any).mockReturnValue(
-              true,
-            )
+            jest
+              .spyOn(events, "isPublisherActionEventInterface")
+              .mockReturnValue(true)
           })
 
           it("should create an instance of IncrementalStore with the sourcePublisher", () => {
@@ -146,7 +148,9 @@ describe("IncrementalStore", () => {
     describe("[sourceSubscriber]", () => {
       describe("when the store is instantiated with only the sourceSubscriber interface option", () => {
         beforeEach(() => {
-          ;(events.isPublisherActionEventInterface as any).mockReturnValue(true)
+          jest
+            .spyOn(events, "isPublisherActionEventInterface")
+            .mockReturnValue(true)
         })
 
         it("should create an instance of IncrementalStore with only sourceSubscriber", () => {
@@ -203,7 +207,9 @@ describe("IncrementalStore", () => {
 
     describe("when the new sourcePublisher is also an event interface", () => {
       beforeEach(() => {
-        ;(events.isPublisherActionEventInterface as any).mockReturnValue(true)
+        jest
+          .spyOn(events, "isPublisherActionEventInterface")
+          .mockReturnValue(true)
       })
 
       it("updates the Incremental Store's _sourcePublisher to the provided sourcePublisher", () => {
