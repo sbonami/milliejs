@@ -1,5 +1,6 @@
 import type { StoreLifecycleInterface } from "@milliejs/store-base"
 import { Worker } from "../../src/worker"
+import EventEmitter from "events"
 
 class MockStoreConnection implements StoreLifecycleInterface {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -115,42 +116,95 @@ describe("Worker", () => {
   })
 
   describe("if the callback throws an error", () => {
-    it.skip("should close", async () => {
+    it("should close", async () => {
       expect.assertions(1)
 
       const worker = new MockWorkerSubclass()
       const mockConnection = new MockStoreConnection()
+      jest.spyOn(worker as any, "init").mockImplementation(() => {
+        throw new Error("Mock Error")
+      })
 
       worker.mockConnections.push(mockConnection)
       const spy = jest.spyOn(worker as any, "close")
-      const mockCallback = () => {
-        return Promise.reject("Error")
-      }
 
-      await worker["listen"](mockCallback)
+      await worker["listen"]()
 
       jest.advanceTimersByTime(1000)
       expect(spy).toHaveBeenCalled()
     })
 
-    it.skip("should log the error", async () => {
+    it("should log the error", async () => {
       expect.assertions(1)
 
+      const error = new Error("Mock Error")
       const worker = new MockWorkerSubclass()
       const mockConnection = new MockStoreConnection()
+      jest.spyOn(worker as any, "init").mockImplementation(() => {
+        throw error
+      })
 
       worker.mockConnections.push(mockConnection)
       const spy = jest.spyOn(console, "error")
-      const mockCallback = () => {
-        return Promise.reject("Error")
-      }
 
-      await worker["listen"](mockCallback)
+      await worker["listen"]()
 
       jest.advanceTimersByTime(1000)
-      expect(spy).toHaveBeenCalledWith(
-        expect.objectContaining({ error: "Error" }),
-      )
+      expect(spy).toHaveBeenCalledWith(expect.objectContaining({ error }))
     })
   })
+
+  describe.each(["SIGTERM", "exit"])(
+    "if the process recieves a %s",
+    (signal) => {
+      const mockExit = jest.fn()
+      beforeEach(() => {
+        jest.spyOn(process, "exit").mockImplementationOnce(mockExit as any)
+      })
+
+      it("should debug with the exit code", async () => {
+        expect.assertions(1)
+
+        const mockProcess = new EventEmitter()
+        jest.spyOn(process, "on").mockImplementation((eventName, listener) => {
+          mockProcess.on(eventName, listener)
+          return process
+        })
+
+        const worker = new MockWorkerSubclass()
+        const mockConnection = new MockStoreConnection()
+        worker.mockConnections.push(mockConnection)
+
+        const spy = jest.spyOn(console, "debug")
+
+        await worker["listen"]()
+
+        mockProcess.emit(signal, 0)
+        jest.advanceTimersByTime(1000)
+        expect(spy).toHaveBeenCalledWith(expect.stringMatching("SIGTERM"))
+      })
+
+      it("should close the worker", async () => {
+        expect.assertions(1)
+
+        const mockProcess = new EventEmitter()
+        jest.spyOn(process, "on").mockImplementation((eventName, listener) => {
+          mockProcess.on(eventName, listener)
+          return process
+        })
+
+        const worker = new MockWorkerSubclass()
+        const mockConnection = new MockStoreConnection()
+        worker.mockConnections.push(mockConnection)
+
+        const spy = jest.spyOn(worker, "close")
+
+        await worker["listen"]()
+
+        mockProcess.emit(signal, 0)
+        jest.advanceTimersByTime(1000)
+        expect(spy).toHaveBeenCalled()
+      })
+    },
+  )
 })
