@@ -11,7 +11,9 @@
     "format": "yarn format:script --write",
     "format:ci": "yarn format:script --check",
     "lint": "eslint --ignore-path .gitignore .",
-    "test": "jest"
+    "test": "yarn test:unit && yarn test:integration",
+    "test:unit": "jest --config=jest.config.unit.js",
+    "test:integration": "jest --config=jest.config.integration.js"
   },
   "engines": {
     "node": ">=14.0.0 || >=16.0.0 || >=18.0.0"

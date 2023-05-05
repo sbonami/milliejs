@@ -5,8 +5,6 @@ module.exports = {
   preset: "ts-jest",
   testEnvironment: "node",
 
-  testRegex: "packages/(.*)/tests/(unit|integration)/(.*).(spec|test).ts$",
-
   collectCoverage: true,
   collectCoverageFrom: ["packages/*/src/**/*.{js,ts}"],
   coverageThreshold: {

@@ -1,5 +1,6 @@
 env:
   es2020: true # tracks tsconfig lib & target
+  node: true
 
 extends:
   - eslint:recommended
