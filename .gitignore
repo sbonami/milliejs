@@ -20,6 +20,7 @@ node_modules/
 
 # Built packages
 packages/*/dist/
+packages/*/tsconfig.tsbuildinfo
 
 # Testing
 ## Coverage
