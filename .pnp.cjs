@@ -30,6 +30,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {\
         "name": "@milliejs/store-base",\
         "reference": "workspace:packages/milliejs-store-base"\
+      },\
+      {\
+        "name": "@milliejs/store-memory",\
+        "reference": "workspace:packages/milliejs-store-memory"\
       }\
     ],\
     "enableTopLevelFallback": true,\
@@ -39,6 +43,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@milliejs/jest-utils", ["workspace:packages/milliejs-jest-utils"]],\
       ["@milliejs/monorepo", ["workspace:."]],\
       ["@milliejs/store-base", ["workspace:packages/milliejs-store-base"]],\
+      ["@milliejs/store-memory", ["workspace:packages/milliejs-store-memory"]],\
       ["millie", ["workspace:packages/milliejs"]]\
     ],\
     "fallbackPool": [\
@@ -1348,6 +1353,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@milliejs/core", "workspace:packages/milliejs-core"],\
             ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
             ["@types/node", "npm:18.13.0"],\
+            ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["@milliejs/store-memory", [\
+        ["workspace:packages/milliejs-store-memory", {\
+          "packageLocation": "./packages/milliejs-store-memory/",\
+          "packageDependencies": [\
+            ["@milliejs/store-memory", "workspace:packages/milliejs-store-memory"],\
+            ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
+            ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
+            ["@types/node", "npm:18.13.0"],\
+            ["fast-json-patch", "npm:3.1.1"],\
+            ["tiny-invariant", "npm:1.3.1"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
           ],\
           "linkType": "SOFT"\
@@ -3389,6 +3409,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["glob-parent", "npm:5.1.2"],\
             ["merge2", "npm:1.4.1"],\
             ["micromatch", "npm:4.0.5"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["fast-json-patch", [\
+        ["npm:3.1.1", {\
+          "packageLocation": "./.yarn/cache/fast-json-patch-npm-3.1.1-7e8bb70a45-c4525b61b2.zip/node_modules/fast-json-patch/",\
+          "packageDependencies": [\
+            ["fast-json-patch", "npm:3.1.1"]\
           ],\
           "linkType": "HARD"\
         }]\
