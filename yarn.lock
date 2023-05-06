@@ -4037,9 +4037,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"millie@workspace:packages/milliejs":
+"milliejs@workspace:packages/milliejs":
   version: 0.0.0-use.local
-  resolution: "millie@workspace:packages/milliejs"
+  resolution: "milliejs@workspace:packages/milliejs"
   dependencies:
     "@milliejs/core": "workspace:^"
     "@milliejs/jest-utils": "workspace:^"
