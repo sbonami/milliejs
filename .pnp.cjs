@@ -16,7 +16,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:."\
       },\
       {\
-        "name": "millie",\
+        "name": "milliejs",\
         "reference": "workspace:packages/milliejs"\
       },\
       {\
@@ -44,7 +44,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@milliejs/monorepo", ["workspace:."]],\
       ["@milliejs/store-base", ["workspace:packages/milliejs-store-base"]],\
       ["@milliejs/store-memory", ["workspace:packages/milliejs-store-memory"]],\
-      ["millie", ["workspace:packages/milliejs"]]\
+      ["milliejs", ["workspace:packages/milliejs"]]\
     ],\
     "fallbackPool": [\
     ],\
@@ -5268,11 +5268,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["millie", [\
+      ["milliejs", [\
         ["workspace:packages/milliejs", {\
           "packageLocation": "./packages/milliejs/",\
           "packageDependencies": [\
-            ["millie", "workspace:packages/milliejs"],\
+            ["milliejs", "workspace:packages/milliejs"],\
             ["@milliejs/core", "workspace:packages/milliejs-core"],\
             ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
             ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
