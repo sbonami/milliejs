@@ -4,6 +4,17 @@ on:
   pull_request:
 
 jobs:
+  check-dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          cache: "yarn"
+      - run: yarn install --immutable --immutable-cache --check-cache
+
   build:
     strategy:
       matrix:
@@ -18,7 +29,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "yarn"
-      - run: yarn install --immutable --immutable-cache --check-cache
+      - run: yarn install --immutable --immutable-cache
       - run: yarn build
       - name: Cache build artifacts
         uses: actions/cache@v3
