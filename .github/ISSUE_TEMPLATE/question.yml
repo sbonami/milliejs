@@ -1,0 +1,38 @@
+name: 'Questions / Help 💬'
+description: Submit a question about the library
+title: '[Question]: '
+labels: [':speech_balloon: Question']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Thank you for taking the time to use MillieJS!
+
+        MillieJS is a pre-production library with a small but growing community. Thank you for taking interest in the library, giving us a shot, and providing your feedback!
+  - type: markdown
+    attributes:
+      value: |
+        ## Questions and Help 💬
+
+- type: markdown
+    attributes:
+      value: |
+        ## Have Patience
+        At this stage, your questions may be due to missing or incomplete functionality, sparse documentation, or a happy little accident. Bear with us, or better yet help us out with a pull request.
+
+        ---
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: What question do you have for the MillieJS community?
+    validations:
+      required: true
+  - type: checkboxes
+    id: willing-contributor
+    attributes:
+      label: Contributing
+      description: Are you willing and able to contribute to this library?
+      options:
+        - label: I am!
+          required: true
