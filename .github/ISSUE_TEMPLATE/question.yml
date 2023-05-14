@@ -1,7 +1,7 @@
 name: 'Questions / Help 💬'
 description: Submit a question about the library
 title: '[Question]: '
-labels: [':speech_balloon: Question']
+labels: ['question']
 body:
   - type: markdown
     attributes:
