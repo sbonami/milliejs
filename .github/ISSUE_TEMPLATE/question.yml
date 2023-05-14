@@ -1,7 +1,7 @@
 name: Questions / Help 💬
 description: Submit a question about the library
-title: '[Question]: '
-labels: ['question']
+title: "[Question]: "
+labels: ["question"]
 body:
   - type: markdown
     attributes:

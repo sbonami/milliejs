@@ -1,7 +1,7 @@
 # MillieJS
 
 MillieJS is a Node.js library written in TypeScript that provides an incremental
-store inspired by Apple's iOS NSIncrementalStore.  MillieJS is designed to be
+store inspired by Apple's iOS NSIncrementalStore. MillieJS is designed to be
 flexible and can be extended to work with a variety of interfaces. Whether
 you're working on a new application or looking to add incremental storage
 capabilities, MillieJS is an excellent choice for a fast, reliable, and
@@ -32,10 +32,10 @@ Working between your data stores happens with three componenents: a replica stor
 a source store crud "push" adapter, and an optional source store subscription "pull" adapter.
 
 ```js
-import MillieJS from 'milliejs'
-import MillieCRUDStore from '@milliejs/store-*'
-import MillieMemoryStore from '@milliejs/store-*'
-import MilliePubSubStore from '@milliejs/store-*'
+import MillieJS from "milliejs"
+import MillieCRUDStore from "@milliejs/store-*"
+import MillieMemoryStore from "@milliejs/store-*"
+import MilliePubSubStore from "@milliejs/store-*"
 
 const millie = new MillieJS()
 
@@ -64,12 +64,9 @@ complex logic working behind the scenes to provide the most up-to-date data.
 #### Create
 
 ```js
-const janeDoe = await millie.create(
-  personResource,
-  {
-    name: "Jane Doe",
-  }
-)
+const janeDoe = await millie.create(personResource, {
+  name: "Jane Doe",
+})
 ```
 
 [Diagram](docs/actions/create.md)
@@ -77,16 +74,13 @@ const janeDoe = await millie.create(
 #### Read
 
 ```js
-const johnDoe = await millie.read(
-  personResource,
-  {
-    resource: personResource,
-    cardinality: "one",
-    attributes: {
-      name: "John Doe",
-    },
-  }
-)
+const johnDoe = await millie.read(personResource, {
+  resource: personResource,
+  cardinality: "one",
+  attributes: {
+    name: "John Doe",
+  },
+})
 ```
 
 [Diagram](docs/actions/read.md)
@@ -107,7 +101,7 @@ const jonathanDoe = await millie.update(
   },
   {
     name: "Jonathan Doe",
-  }
+  },
 )
 ```
 
@@ -140,16 +134,13 @@ const jonDoe = await millie.patch(
 #### Delete
 
 ```js
-const result = await millie.delete(
-  personResource,
-  {
-    resource: personResource,
-    cardinality: "one",
-    attributes: {
-      name: "Jon Doe",
-    },
+const result = await millie.delete(personResource, {
+  resource: personResource,
+  cardinality: "one",
+  attributes: {
+    name: "Jon Doe",
   },
-)
+})
 ```
 
 [Diagram](docs/actions/delete.md)
@@ -162,20 +153,18 @@ complex logic working behind the scenes to provide the most up-to-date data.
 #### Create
 
 ```js
-
 const calculateBalance = (entity) => {
   const balance = entity.data.debit - entity.data.credit
-  console.log("Account Balance for customer " + entity.customer + " is $" + balance)
+  console.log(
+    "Account Balance for customer " + entity.customer + " is $" + balance,
+  )
 }
 
 millie.on(bankAccountResource, "millie:delta", calculateBalance)
 
-const bankAccount = await millie.read(
-  bankAccountResource,
-  {
-    customer: janeDoe.id,
-  }
-)
+const bankAccount = await millie.read(bankAccountResource, {
+  customer: janeDoe.id,
+})
 calculateBalance(bankAccount)
 ```
 
