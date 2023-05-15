@@ -1,5 +1,5 @@
 import MillieJS, { Resource } from "../../src/index"
-import MillieMemoryStore from "../../../milliejs-store-memory/src/index"
+import MillieMemoryStore from "@milliejs/store-memory"
 
 const resource: Resource = {
   id: "person",

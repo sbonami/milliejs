@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@milliejs/jest-utils": "workspace:^",
+    "@milliejs/store-memory": "workspace:^",
     "@types/node": "^18.13.0"
   }
 }
