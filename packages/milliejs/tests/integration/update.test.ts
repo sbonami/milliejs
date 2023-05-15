@@ -1,23 +1,25 @@
 import MillieJS, { Entity, Query, Resource } from "../../src/index"
 import MillieMemoryStore from "@milliejs/store-memory"
+import {
+  makeMockEntity,
+  makeMockQuery,
+  makeMockResource,
+} from "@milliejs/jest-utils"
 
-const resource: Resource = {
-  id: "person",
-}
-const query: Query = {
+const resource = makeMockResource({})
+const query = makeMockQuery({
   resource,
   cardinality: "many",
   attributes: {
     a: "a",
   },
-}
-const entity: Entity<Resource> = {
-  id: "1",
+})
+const entity = makeMockEntity({
   resource,
   data: {
     a: "a",
   },
-}
+})
 const data = {}
 
 describe("Millie update", () => {

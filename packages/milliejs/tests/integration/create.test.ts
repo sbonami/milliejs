@@ -1,9 +1,10 @@
-import MillieJS, { Resource } from "../../src/index"
+import MillieJS from "../../src/index"
 import MillieMemoryStore from "@milliejs/store-memory"
+import {
+  makeMockResource,
+} from "@milliejs/jest-utils"
 
-const resource: Resource = {
-  id: "person",
-}
+const resource = makeMockResource({})
 
 describe("Millie create", () => {
   let millie: MillieJS
