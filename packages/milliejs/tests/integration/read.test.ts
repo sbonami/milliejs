@@ -20,7 +20,6 @@ const entity = makeMockEntity({
     a: "a",
   },
 })
-const data = {}
 
 describe("Millie read", () => {
   let millie: MillieJS
