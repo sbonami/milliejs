@@ -2,6 +2,7 @@ import EventEmitter from "node:events"
 import {
   Entity,
   isEntity,
+  LifecycleEvents,
   PublisherActionInterface,
   Query,
   Resource,
@@ -48,6 +49,7 @@ class InMemoryStore<R extends Resource = Resource<any>>
 
   async create(entity: Entity<R>) {
     this.storeForResource(entity.resource).set(entity.id, entity)
+    this.emit(LifecycleEvents.Save, entity)
     return entity
   }
 
@@ -67,15 +69,17 @@ class InMemoryStore<R extends Resource = Resource<any>>
     if (isEntity(entityOrQuery)) {
       const updatedEntity = { ...entityOrQuery, data }
       slice.set(entityOrQuery.id, updatedEntity)
+      this.emit(LifecycleEvents.Save, updatedEntity)
       return [updatedEntity]
     } else {
       const entities = await this.read(entityOrQuery)
       const updatedEntities = entities.map((entity) => ({ ...entity, data }))
       updatedEntities.forEach((updatedEntity) => {
-        return this.storeForResource(entityOrQuery.resource).set(
+        this.storeForResource(entityOrQuery.resource).set(
           updatedEntity.id,
           updatedEntity,
         )
+        this.emit(LifecycleEvents.Save, updatedEntity)
       })
       return updatedEntities
     }
@@ -87,6 +91,7 @@ class InMemoryStore<R extends Resource = Resource<any>>
     if (isEntity(entityOrQuery)) {
       const patchedEntity = patchEntity(entityOrQuery, patch)
       slice.set(entityOrQuery.id, patchedEntity)
+      this.emit(LifecycleEvents.Save, patchedEntity)
       return [patchedEntity]
     } else {
       const entities = await this.read(entityOrQuery)
@@ -94,10 +99,11 @@ class InMemoryStore<R extends Resource = Resource<any>>
         patchEntity(entity, patch),
       )
       patchedEntities.forEach((patchedEntity) => {
-        return this.storeForResource(entityOrQuery.resource).set(
+        this.storeForResource(entityOrQuery.resource).set(
           patchedEntity.id,
           patchedEntity,
         )
+        this.emit(LifecycleEvents.Save, patchedEntity)
       })
       return patchedEntities
     }
@@ -108,13 +114,13 @@ class InMemoryStore<R extends Resource = Resource<any>>
 
     if (isEntity(entityOrQuery)) {
       slice.delete(entityOrQuery.id)
+      this.emit(LifecycleEvents.Delete, entityOrQuery)
       return [entityOrQuery]
     } else {
       const matchingEntities = await this.read(entityOrQuery)
       matchingEntities.forEach((matchingEntity) => {
-        return this.storeForResource(entityOrQuery.resource).delete(
-          matchingEntity.id,
-        )
+        this.storeForResource(entityOrQuery.resource).delete(matchingEntity.id)
+        this.emit(LifecycleEvents.Delete, matchingEntity)
       })
       return matchingEntities
     }
