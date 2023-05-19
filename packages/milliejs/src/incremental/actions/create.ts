@@ -11,11 +11,11 @@ export class CreateAction<R extends Resource>
     invariant(this.store.replicaStore, "Replica Store cannot be undefined")
 
     // optimistic into replicaStore
-    const entities = this.store.replicaStore.create(data)
+    const entity = this.store.replicaStore.create(data)
 
     // to source
     await this.store.sourcePublisher?.create(data)
 
-    return entities
+    return entity
   }
 }
