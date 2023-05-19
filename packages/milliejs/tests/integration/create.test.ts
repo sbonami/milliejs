@@ -4,7 +4,7 @@ import {
   makeMockResource,
 } from "@milliejs/jest-utils"
 
-const resource = makeMockResource({})
+const mockResource = makeMockResource({})
 
 describe("Millie create", () => {
   let millie: MillieJS
@@ -14,7 +14,7 @@ describe("Millie create", () => {
     millie = new MillieJS()
     replicaStore = new MillieMemoryStore({})
     sourcePublisher = new MillieMemoryStore({})
-    millie.registerResource(resource, replicaStore, {
+    millie.registerResource(mockResource, replicaStore, {
       sourcePublisher,
     })
   })
@@ -25,10 +25,10 @@ describe("Millie create", () => {
 
       const spy = jest.spyOn(replicaStore, "create")
 
-      millie.create(resource, { resource, data })
+      millie.create(mockResource, { resource: mockResource, data })
       expect(spy).toHaveBeenCalledWith(
         expect.objectContaining({
-          resource,
+          resource: mockResource,
           data,
         }),
       )
@@ -50,10 +50,10 @@ describe("Millie create", () => {
 
         const spy = jest.spyOn(sourcePublisher, "create")
 
-        millie.create(resource, { resource, data })
+        millie.create(mockResource, { resource: mockResource, data })
         expect(spy).toHaveBeenCalledWith(
           expect.objectContaining({
-            resource,
+            resource: mockResource,
             data,
           }),
         )
@@ -69,10 +69,10 @@ describe("Millie create", () => {
 
       const spy = jest.spyOn(sourcePublisher, "create")
 
-      millie.create(resource, { resource, data })
+      millie.create(mockResource, { resource: mockResource, data })
       expect(spy).toHaveBeenCalledWith(
         expect.objectContaining({
-          resource,
+          resource: mockResource,
           data,
         }),
       )
@@ -98,10 +98,10 @@ describe("Millie create", () => {
 
         const spy = jest.spyOn(replicaStore, "create")
 
-        millie.create(resource, { resource, data })
+        millie.create(mockResource, { resource: mockResource, data })
         expect(spy).toHaveBeenCalledWith(
           expect.objectContaining({
-            resource,
+            resource: mockResource,
             data,
           }),
         )

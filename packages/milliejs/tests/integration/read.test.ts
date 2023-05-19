@@ -1,4 +1,4 @@
-import MillieJS, { Entity, Query, Resource } from "../../src/index"
+import MillieJS from "../../src/index"
 import MillieMemoryStore from "@milliejs/store-memory"
 import {
   makeMockEntity,
@@ -6,16 +6,16 @@ import {
   makeMockResource,
 } from "@milliejs/jest-utils"
 
-const resource = makeMockResource({})
-const query = makeMockQuery({
-  resource,
+const mockResource = makeMockResource({})
+const mockQuery = makeMockQuery({
+  resource: mockResource,
   cardinality: "many",
   attributes: {
     a: "a",
   },
 })
-const entity = makeMockEntity({
-  resource,
+const mockEntity = makeMockEntity({
+  resource: mockResource,
   data: {
     a: "a",
   },
@@ -28,10 +28,10 @@ describe("Millie read", () => {
   beforeEach(() => {
     millie = new MillieJS()
     replicaStore = new MillieMemoryStore({})
-    replicaStore.store.set(resource.id, new Map())
+    replicaStore.store.set(mockResource.id, new Map())
     sourcePublisher = new MillieMemoryStore({})
-    sourcePublisher.store.set(resource.id, new Map())
-    millie.registerResource(resource, replicaStore, {
+    sourcePublisher.store.set(mockResource.id, new Map())
+    millie.registerResource(mockResource, replicaStore, {
       sourcePublisher,
     })
   })
@@ -40,8 +40,8 @@ describe("Millie read", () => {
     it("reads the entities from the replicaStore", () => {
       const spy = jest.spyOn(replicaStore, "read")
 
-      millie.read(resource, query)
-      expect(spy).toHaveBeenCalledWith(query)
+      millie.read(mockResource, mockQuery)
+      expect(spy).toHaveBeenCalledWith(mockQuery)
     })
 
     describe("when the replicaStore request takes a while", () => {
@@ -49,7 +49,7 @@ describe("Millie read", () => {
         jest.spyOn(replicaStore, "read").mockImplementation((query) => {
           return new Promise<any>((resolve) => {
             setTimeout(() => {
-              resolve([entity])
+              resolve([mockEntity])
             }, 1000)
           })
         })
@@ -58,8 +58,8 @@ describe("Millie read", () => {
       it("still reads the entities in the source optimistically", () => {
         const spy = jest.spyOn(sourcePublisher, "read")
 
-        millie.read(resource, query)
-        expect(spy).toHaveBeenCalledWith(query)
+        millie.read(mockResource, mockQuery)
+        expect(spy).toHaveBeenCalledWith(mockQuery)
       })
 
       describe("after the source succeeds with the read and returns the found entities", () => {
@@ -70,9 +70,9 @@ describe("Millie read", () => {
     it("reads the entities in the source", () => {
       const spy = jest.spyOn(sourcePublisher, "read")
 
-      millie.read(resource, query)
+      millie.read(mockResource, mockQuery)
 
-      expect(spy).toHaveBeenCalledWith(query)
+      expect(spy).toHaveBeenCalledWith(mockQuery)
     })
 
     describe("after the source succeeds with the read and returns the found entities", () => {
@@ -84,7 +84,7 @@ describe("Millie read", () => {
         jest.spyOn(sourcePublisher, "read").mockImplementation((query) => {
           return new Promise<any>((resolve) => {
             setTimeout(() => {
-              resolve([entity])
+              resolve([mockEntity])
             }, 1000)
           })
         })
@@ -93,8 +93,8 @@ describe("Millie read", () => {
       it("still reads the entities from the replicaStore optimistically", () => {
         const spy = jest.spyOn(replicaStore, "read")
 
-        millie.read(resource, query)
-        expect(spy).toHaveBeenCalledWith(query)
+        millie.read(mockResource, mockQuery)
+        expect(spy).toHaveBeenCalledWith(mockQuery)
       })
     })
   })

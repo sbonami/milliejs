@@ -6,16 +6,16 @@ import {
   makeMockResource,
 } from "@milliejs/jest-utils"
 
-const resource = makeMockResource({})
-const query = makeMockQuery({
-  resource,
+const mockResource = makeMockResource({})
+const mockQuery = makeMockQuery({
+  resource: mockResource,
   cardinality: "many",
   attributes: {
     a: "a",
   },
 })
-const entity = makeMockEntity({
-  resource,
+const mockEntity = makeMockEntity({
+  resource: mockResource,
   data: {
     a: "a",
   },
@@ -36,20 +36,20 @@ describe("Millie patch", () => {
     millie = new MillieJS()
     replicaStore = new MillieMemoryStore({})
     sourcePublisher = new MillieMemoryStore({})
-    millie.registerResource(resource, replicaStore, {
+    millie.registerResource(mockResource, replicaStore, {
       sourcePublisher,
     })
   })
 
   describe("when the client patches entities", () => {
     describe.each<[string, Entity<Resource> | Query]>([
-      ["a query", query],
-      ["an entity", entity],
+      ["a query", mockQuery],
+      ["an entity", mockEntity],
     ])("via %s", (_, entityOrQueryProp) => {
       it("patches the entities in the replicaStore", () => {
         const spy = jest.spyOn(replicaStore, "patch")
 
-        millie.patch(resource, entityOrQueryProp, patch)
+        millie.patch(mockResource, entityOrQueryProp, patch)
         expect(spy).toHaveBeenCalledWith(entityOrQueryProp, patch)
       })
 
@@ -60,7 +60,7 @@ describe("Millie patch", () => {
             .mockImplementation((entityOrQuery) => {
               return new Promise<any>((resolve) => {
                 setTimeout(() => {
-                  resolve([entity])
+                  resolve([mockEntity])
                 }, 1000)
               })
             })
@@ -69,7 +69,7 @@ describe("Millie patch", () => {
         it("still patches the entities in the source optimistically", () => {
           const spy = jest.spyOn(sourcePublisher, "patch")
 
-          millie.patch(resource, entityOrQueryProp, patch)
+          millie.patch(mockResource, entityOrQueryProp, patch)
           expect(spy).toHaveBeenCalledWith(entityOrQueryProp, patch)
         })
 
@@ -81,7 +81,7 @@ describe("Millie patch", () => {
       it("patches the entities in the source", () => {
         const spy = jest.spyOn(sourcePublisher, "patch")
 
-        millie.patch(resource, entityOrQueryProp, patch)
+        millie.patch(mockResource, entityOrQueryProp, patch)
 
         expect(spy).toHaveBeenCalledWith(entityOrQueryProp, patch)
       })
@@ -97,7 +97,7 @@ describe("Millie patch", () => {
             .mockImplementation((entityOrQuery) => {
               return new Promise<any>((resolve) => {
                 setTimeout(() => {
-                  resolve([entity])
+                  resolve([mockEntity])
                 }, 1000)
               })
             })
@@ -106,7 +106,7 @@ describe("Millie patch", () => {
         it("still patches the entities in the replicaStore optimistically", () => {
           const spy = jest.spyOn(replicaStore, "patch")
 
-          millie.patch(resource, entityOrQueryProp, patch)
+          millie.patch(mockResource, entityOrQueryProp, patch)
           expect(spy).toHaveBeenCalledWith(entityOrQueryProp, patch)
         })
       })

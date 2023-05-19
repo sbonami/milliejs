@@ -6,16 +6,16 @@ import {
   makeMockResource,
 } from "@milliejs/jest-utils"
 
-const resource = makeMockResource({})
-const query = makeMockQuery({
-  resource,
+const mockResource = makeMockResource({})
+const mockQuery = makeMockQuery({
+  resource: mockResource,
   cardinality: "many",
   attributes: {
     a: "a",
   },
 })
-const entity = makeMockEntity({
-  resource,
+const mockEntity = makeMockEntity({
+  resource: mockResource,
   data: {
     a: "a",
   },
@@ -29,23 +29,23 @@ describe("Millie update", () => {
   beforeEach(() => {
     millie = new MillieJS()
     replicaStore = new MillieMemoryStore({})
-    replicaStore.store.set(resource.id, new Map())
+    replicaStore.store.set(mockResource.id, new Map())
     sourcePublisher = new MillieMemoryStore({})
-    sourcePublisher.store.set(resource.id, new Map())
-    millie.registerResource(resource, replicaStore, {
+    sourcePublisher.store.set(mockResource.id, new Map())
+    millie.registerResource(mockResource, replicaStore, {
       sourcePublisher,
     })
   })
 
   describe("when the client updates entities", () => {
     describe.each<[string, Entity<Resource> | Query]>([
-      ["a query", query],
-      ["an entity", entity],
+      ["a query", mockQuery],
+      ["an entity", mockEntity],
     ])("via %s", (_, entityOrQueryProp) => {
       it("updates the entities in the replicaStore", () => {
         const spy = jest.spyOn(replicaStore, "update")
 
-        millie.update(resource, entityOrQueryProp, data)
+        millie.update(mockResource, entityOrQueryProp, data)
         expect(spy).toHaveBeenCalledWith(entityOrQueryProp, data)
       })
 
@@ -56,7 +56,7 @@ describe("Millie update", () => {
             .mockImplementation((entityOrQuery, data) => {
               return new Promise<any>((resolve) => {
                 setTimeout(() => {
-                  resolve([entity])
+                  resolve([mockEntity])
                 }, 1000)
               })
             })
@@ -65,7 +65,7 @@ describe("Millie update", () => {
         it("still updates the entities in the source optimistically", () => {
           const spy = jest.spyOn(sourcePublisher, "update")
 
-          millie.update(resource, entityOrQueryProp, data)
+          millie.update(mockResource, entityOrQueryProp, data)
           expect(spy).toHaveBeenCalledWith(entityOrQueryProp, data)
         })
 
@@ -77,7 +77,7 @@ describe("Millie update", () => {
       it("updates the entities in the source", () => {
         const spy = jest.spyOn(sourcePublisher, "update")
 
-        millie.update(resource, entityOrQueryProp, data)
+        millie.update(mockResource, entityOrQueryProp, data)
 
         expect(spy).toHaveBeenCalledWith(entityOrQueryProp, data)
       })
@@ -93,7 +93,7 @@ describe("Millie update", () => {
             .mockImplementation((entityOrQuery, data) => {
               return new Promise<any>((resolve) => {
                 setTimeout(() => {
-                  resolve([entity])
+                  resolve([mockEntity])
                 }, 1000)
               })
             })
@@ -102,7 +102,7 @@ describe("Millie update", () => {
         it("still updates the entities in the replicaStore optimistically", () => {
           const spy = jest.spyOn(replicaStore, "update")
 
-          millie.update(resource, entityOrQueryProp, data)
+          millie.update(mockResource, entityOrQueryProp, data)
           expect(spy).toHaveBeenCalledWith(entityOrQueryProp, data)
         })
       })
