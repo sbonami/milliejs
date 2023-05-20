@@ -13,11 +13,11 @@ export class DeleteAction<R extends Resource>
     invariant(this.store.replicaStore, "Replica Store cannot be undefined")
 
     // optimistic into replicaStore
-    this.store.replicaStore.delete(entityOrQuery)
+    const response = this.store.replicaStore.delete(entityOrQuery)
 
     // to source
     await this.store.sourcePublisher?.delete(entityOrQuery)
 
-    return true
+    return response
   }
 }

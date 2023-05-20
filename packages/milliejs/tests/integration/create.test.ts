@@ -1,8 +1,8 @@
-import MillieJS from "../../src/index"
+import { EventEmitter } from "node:events"
+import MillieJS, { Entity, LifecycleEvents, Resource } from "../../src/index"
 import MillieMemoryStore from "@milliejs/store-memory"
-import {
-  makeMockResource,
-} from "@milliejs/jest-utils"
+import { makeMockResource } from "@milliejs/jest-utils"
+import asyncCallback from "./helpers/asyncCallback"
 
 const mockResource = makeMockResource({})
 
@@ -10,12 +10,15 @@ describe("Millie create", () => {
   let millie: MillieJS
   let replicaStore: MillieMemoryStore
   let sourcePublisher: MillieMemoryStore
+  let sourceSubscriber: EventEmitter
   beforeEach(() => {
     millie = new MillieJS()
     replicaStore = new MillieMemoryStore({})
     sourcePublisher = new MillieMemoryStore({})
+    sourceSubscriber = new EventEmitter()
     millie.registerResource(mockResource, replicaStore, {
       sourcePublisher,
+      sourceSubscriber,
     })
   })
 
@@ -31,6 +34,42 @@ describe("Millie create", () => {
           resource: mockResource,
           data,
         }),
+      )
+    })
+
+    describe("when the replicaStore succeeds", () => {
+      it.each([[LifecycleEvents.Save], [LifecycleEvents.Delta]])(
+        "emits a %s event with the replicaStore's created entity",
+        (event) => {
+          expect.assertions(2)
+
+          const data = { a: "a" }
+
+          jest.spyOn(replicaStore, "create")
+
+          return asyncCallback((done) => {
+            millie.once(
+              mockResource,
+              event,
+              (resource: Resource, entity: Entity<Resource>) => {
+                try {
+                  expect(resource).toEqual(mockResource)
+                  expect(entity).toEqual(
+                    expect.objectContaining({
+                      resource: mockResource,
+                      data,
+                    }),
+                  )
+                  done()
+                } catch (error) {
+                  done(error)
+                }
+              },
+            )
+
+            return millie.create(mockResource, { resource: mockResource, data })
+          })
+        },
       )
     })
 
@@ -59,7 +98,47 @@ describe("Millie create", () => {
         )
       })
 
+      it.each([[LifecycleEvents.Save], [LifecycleEvents.Delta]])(
+        "still emits a %s event with the replicaStore's created entity",
+        (event) => {
+          expect.assertions(2)
+
+          const data = { a: "a" }
+
+          jest.spyOn(replicaStore, "create")
+
+          return asyncCallback((done) => {
+            millie.once(
+              mockResource,
+              event,
+              (resource: Resource, entity: Entity<Resource>) => {
+                try {
+                  expect(resource).toEqual(mockResource)
+                  expect(entity).toEqual(
+                    expect.objectContaining({
+                      resource,
+                      data,
+                    }),
+                  )
+                  done()
+                } catch (error) {
+                  done(error)
+                }
+              },
+            )
+
+            return millie.create(mockResource, { resource: mockResource, data })
+          })
+        },
+      )
+
       describe("after the source succeeds with the create and returns the resource", () => {
+        it.skip.each([[LifecycleEvents.Save], [LifecycleEvents.Delta]])(
+          "emits a %s event with the source's created entity",
+          // eslint-disable-next-line @typescript-eslint/no-empty-function
+          () => {},
+        )
+
         it.todo("updates the entity in the replicaStore")
       })
     })
@@ -106,6 +185,40 @@ describe("Millie create", () => {
           }),
         )
       })
+
+      it.each([[LifecycleEvents.Save], [LifecycleEvents.Delta]])(
+        "still emits a %s event with the replicaStore's created entity",
+        (event) => {
+          expect.assertions(2)
+
+          const data = { a: "a" }
+
+          jest.spyOn(replicaStore, "create")
+
+          return asyncCallback((done) => {
+            millie.once(
+              mockResource,
+              event,
+              (resource: Resource, entity: Entity<Resource>) => {
+                try {
+                  expect(resource).toEqual(mockResource)
+                  expect(entity).toEqual(
+                    expect.objectContaining({
+                      resource,
+                      data,
+                    }),
+                  )
+                  done()
+                } catch (error) {
+                  done(error)
+                }
+              },
+            )
+
+            return millie.create(mockResource, { resource: mockResource, data })
+          })
+        },
+      )
     })
   })
 

@@ -167,6 +167,58 @@ class MillieJS extends Worker {
 
     return this.storeForResource<R>(resource).delete(...args)
   }
+
+  /**
+   * Delegated Incremental Store Listeners
+   **/
+
+  on<R extends Resource>(
+    resource: R,
+    ...args: Parameters<IncrementalStore<R>["on"]>
+  ): ReturnType<IncrementalStore<R>["on"]> {
+    invariant(
+      this.stores[resource.id],
+      "Resource is not registered with this store",
+    )
+
+    return this.storeForResource<R>(resource).on(...args)
+  }
+
+  addListener<R extends Resource>(
+    resource: R,
+    ...args: Parameters<IncrementalStore<R>["addListener"]>
+  ): ReturnType<IncrementalStore<R>["addListener"]> {
+    invariant(
+      this.stores[resource.id],
+      "Resource is not registered with this store",
+    )
+
+    return this.storeForResource<R>(resource).addListener(...args)
+  }
+
+  once<R extends Resource>(
+    resource: R,
+    ...args: Parameters<IncrementalStore<R>["once"]>
+  ): ReturnType<IncrementalStore<R>["once"]> {
+    invariant(
+      this.stores[resource.id],
+      "Resource is not registered with this store",
+    )
+
+    return this.storeForResource<R>(resource).once(...args)
+  }
+
+  off<R extends Resource>(
+    resource: R,
+    ...args: Parameters<IncrementalStore<R>["off"]>
+  ): ReturnType<IncrementalStore<R>["off"]> {
+    invariant(
+      this.stores[resource.id],
+      "Resource is not registered with this store",
+    )
+
+    return this.storeForResource<R>(resource).off(...args)
+  }
 }
 
 export default MillieJS

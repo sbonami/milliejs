@@ -1,10 +1,18 @@
-import MillieJS, { Entity, Query, Resource } from "../../src/index"
+import MillieJS, {
+  Entity,
+  LifecycleEvents,
+  Query,
+  Resource,
+} from "../../src/index"
 import MillieMemoryStore from "@milliejs/store-memory"
 import {
   makeMockEntity,
   makeMockQuery,
   makeMockResource,
 } from "@milliejs/jest-utils"
+import asyncCallback from "./helpers/asyncCallback"
+
+jest.mock("../../src/worker")
 
 const mockResource = makeMockResource({})
 const mockQuery = makeMockQuery({
@@ -34,6 +42,10 @@ describe("Millie delete", () => {
     millie.registerResource(mockResource, replicaStore, {
       sourcePublisher,
     })
+
+    const seed = [[mockEntity.id, mockEntity]] as const
+    replicaStore.store.set(mockResource.id, new Map(seed))
+    sourcePublisher.store.set(mockResource.id, new Map(seed))
   })
 
   describe("when the client deletes entities", () => {
@@ -46,6 +58,42 @@ describe("Millie delete", () => {
 
         millie.delete(mockResource, entityOrQueryProp)
         expect(spy).toHaveBeenCalledWith(entityOrQueryProp)
+      })
+
+      describe("when the replicaStore deletion succeeds", () => {
+        it.each([[LifecycleEvents.Delete]])(
+          "emits a %s event with the replicaStore's deleted entity",
+          (event) => {
+            expect.assertions(2)
+
+            const data = { a: "a" }
+
+            jest.spyOn(replicaStore, "delete")
+
+            return asyncCallback((done) => {
+              millie.once(
+                mockResource,
+                event,
+                (resource: Resource, entity: Entity<Resource>) => {
+                  try {
+                    expect(resource).toEqual(mockResource)
+                    expect(entity).toEqual(
+                      expect.objectContaining({
+                        resource: mockResource,
+                        data,
+                      }),
+                    )
+                    done()
+                  } catch (error) {
+                    done(error)
+                  }
+                },
+              )
+
+              return millie.delete(mockResource, entityOrQueryProp)
+            })
+          },
+        )
       })
 
       describe("when the replicaStore request takes a while", () => {

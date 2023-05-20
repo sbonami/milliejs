@@ -16,6 +16,7 @@ import { UpdateAction } from "./incremental/actions/update"
 import { PatchAction } from "./incremental/actions/patch"
 import { DeleteAction } from "./incremental/actions/delete"
 import { deltaEventForwarder } from "./incremental/deltaEventForwarder"
+import { replicaEventForwarder } from "./incremental/replicaEventForwarder"
 import { replicaEventPulldown } from "./incremental/replicaEventPulldown"
 
 export type StoreConstructorSourceOptions<R extends Resource> = {
@@ -67,6 +68,7 @@ export class IncrementalStore<R extends Resource = Resource>
       : new PublisherActionEventWrapper(newReplicaStore)
 
     deltaEventForwarder(this, this._replicaStore)
+    replicaEventForwarder(this, this._replicaStore)
   }
 
   get replicaStore() {

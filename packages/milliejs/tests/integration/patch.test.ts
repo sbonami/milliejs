@@ -1,10 +1,18 @@
-import MillieJS, { Entity, Query, Resource } from "../../src/index"
+import MillieJS, {
+  Entity,
+  LifecycleEvents,
+  Query,
+  Resource,
+} from "../../src/index"
 import MillieMemoryStore from "@milliejs/store-memory"
 import {
   makeMockEntity,
   makeMockQuery,
   makeMockResource,
 } from "@milliejs/jest-utils"
+import asyncCallback from "./helpers/asyncCallback"
+
+jest.mock("../../src/worker")
 
 const mockResource = makeMockResource({})
 const mockQuery = makeMockQuery({
@@ -39,6 +47,10 @@ describe("Millie patch", () => {
     millie.registerResource(mockResource, replicaStore, {
       sourcePublisher,
     })
+
+    const seed = [[mockEntity.id, mockEntity]] as const
+    replicaStore.store.set(mockResource.id, new Map(seed))
+    sourcePublisher.store.set(mockResource.id, new Map(seed))
   })
 
   describe("when the client patches entities", () => {
@@ -51,6 +63,43 @@ describe("Millie patch", () => {
 
         millie.patch(mockResource, entityOrQueryProp, patch)
         expect(spy).toHaveBeenCalledWith(entityOrQueryProp, patch)
+      })
+
+      describe("when the replicaStore succeeds", () => {
+        it.each([[LifecycleEvents.Save], [LifecycleEvents.Delta]])(
+          "emits a %s event with the replicaStore's patched entity",
+          (event) => {
+            expect.assertions(2)
+
+            jest.spyOn(replicaStore, "patch")
+
+            return asyncCallback((done) => {
+              millie.once(
+                mockResource,
+                event,
+                (resource: Resource, entity: Entity<Resource>) => {
+                  try {
+                    expect(resource).toEqual(mockResource)
+                    expect(entity).toEqual(
+                      expect.objectContaining({
+                        ...mockEntity,
+                        data: {
+                          ...mockEntity.data,
+                          a: "AAA",
+                        },
+                      }),
+                    )
+                    done()
+                  } catch (error) {
+                    done(error)
+                  }
+                },
+              )
+
+              return millie.patch(mockResource, entityOrQueryProp, patch)
+            })
+          },
+        )
       })
 
       describe("when the replicaStore request takes a while", () => {
@@ -73,7 +122,48 @@ describe("Millie patch", () => {
           expect(spy).toHaveBeenCalledWith(entityOrQueryProp, patch)
         })
 
+        it.each([[LifecycleEvents.Save], [LifecycleEvents.Delta]])(
+          "still emits a %s event with the replicaStore's patched entity",
+          (event) => {
+            expect.assertions(2)
+
+            jest.spyOn(replicaStore, "patch")
+
+            return asyncCallback((done) => {
+              millie.once(
+                mockResource,
+                event,
+                (resource: Resource, entity: Entity<Resource>) => {
+                  try {
+                    expect(resource).toEqual(mockResource)
+                    expect(entity).toEqual(
+                      expect.objectContaining({
+                        ...mockEntity,
+                        data: {
+                          ...mockEntity.data,
+                          a: "AAA",
+                        },
+                      }),
+                    )
+                    done()
+                  } catch (error) {
+                    done(error)
+                  }
+                },
+              )
+
+              return millie.patch(mockResource, entityOrQueryProp, patch)
+            })
+          },
+        )
+
         describe("after the source succeeds with the patch and returns the patched entities", () => {
+          it.skip.each([[LifecycleEvents.Save], [LifecycleEvents.Delta]])(
+            "emits a %s event with the source's patched entity",
+            // eslint-disable-next-line @typescript-eslint/no-empty-function
+            () => {},
+          )
+
           it.todo("updates the entities in the replicaStore")
         })
       })
@@ -109,6 +199,41 @@ describe("Millie patch", () => {
           millie.patch(mockResource, entityOrQueryProp, patch)
           expect(spy).toHaveBeenCalledWith(entityOrQueryProp, patch)
         })
+
+        it.each([[LifecycleEvents.Save], [LifecycleEvents.Delta]])(
+          "still emits a %s event with the replicaStore's patched entity",
+          (event) => {
+            expect.assertions(2)
+
+            jest.spyOn(replicaStore, "patch")
+
+            return asyncCallback((done) => {
+              millie.once(
+                mockResource,
+                event,
+                (resource: Resource, entity: Entity<Resource>) => {
+                  try {
+                    expect(resource).toEqual(mockResource)
+                    expect(entity).toEqual(
+                      expect.objectContaining({
+                        ...mockEntity,
+                        data: {
+                          ...mockEntity.data,
+                          a: "AAA",
+                        },
+                      }),
+                    )
+                    done()
+                  } catch (error) {
+                    done(error)
+                  }
+                },
+              )
+
+              return millie.patch(mockResource, entityOrQueryProp, patch)
+            })
+          },
+        )
       })
     })
   })
