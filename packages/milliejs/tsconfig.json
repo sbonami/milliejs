@@ -9,6 +9,6 @@
     { "path": "../milliejs-core" },
     { "path": "../milliejs-jest-utils" },
     { "path": "../milliejs-store-base" },
-    { "path": "../milliejs-store-memory" },
+    { "path": "../milliejs-store-memory" }
   ]
 }
