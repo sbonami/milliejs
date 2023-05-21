@@ -30,6 +30,7 @@ by all means a minimally-viable product ("MVP") with intentional limitations in
 place, however, future scale is coming.
 
 More information can be found at the following links:
+
 - Support CRUD action concurrency (#19)
 - CRUD action fault-tolerance (#27)
 - Investigate CRUD action improvements (#49)
