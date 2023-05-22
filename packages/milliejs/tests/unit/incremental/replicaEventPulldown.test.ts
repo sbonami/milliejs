@@ -1,4 +1,4 @@
-import type { Entity, Resource } from "@milliejs/core"
+import type { Resource } from "@milliejs/core"
 import { makeMockEntity, makeMockResource } from "@milliejs/jest-utils"
 import { LifecycleEvents } from "@milliejs/store-base"
 import { IncrementalStore } from "../../../src/incremental"

@@ -7,7 +7,7 @@ import {
 import * as StoreBaseModule from "@milliejs/store-base"
 import { IncrementalStore } from "../../src/incremental"
 import * as IncrementalStoreModule from "../../src/incremental"
-import MillieJS from "../../src/index"
+import MillieJS, { LifecycleEvents } from "../../src/index"
 import type { PublisherActionEventInterface } from "../../src/store/events"
 import { Worker } from "../../src/worker"
 import { makeMockIncrementalStore } from "./mocks/incrementalStore"
@@ -901,6 +901,94 @@ describe("MillieJS", () => {
 
         expect(() => {
           millie.delete(mockResource2, mockInputQuery)
+        }).toThrowErrorMatchingSnapshot()
+      })
+    })
+  })
+
+  describe.each<[keyof (MillieJS | IncrementalStore)]>([
+    ["on"],
+    ["once"],
+    ["off"],
+    ["addListener"],
+  ])("[%s]", (methodName: keyof (MillieJS | IncrementalStore)) => {
+    it(`forwards the ${methodName} call to the resource's IncrementalStore`, () => {
+      const mockResource1 = makeMockResource()
+      const mockReplicaStore1 = makeMockPublisherWithEvents()
+      const mockIncrementalStore1 = makeMockIncrementalStore(
+        mockResource1,
+        mockReplicaStore1,
+      )
+      jest
+        .spyOn(IncrementalStoreModule, "IncrementalStore")
+        .mockImplementationOnce(() => mockIncrementalStore1)
+
+      const mockResource2 = makeMockResource()
+      const mockReplicaStore2 = makeMockPublisherWithEvents()
+      const mockIncrementalStore2 = makeMockIncrementalStore(
+        mockResource2,
+        mockReplicaStore2,
+      )
+      jest
+        .spyOn(IncrementalStoreModule, "IncrementalStore")
+        .mockImplementationOnce(() => mockIncrementalStore2)
+
+      const millie = new MillieJS()
+      millie.registerResource(mockResource1, mockReplicaStore1)
+      millie.registerResource(mockResource2, mockReplicaStore2)
+
+      const listener = jest.fn()
+      millie[methodName](mockResource1, LifecycleEvents.Save, listener)
+      expect(mockIncrementalStore1[methodName]).toHaveBeenCalledWith(
+        LifecycleEvents.Save,
+        listener,
+      )
+      expect(mockIncrementalStore2[methodName]).not.toHaveBeenCalled()
+    })
+
+    it(`returns the ${methodName} response from the resource's IncrementalStore`, () => {
+      const mockResource1 = makeMockResource()
+      const mockReplicaStore1 = makeMockPublisherWithEvents()
+      const mockIncrementalStore1 = makeMockIncrementalStore(
+        mockResource1,
+        mockReplicaStore1,
+      )
+      jest
+        .spyOn(IncrementalStoreModule, "IncrementalStore")
+        .mockImplementationOnce(() => mockIncrementalStore1)
+
+      jest
+        .spyOn(mockIncrementalStore1, methodName)
+        .mockReturnValue(mockIncrementalStore1)
+
+      const listener = jest.fn()
+      const millie = new MillieJS()
+      millie.registerResource(mockResource1, mockReplicaStore1)
+      expect(
+        millie[methodName](mockResource1, LifecycleEvents.Save, listener),
+      ).toEqual(mockIncrementalStore1)
+    })
+
+    describe("when MillieJS has not yet registered the resource", () => {
+      it("throws a helpful error", () => {
+        const mockResource1 = makeMockResource()
+        const mockReplicaStore1 = makeMockPublisherWithEvents()
+        const mockIncrementalStore1 = makeMockIncrementalStore(
+          mockResource1,
+          mockReplicaStore1,
+        )
+        jest
+          .spyOn(IncrementalStoreModule, "IncrementalStore")
+          .mockImplementationOnce(() => mockIncrementalStore1)
+
+        const mockResource2 = makeMockResource()
+
+        const millie = new MillieJS()
+        millie.registerResource(mockResource1, mockReplicaStore1)
+
+        const listener = jest.fn()
+        expect(() => {
+          millie[methodName](mockResource2, LifecycleEvents.Save, listener)
         }).toThrowErrorMatchingSnapshot()
       })
     })

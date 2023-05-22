@@ -1,8 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`MillieJS [addListener] when MillieJS has not yet registered the resource throws a helpful error 1`] = `"Invariant failed: Resource is not registered with this store"`;
+
 exports[`MillieJS [create] when MillieJS has not yet registered the resource throws a helpful error 1`] = `"Invariant failed: Resource is not registered with this store"`;
 
 exports[`MillieJS [delete] when MillieJS has not yet registered the resource throws a helpful error 1`] = `"Invariant failed: Resource is not registered with this store"`;
+
+exports[`MillieJS [off] when MillieJS has not yet registered the resource throws a helpful error 1`] = `"Invariant failed: Resource is not registered with this store"`;
+
+exports[`MillieJS [on] when MillieJS has not yet registered the resource throws a helpful error 1`] = `"Invariant failed: Resource is not registered with this store"`;
+
+exports[`MillieJS [once] when MillieJS has not yet registered the resource throws a helpful error 1`] = `"Invariant failed: Resource is not registered with this store"`;
 
 exports[`MillieJS [patch] when MillieJS has not yet registered the resource throws a helpful error 1`] = `"Invariant failed: Resource is not registered with this store"`;
 

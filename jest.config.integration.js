@@ -6,6 +6,7 @@ module.exports = {
 
   testRegex: "packages/(.*)/tests/integration/(.*).(spec|test).ts$",
 
+  coveragePathIgnorePatterns: ["<rootDir>/packages/milliejs-jest-utils"],
   coverageThreshold: {
     global: {
       branches: 0,

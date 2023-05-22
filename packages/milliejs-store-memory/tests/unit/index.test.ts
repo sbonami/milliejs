@@ -1,5 +1,5 @@
 import { makeMockEntity, makeMockResource } from "@milliejs/jest-utils"
-import type { Query } from "@milliejs/store-base"
+import { LifecycleEvents, Query } from "@milliejs/store-base"
 import InMemoryStore from "../../src"
 
 describe("@millie/store-memory", () => {
@@ -36,6 +36,15 @@ describe("@millie/store-memory", () => {
 
       store.create(entity)
       return expect(store.read(query)).resolves.toEqual([entity])
+    })
+
+    it(`emits a ${LifecycleEvents.Save} event with the entity`, () => {
+      const store = new InMemoryStore({})
+      const entity = makeMockEntity()
+      const spy = jest.spyOn(store, "emit")
+
+      store.create(entity)
+      expect(spy).toHaveBeenCalledWith(LifecycleEvents.Save, entity)
     })
 
     it("returns a Promise that resolves to the Entity", () => {
@@ -163,6 +172,17 @@ describe("@millie/store-memory", () => {
           ).resolves.toContainEqual(updatedEntity)
         })
 
+        it(`emits a ${LifecycleEvents.Save} event with the entity`, async () => {
+          const spy = jest.spyOn(store, "emit")
+
+          await store.update(fullMatchEntity, data)
+
+          expect(spy).toHaveBeenCalledWith(LifecycleEvents.Save, {
+            ...fullMatchEntity,
+            data,
+          })
+        })
+
         it("returns a Promise that resolves to the updated Entity", () => {
           return expect(store.update(fullMatchEntity, data)).resolves.toEqual([
             {
@@ -173,8 +193,14 @@ describe("@millie/store-memory", () => {
         })
 
         it("does not mutate non-matching Entities in the store", async () => {
+          const spy = jest.spyOn(store, "emit")
+
           await store.update(fullMatchEntity, data)
 
+          expect(spy).not.toHaveBeenCalledWith(
+            LifecycleEvents.Save,
+            noMatchEntity,
+          )
           return expect(
             store.read({
               resource,
@@ -185,8 +211,14 @@ describe("@millie/store-memory", () => {
         })
 
         it("does not mutate partially-matching Entities in the store", async () => {
+          const spy = jest.spyOn(store, "emit")
+
           await store.update(fullMatchEntity, data)
 
+          expect(spy).not.toHaveBeenCalledWith(
+            LifecycleEvents.Save,
+            partialMatchEntity,
+          )
           return expect(
             store.read({
               resource,
@@ -216,6 +248,17 @@ describe("@millie/store-memory", () => {
               attributes: updatedEntity.data,
             }),
           ).resolves.toContainEqual(updatedEntity)
+        })
+
+        it(`emits a ${LifecycleEvents.Save} event with the entity`, async () => {
+          const spy = jest.spyOn(store, "emit")
+
+          await store.update(fullMatchEntity, data)
+
+          expect(spy).toHaveBeenCalledWith(LifecycleEvents.Save, {
+            ...fullMatchEntity,
+            data,
+          })
         })
 
         it("returns a Promise that resolves to the newly-created Entity", () => {
@@ -256,6 +299,17 @@ describe("@millie/store-memory", () => {
           ).resolves.toContainEqual(updatedEntity)
         })
 
+        it(`emits a ${LifecycleEvents.Save} event with the entity`, async () => {
+          const spy = jest.spyOn(store, "emit")
+
+          await store.update(query, data)
+
+          expect(spy).toHaveBeenCalledWith(LifecycleEvents.Save, {
+            ...fullMatchEntity,
+            data,
+          })
+        })
+
         it("returns a Promise that resolves to the updated Entity", () => {
           return expect(store.update(query, data)).resolves.toEqual([
             {
@@ -268,8 +322,14 @@ describe("@millie/store-memory", () => {
 
       describe("when not all attributes match an Entity in the store", () => {
         it("does not mutate partially-matching Entities in the store", async () => {
+          const spy = jest.spyOn(store, "emit")
+
           await store.update(query, data)
 
+          expect(spy).not.toHaveBeenCalledWith(
+            LifecycleEvents.Save,
+            partialMatchEntity,
+          )
           return expect(
             store.read({
               resource,
@@ -288,8 +348,14 @@ describe("@millie/store-memory", () => {
 
       describe("when none of the attributes match an Entity in the store", () => {
         it("does not mutate non-matching Entities in the store", async () => {
+          const spy = jest.spyOn(store, "emit")
+
           await store.update(query, data)
 
+          expect(spy).not.toHaveBeenCalledWith(
+            LifecycleEvents.Save,
+            noMatchEntity,
+          )
           return expect(
             store.read({
               resource,
@@ -372,6 +438,20 @@ describe("@millie/store-memory", () => {
           ).resolves.toContainEqual(patchedEntity)
         })
 
+        it(`emits a ${LifecycleEvents.Save} event with the entity`, async () => {
+          const spy = jest.spyOn(store, "emit")
+
+          await store.patch(fullMatchEntity, patch)
+
+          expect(spy).toHaveBeenCalledWith(LifecycleEvents.Save, {
+            ...fullMatchEntity,
+            data: {
+              a: "AAA",
+              b: "BBB",
+            },
+          })
+        })
+
         it("returns a Promise that resolves to the patched Entity", () => {
           return expect(store.patch(fullMatchEntity, patch)).resolves.toEqual([
             {
@@ -385,8 +465,14 @@ describe("@millie/store-memory", () => {
         })
 
         it("does not mutate non-matching Entities in the store", async () => {
+          const spy = jest.spyOn(store, "emit")
+
           await store.patch(fullMatchEntity, patch)
 
+          expect(spy).not.toHaveBeenCalledWith(
+            LifecycleEvents.Save,
+            noMatchEntity,
+          )
           return expect(
             store.read({
               resource,
@@ -397,8 +483,14 @@ describe("@millie/store-memory", () => {
         })
 
         it("does not mutate partially-matching Entities in the store", async () => {
+          const spy = jest.spyOn(store, "emit")
+
           await store.patch(fullMatchEntity, patch)
 
+          expect(spy).not.toHaveBeenCalledWith(
+            LifecycleEvents.Save,
+            partialMatchEntity,
+          )
           return expect(
             store.read({
               resource,
@@ -431,6 +523,20 @@ describe("@millie/store-memory", () => {
               attributes: patchedEntity.data,
             }),
           ).resolves.toContainEqual(patchedEntity)
+        })
+
+        it(`emits a ${LifecycleEvents.Save} event with the entity`, async () => {
+          const spy = jest.spyOn(store, "emit")
+
+          await store.patch(fullMatchEntity, patch)
+
+          expect(spy).toHaveBeenCalledWith(LifecycleEvents.Save, {
+            ...fullMatchEntity,
+            data: {
+              a: "AAA",
+              b: "BBB",
+            },
+          })
         })
 
         it("returns a Promise that resolves to the newly-created Entity", () => {
@@ -477,6 +583,20 @@ describe("@millie/store-memory", () => {
           ).resolves.toContainEqual(patchedEntity)
         })
 
+        it(`emits a ${LifecycleEvents.Save} event with the entity`, async () => {
+          const spy = jest.spyOn(store, "emit")
+
+          await store.patch(query, patch)
+
+          expect(spy).toHaveBeenCalledWith(LifecycleEvents.Save, {
+            ...fullMatchEntity,
+            data: {
+              a: "AAA",
+              b: "BBB",
+            },
+          })
+        })
+
         it("returns a Promise that resolves to the patched Entity", () => {
           return expect(store.patch(query, patch)).resolves.toEqual([
             {
@@ -492,8 +612,14 @@ describe("@millie/store-memory", () => {
 
       describe("when not all attributes match an Entity in the store", () => {
         it("does not mutate partially-matching Entities in the store", async () => {
+          const spy = jest.spyOn(store, "emit")
+
           await store.patch(query, patch)
 
+          expect(spy).not.toHaveBeenCalledWith(
+            LifecycleEvents.Save,
+            partialMatchEntity,
+          )
           return expect(
             store.read({
               resource,
@@ -512,8 +638,14 @@ describe("@millie/store-memory", () => {
 
       describe("when none of the attributes match an Entity in the store", () => {
         it("does not mutate non-matching Entities in the store", async () => {
+          const spy = jest.spyOn(store, "emit")
+
           await store.patch(query, patch)
 
+          expect(spy).not.toHaveBeenCalledWith(
+            LifecycleEvents.Save,
+            noMatchEntity,
+          )
           return expect(
             store.read({
               resource,
@@ -577,6 +709,17 @@ describe("@millie/store-memory", () => {
           ).resolves.not.toContainEqual(fullMatchEntity)
         })
 
+        it(`emits a ${LifecycleEvents.Delete} event with the entity`, async () => {
+          const spy = jest.spyOn(store, "emit")
+
+          await store.delete(fullMatchEntity)
+
+          expect(spy).toHaveBeenCalledWith(
+            LifecycleEvents.Delete,
+            fullMatchEntity,
+          )
+        })
+
         it("returns a Promise that resolves to the patched Entity", () => {
           return expect(store.delete(fullMatchEntity)).resolves.toEqual([
             fullMatchEntity,
@@ -584,8 +727,14 @@ describe("@millie/store-memory", () => {
         })
 
         it("does not delete non-matching Entities from the store", async () => {
+          const spy = jest.spyOn(store, "emit")
+
           await store.delete(fullMatchEntity)
 
+          expect(spy).not.toHaveBeenCalledWith(
+            LifecycleEvents.Delete,
+            noMatchEntity,
+          )
           return expect(
             store.read({
               resource,
@@ -596,8 +745,14 @@ describe("@millie/store-memory", () => {
         })
 
         it("does not delete partially-matching Entities from the store", async () => {
+          const spy = jest.spyOn(store, "emit")
+
           await store.delete(fullMatchEntity)
 
+          expect(spy).not.toHaveBeenCalledWith(
+            LifecycleEvents.Delete,
+            partialMatchEntity,
+          )
           return expect(
             store.read({
               resource,
@@ -611,6 +766,17 @@ describe("@millie/store-memory", () => {
       describe("when the Entity does not exist in the store", () => {
         beforeEach(() => {
           store = new InMemoryStore({})
+        })
+
+        it(`emits a ${LifecycleEvents.Delete} event with the entity`, async () => {
+          const spy = jest.spyOn(store, "emit")
+
+          await store.delete(fullMatchEntity)
+
+          expect(spy).toHaveBeenCalledWith(
+            LifecycleEvents.Delete,
+            fullMatchEntity,
+          )
         })
 
         it("returns a Promise that resolves to the passed Entity", () => {
@@ -644,6 +810,17 @@ describe("@millie/store-memory", () => {
           ).resolves.not.toContainEqual(fullMatchEntity)
         })
 
+        it(`emits a ${LifecycleEvents.Delete} event with the entity`, async () => {
+          const spy = jest.spyOn(store, "emit")
+
+          await store.delete(query)
+
+          expect(spy).toHaveBeenCalledWith(
+            LifecycleEvents.Delete,
+            fullMatchEntity,
+          )
+        })
+
         it("returns a Promise that resolves to the deleted Entity", () => {
           return expect(store.delete(query)).resolves.toEqual([fullMatchEntity])
         })
@@ -651,8 +828,14 @@ describe("@millie/store-memory", () => {
 
       describe("when not all attributes match an Entity in the store", () => {
         it("does not delete partially-matching Entities from the store", async () => {
+          const spy = jest.spyOn(store, "emit")
+
           await store.delete(query)
 
+          expect(spy).not.toHaveBeenCalledWith(
+            LifecycleEvents.Delete,
+            partialMatchEntity,
+          )
           return expect(
             store.read({
               resource,
@@ -671,8 +854,14 @@ describe("@millie/store-memory", () => {
 
       describe("when none of the attributes match an Entity in the store", () => {
         it("does not delete non-matching Entities from the store", async () => {
+          const spy = jest.spyOn(store, "emit")
+
           await store.delete(query)
 
+          expect(spy).not.toHaveBeenCalledWith(
+            LifecycleEvents.Delete,
+            noMatchEntity,
+          )
           return expect(
             store.read({
               resource,

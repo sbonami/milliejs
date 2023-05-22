@@ -57,7 +57,9 @@ describe("DeleteAction", () => {
 
       const action = new DeleteAction(mockStore)
 
-      expect(action.delete(mockInputQuery)).resolves.toBe(true)
+      expect(action.delete(mockInputQuery)).resolves.toEqual([
+        mockReplicaEntity,
+      ])
     })
   })
 })

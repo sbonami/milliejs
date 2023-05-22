@@ -5418,6 +5418,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@milliejs/core", "workspace:packages/milliejs-core"],\
             ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
             ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
+            ["@milliejs/store-memory", "workspace:packages/milliejs-store-memory"],\
             ["@types/node", "npm:18.13.0"],\
             ["tiny-invariant", "npm:1.3.1"]\
           ],\
