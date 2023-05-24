@@ -1,0 +1,36 @@
+{
+  "name": "@milliejs/store-google-pubsub",
+  "version": "0.0.0",
+  "description": "A Google PubSub adapter for the MillieJS incremental store utility",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sbonami/milliejs.git",
+    "directory": "packages/milliejs-store-google-pubsub"
+  },
+  "bugs": {
+    "url": "https://github.com/sbonami/milliejs/issues"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@milliejs/store-base": "workspace:^"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "typescript": "^4.9.5"
+  },
+  "engines": {
+    "node": ">=16.0.0 || >=18.0.0 || >=19.0.0 || >=20.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
