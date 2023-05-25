@@ -27,7 +27,9 @@
   },
   "devDependencies": {
     "@milliejs/jest-utils": "workspace:^",
+    "@milliejs/store-memory": "workspace:^",
     "@types/node": "^20.2.5",
+    "milliejs": "workspace:^",
     "typescript": "^4.9.5"
   },
   "engines": {

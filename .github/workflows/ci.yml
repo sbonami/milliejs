@@ -176,7 +176,19 @@ jobs:
           path: |
             ./packages/*/dist
             ./packages/*/*.tsbuildinfo
-      - run: yarn test:integration
+      - run: >-
+          docker run
+          --name google-pubsub-source
+          --rm
+          --detach
+          --publish 8538:8538
+          --env PUBSUB_PROJECT_ID=test-project-id
+          gcr.io/google.com/cloudsdktool/google-cloud-cli:emulators
+          gcloud beta emulators pubsub start --host-port=0.0.0.0:8538
+      - run: yarn test:integration --runInBand --detectOpenHandles --forceExit
+        env:
+          PUBSUB_PROJECT_ID: test-project-id
+          PUBSUB_EMULATOR_HOST: 127.0.0.1:8538
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         with:

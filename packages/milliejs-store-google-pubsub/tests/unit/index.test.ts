@@ -1,10 +1,6 @@
 import EventEmitter from "node:events"
 import { makeMockEntity } from "@milliejs/jest-utils"
-import {
-  ClientConfig,
-  PubSub,
-  Subscription,
-} from "@google-cloud/pubsub"
+import { ClientConfig, PubSub, Subscription } from "@google-cloud/pubsub"
 import GooglePubSubStore from "../../src"
 import { LifecycleEvents } from "@milliejs/store-base"
 

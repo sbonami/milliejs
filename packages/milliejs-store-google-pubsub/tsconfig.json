@@ -7,6 +7,7 @@
   "include": ["./src/**/*"],
   "references": [
     { "path": "../milliejs-jest-utils" },
-    { "path": "../milliejs-store-base" }
+    { "path": "../milliejs-store-base" },
+    { "path": "../milliejs-store-memory" }
   ]
 }
