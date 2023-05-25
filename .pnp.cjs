@@ -1508,6 +1508,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@milliejs/store-google-pubsub", "workspace:packages/milliejs-store-google-pubsub"],\
             ["@google-cloud/pubsub", "npm:3.7.0"],\
+            ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
             ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
             ["@types/node", "npm:20.2.5"],\
             ["tiny-invariant", "npm:1.3.1"],\
