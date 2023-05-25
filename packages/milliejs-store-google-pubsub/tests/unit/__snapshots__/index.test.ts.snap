@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@millie/store-google-pubsub #connect() when subscription names were passed to the constructor when the subscription does not exist on the topic throws an error 1`] = `"Invariant failed: Subscription does not exist"`;

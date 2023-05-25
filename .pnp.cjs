@@ -1510,6 +1510,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@google-cloud/pubsub", "npm:3.7.0"],\
             ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
             ["@types/node", "npm:20.2.5"],\
+            ["tiny-invariant", "npm:1.3.1"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
           ],\
           "linkType": "SOFT"\
