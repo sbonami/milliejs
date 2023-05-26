@@ -104,7 +104,7 @@ describe("replicaEventPulldown", () => {
         resource: mockResource,
       })
 
-      mockSubscriber.on(LifecycleEvents.Save, (...args: any[]) => {
+      mockSubscriber.on(LifecycleEvents.Save, () => {
         try {
           expect(mockReplicaStore.create).toHaveBeenCalledWith(mockEntity)
           done()
@@ -153,7 +153,7 @@ describe("replicaEventPulldown", () => {
         resource: mockResource,
       })
 
-      mockSubscriber.on(LifecycleEvents.Delete, (...args: any[]) => {
+      mockSubscriber.on(LifecycleEvents.Delete, () => {
         try {
           expect(mockReplicaStore.delete).toHaveBeenCalledWith(mockEntity)
           done()

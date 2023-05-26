@@ -46,8 +46,8 @@ describe("Millie read", () => {
 
     describe("when the replicaStore request takes a while", () => {
       beforeEach(() => {
-        jest.spyOn(replicaStore, "read").mockImplementation((query) => {
-          return new Promise<any>((resolve) => {
+        jest.spyOn(replicaStore, "read").mockImplementation(() => {
+          return new Promise((resolve) => {
             setTimeout(() => {
               resolve([mockEntity])
             }, 1000)
@@ -81,8 +81,8 @@ describe("Millie read", () => {
 
     describe("when the source request takes a while", () => {
       beforeEach(() => {
-        jest.spyOn(sourcePublisher, "read").mockImplementation((query) => {
-          return new Promise<any>((resolve) => {
+        jest.spyOn(sourcePublisher, "read").mockImplementation(() => {
+          return new Promise((resolve) => {
             setTimeout(() => {
               resolve([mockEntity])
             }, 1000)

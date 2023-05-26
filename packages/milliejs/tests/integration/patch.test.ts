@@ -104,15 +104,13 @@ describe("Millie patch", () => {
 
       describe("when the replicaStore request takes a while", () => {
         beforeEach(() => {
-          jest
-            .spyOn(replicaStore, "patch")
-            .mockImplementation((entityOrQuery) => {
-              return new Promise<any>((resolve) => {
-                setTimeout(() => {
-                  resolve([mockEntity])
-                }, 1000)
-              })
+          jest.spyOn(replicaStore, "patch").mockImplementation(() => {
+            return new Promise((resolve) => {
+              setTimeout(() => {
+                resolve([mockEntity])
+              }, 1000)
             })
+          })
         })
 
         it("still patches the entities in the source optimistically", () => {
@@ -182,15 +180,13 @@ describe("Millie patch", () => {
 
       describe("when the source request takes a while", () => {
         beforeEach(() => {
-          jest
-            .spyOn(sourcePublisher, "patch")
-            .mockImplementation((entityOrQuery) => {
-              return new Promise<any>((resolve) => {
-                setTimeout(() => {
-                  resolve([mockEntity])
-                }, 1000)
-              })
+          jest.spyOn(sourcePublisher, "patch").mockImplementation(() => {
+            return new Promise((resolve) => {
+              setTimeout(() => {
+                resolve([mockEntity])
+              }, 1000)
             })
+          })
         })
 
         it("still patches the entities in the replicaStore optimistically", () => {
