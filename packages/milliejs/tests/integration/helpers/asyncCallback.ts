@@ -1,4 +1,5 @@
-type DoneType = (response?: Error | string | unknown | undefined) => void
+type DoneResponse = Error | string | unknown | undefined
+type DoneType = (response?: DoneResponse) => void
 type AssertionType = (cb: DoneType) => Promise<any>
 
 export default (assertion: AssertionType, ms = 10) => {
@@ -7,7 +8,7 @@ export default (assertion: AssertionType, ms = 10) => {
     let called = false
     let result: any
 
-    const done = (response: any | undefined) => {
+    const done = (response: DoneResponse) => {
       called = true
       result = response
     }
