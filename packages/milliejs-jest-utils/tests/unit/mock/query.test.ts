@@ -1,4 +1,3 @@
-import { faker } from "@faker-js/faker"
 import { makeMockQuery } from "../../../src/mocks/query"
 import * as MockResourceModule from "../../../src/mocks/resource"
 

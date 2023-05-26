@@ -1,4 +1,4 @@
-import type { Entity, Query, Resource } from "@milliejs/core"
+import type { Resource } from "@milliejs/core"
 import { makeMockEntity } from "@milliejs/jest-utils"
 import {
   PublisherActionInterface,

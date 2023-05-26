@@ -1,5 +1,5 @@
 import EventEmitter from "node:events"
-import type { Entity, Query, Resource } from "@milliejs/core"
+import type { Entity, Resource } from "@milliejs/core"
 import { LifecycleEvents } from "@milliejs/core"
 import {
   makeMockEntity,

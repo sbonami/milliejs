@@ -1,5 +1,4 @@
 import { faker } from "@faker-js/faker"
-import { makeMockEntity } from "../../../src/mocks/entity"
 import { makeMockResource } from "../../../src/mocks/resource"
 
 describe("mocks/resource.ts", () => {
