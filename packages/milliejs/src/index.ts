@@ -81,7 +81,7 @@ class MillieJS extends Worker {
 
   protected get connections(): Array<StoreLifecycleInterface> {
     return Object.values(this.stores).reduce<Array<StoreLifecycleInterface>>(
-      (_connections, store: IncrementalStore<Resource<any>>) => {
+      (_connections, store: IncrementalStore<Resource<unknown>>) => {
         const storeConnections = []
 
         if (isStoreLifecycleInterface(store.replicaStore))
