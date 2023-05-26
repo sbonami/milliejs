@@ -12,32 +12,35 @@ export interface PublisherActionEventInterface<R extends Resource>
     SubscriberActionInterface {}
 
 export function isEventEmitter(
-  emitterOrAny: EventEmitter | unknown,
-): emitterOrAny is EventEmitter {
+  emitterOrUnknown: EventEmitter | unknown,
+): emitterOrUnknown is EventEmitter {
   return !!(
-    typeof (emitterOrAny as EventEmitter).addListener !== "undefined" &&
-    typeof (emitterOrAny as EventEmitter).removeListener !== "undefined" &&
-    typeof (emitterOrAny as EventEmitter).removeAllListeners !== "undefined" &&
-    typeof (emitterOrAny as EventEmitter).setMaxListeners !== "undefined" &&
-    typeof (emitterOrAny as EventEmitter).getMaxListeners !== "undefined" &&
-    typeof (emitterOrAny as EventEmitter).listenerCount !== "undefined" &&
-    typeof (emitterOrAny as EventEmitter).listeners !== "undefined" &&
-    typeof (emitterOrAny as EventEmitter).rawListeners !== "undefined" &&
-    typeof (emitterOrAny as EventEmitter).prependListener !== "undefined" &&
-    typeof (emitterOrAny as EventEmitter).prependOnceListener !== "undefined" &&
-    typeof (emitterOrAny as EventEmitter).eventNames !== "undefined" &&
-    typeof (emitterOrAny as EventEmitter).on !== "undefined" &&
-    typeof (emitterOrAny as EventEmitter).once !== "undefined" &&
-    typeof (emitterOrAny as EventEmitter).off !== "undefined" &&
-    typeof (emitterOrAny as EventEmitter).emit !== "undefined"
+    typeof (emitterOrUnknown as EventEmitter).addListener !== "undefined" &&
+    typeof (emitterOrUnknown as EventEmitter).removeListener !== "undefined" &&
+    typeof (emitterOrUnknown as EventEmitter).removeAllListeners !==
+      "undefined" &&
+    typeof (emitterOrUnknown as EventEmitter).setMaxListeners !== "undefined" &&
+    typeof (emitterOrUnknown as EventEmitter).getMaxListeners !== "undefined" &&
+    typeof (emitterOrUnknown as EventEmitter).listenerCount !== "undefined" &&
+    typeof (emitterOrUnknown as EventEmitter).listeners !== "undefined" &&
+    typeof (emitterOrUnknown as EventEmitter).rawListeners !== "undefined" &&
+    typeof (emitterOrUnknown as EventEmitter).prependListener !== "undefined" &&
+    typeof (emitterOrUnknown as EventEmitter).prependOnceListener !==
+      "undefined" &&
+    typeof (emitterOrUnknown as EventEmitter).eventNames !== "undefined" &&
+    typeof (emitterOrUnknown as EventEmitter).on !== "undefined" &&
+    typeof (emitterOrUnknown as EventEmitter).once !== "undefined" &&
+    typeof (emitterOrUnknown as EventEmitter).off !== "undefined" &&
+    typeof (emitterOrUnknown as EventEmitter).emit !== "undefined"
   )
 }
 
 export function isPublisherActionEventInterface<R extends Resource>(
-  interfaceOrAny: PublisherActionEventInterface<R> | unknown,
-): interfaceOrAny is PublisherActionEventInterface<R> {
+  interfaceOrUnknown: PublisherActionEventInterface<R> | unknown,
+): interfaceOrUnknown is PublisherActionEventInterface<R> {
   return (
-    isEventEmitter(interfaceOrAny) && isPublisherActionInterface(interfaceOrAny)
+    isEventEmitter(interfaceOrUnknown) &&
+    isPublisherActionInterface(interfaceOrUnknown)
   )
 }
 

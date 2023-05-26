@@ -14,18 +14,18 @@ export interface PublisherActionInterface<R extends Resource> {
 }
 
 export function isPublisherActionInterface<R extends Resource>(
-  interfaceOrAny: PublisherActionInterface<R> | unknown,
-): interfaceOrAny is PublisherActionInterface<R> {
+  interfaceOrUnknown: PublisherActionInterface<R> | unknown,
+): interfaceOrUnknown is PublisherActionInterface<R> {
   return !!(
-    typeof (interfaceOrAny as PublisherActionInterface<R>).create !==
+    typeof (interfaceOrUnknown as PublisherActionInterface<R>).create !==
       "undefined" &&
-    typeof (interfaceOrAny as PublisherActionInterface<R>).read !==
+    typeof (interfaceOrUnknown as PublisherActionInterface<R>).read !==
       "undefined" &&
-    typeof (interfaceOrAny as PublisherActionInterface<R>).update !==
+    typeof (interfaceOrUnknown as PublisherActionInterface<R>).update !==
       "undefined" &&
-    typeof (interfaceOrAny as PublisherActionInterface<R>).patch !==
+    typeof (interfaceOrUnknown as PublisherActionInterface<R>).patch !==
       "undefined" &&
-    typeof (interfaceOrAny as PublisherActionInterface<R>).delete !==
+    typeof (interfaceOrUnknown as PublisherActionInterface<R>).delete !==
       "undefined"
   )
 }
