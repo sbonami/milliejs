@@ -126,6 +126,11 @@ jobs:
             ./packages/*/dist
             ./packages/*/*.tsbuildinfo
       - run: yarn test:unit
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          flags: unit
+          os: ${{ matrix.os }}
 
   test-integration:
     needs: build
@@ -155,3 +160,8 @@ jobs:
             ./packages/*/dist
             ./packages/*/*.tsbuildinfo
       - run: yarn test:integration
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          flags: integration
+          os: ${{ matrix.os }}
