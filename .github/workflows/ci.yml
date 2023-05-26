@@ -98,6 +98,23 @@ jobs:
             ./packages/*/*.tsbuildinfo
       - run: yarn format:ci
 
+  lint-constraints:
+    needs: build
+    strategy:
+      matrix:
+        node-version: [20.x]
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "yarn"
+      - run: yarn constraints
+
   test-unit:
     needs: build
     strategy:
