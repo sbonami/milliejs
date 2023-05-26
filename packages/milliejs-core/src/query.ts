@@ -3,7 +3,7 @@ import type { Resource } from "./resource"
 export type Query = {
   resource: Resource
   cardinality: "one" | "many"
-  attributes: Record<string, any>
+  attributes: Record<string, unknown>
 }
 
 export function isQuery(
