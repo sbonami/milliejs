@@ -11,6 +11,9 @@
     "url": "https://github.com/sbonami/milliejs.git",
     "directory": "packages/milliejs"
   },
+  "bugs": {
+    "url": "https://github.com/sbonami/milliejs/issues"
+  },
   "files": [
     "dist"
   ],
@@ -27,5 +30,11 @@
     "@milliejs/jest-utils": "workspace:^",
     "@milliejs/store-memory": "workspace:^",
     "@types/node": "^20.2.3"
+  },
+  "engines": {
+    "node": "^14.15.0 || ^16.10.0 || >=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

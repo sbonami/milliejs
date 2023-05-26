@@ -29,5 +29,11 @@
   "dependencies": {
     "@milliejs/core": "workspace:^",
     "jest": "^29.5.0"
+  },
+  "engines": {
+    "node": "^14.15.0 || ^16.10.0 || >=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
