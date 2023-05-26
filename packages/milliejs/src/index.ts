@@ -8,7 +8,7 @@ import {
 } from "@milliejs/store-base"
 import invariant from "tiny-invariant"
 import { IncrementalStore, StoreConstructorSourceOptions } from "./incremental"
-import Worker from "./worker"
+import { Worker } from "./worker"
 
 export { LifecycleEvents }
 export type { Entity, Query, Resource }
