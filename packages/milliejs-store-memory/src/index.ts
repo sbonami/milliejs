@@ -9,16 +9,10 @@ import {
 } from "@milliejs/store-base"
 import * as jsonpatch from "fast-json-patch"
 
-type StoreSlice<R extends Resource = Resource<any>> = Map<
-  Entity<R>["id"],
-  Entity<R>
->
-type InMemoryResourceStore<R extends Resource = Resource<any>> = Map<
-  R["id"],
-  StoreSlice
->
+type StoreSlice<R extends Resource> = Map<Entity<R>["id"], Entity<R>>
+type InMemoryResourceStore<R extends Resource> = Map<R["id"], StoreSlice<R>>
 
-const patchEntity = <R extends Resource = Resource<any>>(
+const patchEntity = <R extends Resource>(
   entity: Entity<R>,
   patch: Array<jsonpatch.Operation>,
 ): Entity<R> => ({
@@ -26,7 +20,7 @@ const patchEntity = <R extends Resource = Resource<any>>(
   data: jsonpatch.applyPatch(entity.data, patch, true, false).newDocument,
 })
 
-class InMemoryStore<R extends Resource = Resource<any>>
+class InMemoryStore<R extends Resource>
   extends EventEmitter
   implements PublisherActionInterface<R>
 {

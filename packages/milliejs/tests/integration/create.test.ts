@@ -8,8 +8,8 @@ const mockResource = makeMockResource({})
 
 describe("Millie create", () => {
   let millie: MillieJS
-  let replicaStore: MillieMemoryStore
-  let sourcePublisher: MillieMemoryStore
+  let replicaStore: MillieMemoryStore<typeof mockResource>
+  let sourcePublisher: MillieMemoryStore<typeof mockResource>
   let sourceSubscriber: EventEmitter
   beforeEach(() => {
     millie = new MillieJS()

@@ -23,8 +23,8 @@ const mockEntity = makeMockEntity({
 
 describe("Millie read", () => {
   let millie: MillieJS
-  let replicaStore: MillieMemoryStore
-  let sourcePublisher: MillieMemoryStore
+  let replicaStore: MillieMemoryStore<typeof mockResource>
+  let sourcePublisher: MillieMemoryStore<typeof mockResource>
   beforeEach(() => {
     millie = new MillieJS()
     replicaStore = new MillieMemoryStore({})
