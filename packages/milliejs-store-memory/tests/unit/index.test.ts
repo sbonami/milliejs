@@ -56,7 +56,6 @@ describe("@millie/store-memory", () => {
   })
 
   describe("#read(query: Query)", () => {
-    let store: InMemoryStore
     const resource = makeMockResource()
     const noMatchEntity = makeMockEntity({
       resource,
@@ -87,6 +86,7 @@ describe("@millie/store-memory", () => {
         b: "b",
       },
     }
+    let store: InMemoryStore<typeof resource>
     beforeEach(async () => {
       store = new InMemoryStore({})
       await store.create(noMatchEntity)
@@ -120,7 +120,6 @@ describe("@millie/store-memory", () => {
   })
 
   describe("#update(entityOrQuery: Query | Entity, data: Entity['data'])", () => {
-    let store: InMemoryStore
     const resource = makeMockResource()
     const noMatchEntity = makeMockEntity({
       resource,
@@ -147,6 +146,7 @@ describe("@millie/store-memory", () => {
       a: "AAA",
       b: "BBB",
     }
+    let store: InMemoryStore<typeof resource>
     beforeEach(async () => {
       store = new InMemoryStore({})
       await store.create(noMatchEntity)
@@ -375,7 +375,6 @@ describe("@millie/store-memory", () => {
   })
 
   describe("#patch(entityOrQuery: Query | Entity, patch: any)", () => {
-    let store: InMemoryStore
     const resource = makeMockResource()
     const noMatchEntity = makeMockEntity({
       resource,
@@ -410,6 +409,7 @@ describe("@millie/store-memory", () => {
         value: "BBB",
       },
     ]
+    let store: InMemoryStore<typeof resource>
     beforeEach(async () => {
       store = new InMemoryStore({})
       await store.create(noMatchEntity)
@@ -665,7 +665,6 @@ describe("@millie/store-memory", () => {
   })
 
   describe("#delete(entityOrQuery: Query | Entity)", () => {
-    let store: InMemoryStore
     const resource = makeMockResource()
     const noMatchEntity = makeMockEntity({
       resource,
@@ -688,6 +687,7 @@ describe("@millie/store-memory", () => {
         b: "b",
       },
     })
+    let store: InMemoryStore<typeof resource>
     beforeEach(async () => {
       store = new InMemoryStore({})
       await store.create(noMatchEntity)

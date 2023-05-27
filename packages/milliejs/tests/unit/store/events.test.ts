@@ -1,5 +1,5 @@
 import EventEmitter from "node:events"
-import type { Entity, Query, Resource } from "@milliejs/core"
+import type { Entity, Resource } from "@milliejs/core"
 import { LifecycleEvents } from "@milliejs/core"
 import {
   makeMockEntity,
@@ -61,22 +61,19 @@ describe("events", () => {
     const { isPublisherActionEventInterface } = StoreEventModule
     const conformingObject: EventEmitter &
       PublisherActionInterface<MockResource> = new (class extends EventEmitter {
-      create(entity: Entity<MockResource>) {
+      create() {
         return Promise.resolve(mockEntity)
       }
-      read(query: Query) {
+      read() {
         return Promise.resolve([])
       }
-      update(
-        entityOrQuery: Entity<MockResource> | Query,
-        data: Entity<MockResource>["data"],
-      ) {
+      update() {
         return Promise.resolve([])
       }
-      patch(entityOrQuery: Entity<MockResource> | Query, patch: any) {
+      patch() {
         return Promise.resolve([])
       }
-      delete(entityOrQuery: Entity<MockResource> | Query) {
+      delete() {
         return Promise.resolve([])
       }
     })()

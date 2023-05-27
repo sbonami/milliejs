@@ -31,8 +31,8 @@ const mockEntity = makeMockEntity({
 
 describe("Millie delete", () => {
   let millie: MillieJS
-  let replicaStore: MillieMemoryStore
-  let sourcePublisher: MillieMemoryStore
+  let replicaStore: MillieMemoryStore<typeof mockResource>
+  let sourcePublisher: MillieMemoryStore<typeof mockResource>
   beforeEach(() => {
     millie = new MillieJS()
     replicaStore = new MillieMemoryStore({})
@@ -98,15 +98,13 @@ describe("Millie delete", () => {
 
       describe("when the replicaStore request takes a while", () => {
         beforeEach(() => {
-          jest
-            .spyOn(replicaStore, "delete")
-            .mockImplementation((entityOrQuery) => {
-              return new Promise<any>((resolve) => {
-                setTimeout(() => {
-                  resolve([mockEntity])
-                }, 1000)
-              })
+          jest.spyOn(replicaStore, "delete").mockImplementation(() => {
+            return new Promise((resolve) => {
+              setTimeout(() => {
+                resolve([mockEntity])
+              }, 1000)
             })
+          })
         })
 
         it("still deletes the entities in the source optimistically", () => {
@@ -147,15 +145,13 @@ describe("Millie delete", () => {
 
       describe("when the source request takes a while", () => {
         beforeEach(() => {
-          jest
-            .spyOn(sourcePublisher, "delete")
-            .mockImplementation((entityOrQuery) => {
-              return new Promise<any>((resolve) => {
-                setTimeout(() => {
-                  resolve([mockEntity])
-                }, 1000)
-              })
+          jest.spyOn(sourcePublisher, "delete").mockImplementation(() => {
+            return new Promise((resolve) => {
+              setTimeout(() => {
+                resolve([mockEntity])
+              }, 1000)
             })
+          })
         })
 
         it("still deletes the entities in the replicaStore optimistically", () => {

@@ -8,7 +8,7 @@ import {
 } from "@milliejs/store-base"
 import invariant from "tiny-invariant"
 import { IncrementalStore, StoreConstructorSourceOptions } from "./incremental"
-import Worker from "./worker"
+import { Worker } from "./worker"
 
 export { LifecycleEvents }
 export type { Entity, Query, Resource }
@@ -81,7 +81,7 @@ class MillieJS extends Worker {
 
   protected get connections(): Array<StoreLifecycleInterface> {
     return Object.values(this.stores).reduce<Array<StoreLifecycleInterface>>(
-      (_connections, store: IncrementalStore<Resource<any>>) => {
+      (_connections, store: IncrementalStore<Resource<unknown>>) => {
         const storeConnections = []
 
         if (isStoreLifecycleInterface(store.replicaStore))

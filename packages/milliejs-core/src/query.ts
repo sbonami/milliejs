@@ -3,13 +3,15 @@ import type { Resource } from "./resource"
 export type Query = {
   resource: Resource
   cardinality: "one" | "many"
-  attributes: Record<string, any>
+  attributes: Record<string, string | number | boolean>
 }
 
-export function isQuery(queryOrAny: Query | any): queryOrAny is Query {
+export function isQuery(
+  queryOrUnknown: Query | unknown,
+): queryOrUnknown is Query {
   return !!(
-    typeof (queryOrAny as Query).resource !== "undefined" &&
-    typeof (queryOrAny as Query).cardinality !== "undefined" &&
-    typeof (queryOrAny as Query).attributes !== "undefined"
+    typeof (queryOrUnknown as Query).resource !== "undefined" &&
+    typeof (queryOrUnknown as Query).cardinality !== "undefined" &&
+    typeof (queryOrUnknown as Query).attributes !== "undefined"
   )
 }

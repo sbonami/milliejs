@@ -20,7 +20,7 @@ describe("entity", () => {
       })
     })
 
-    describe.each<[string, (e: MockEntity) => any]>([
+    describe.each<[string, (e: MockEntity) => unknown]>([
       ["id", (e: MockEntity) => ({ ...e, ["id"]: undefined })],
       ["resource", (e: MockEntity) => ({ ...e, ["resource"]: undefined })],
       [

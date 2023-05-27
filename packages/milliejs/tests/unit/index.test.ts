@@ -612,8 +612,6 @@ describe("MillieJS", () => {
         const millie = new MillieJS()
         millie.registerResource(mockResource1, mockReplicaStore1)
 
-        const mockData = jest.fn()
-
         const mockInputQuery = makeMockQuery({
           resource: mockResource2,
         })

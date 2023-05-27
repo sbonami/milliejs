@@ -34,8 +34,8 @@ const data = {
 
 describe("Millie update", () => {
   let millie: MillieJS
-  let replicaStore: MillieMemoryStore
-  let sourcePublisher: MillieMemoryStore
+  let replicaStore: MillieMemoryStore<typeof mockResource>
+  let sourcePublisher: MillieMemoryStore<typeof mockResource>
   beforeEach(() => {
     millie = new MillieJS()
     replicaStore = new MillieMemoryStore({})
@@ -102,15 +102,13 @@ describe("Millie update", () => {
 
       describe("when the replicaStore request takes a while", () => {
         beforeEach(() => {
-          jest
-            .spyOn(replicaStore, "update")
-            .mockImplementation((entityOrQuery, data) => {
-              return new Promise<any>((resolve) => {
-                setTimeout(() => {
-                  resolve([mockEntity])
-                }, 1000)
-              })
+          jest.spyOn(replicaStore, "update").mockImplementation(() => {
+            return new Promise((resolve) => {
+              setTimeout(() => {
+                resolve([mockEntity])
+              }, 1000)
             })
+          })
         })
 
         it("still updates the entities in the source optimistically", () => {
@@ -180,15 +178,13 @@ describe("Millie update", () => {
 
       describe("when the source request takes a while", () => {
         beforeEach(() => {
-          jest
-            .spyOn(sourcePublisher, "update")
-            .mockImplementation((entityOrQuery, data) => {
-              return new Promise<any>((resolve) => {
-                setTimeout(() => {
-                  resolve([mockEntity])
-                }, 1000)
-              })
+          jest.spyOn(sourcePublisher, "update").mockImplementation(() => {
+            return new Promise((resolve) => {
+              setTimeout(() => {
+                resolve([mockEntity])
+              }, 1000)
             })
+          })
         })
 
         it("still updates the entities in the replicaStore optimistically", () => {

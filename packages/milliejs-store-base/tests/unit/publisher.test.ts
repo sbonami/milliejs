@@ -1,4 +1,4 @@
-import type { Entity, Query, Resource } from "@milliejs/core"
+import type { Resource } from "@milliejs/core"
 import { makeMockEntity } from "@milliejs/jest-utils"
 import {
   PublisherActionInterface,
@@ -9,22 +9,19 @@ type MockResource = Resource
 const mockEntity = makeMockEntity<MockResource>()
 
 const conformingObject: PublisherActionInterface<MockResource> = {
-  create(entity: Entity<MockResource>) {
+  create() {
     return Promise.resolve(mockEntity)
   },
-  read(query: Query) {
+  read() {
     return Promise.resolve([])
   },
-  update(
-    entityOrQuery: Entity<MockResource> | Query,
-    data: Entity<MockResource>["data"],
-  ) {
+  update() {
     return Promise.resolve([])
   },
-  patch(entityOrQuery: Entity<MockResource> | Query, patch: any) {
+  patch() {
     return Promise.resolve([])
   },
-  delete(entityOrQuery: Entity<MockResource> | Query) {
+  delete() {
     return Promise.resolve([])
   },
 }

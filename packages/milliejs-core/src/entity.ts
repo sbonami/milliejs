@@ -7,11 +7,11 @@ export type Entity<R extends Resource> = {
 }
 
 export function isEntity<R extends Resource>(
-  entityOrAny: Entity<R> | any,
-): entityOrAny is Entity<R> {
+  entityOrUnknown: Entity<R> | unknown,
+): entityOrUnknown is Entity<R> {
   return !!(
-    typeof (entityOrAny as Entity<R>).id !== "undefined" &&
-    typeof (entityOrAny as Entity<R>).resource !== "undefined" &&
-    typeof (entityOrAny as Entity<R>).resource.id !== "undefined"
+    typeof (entityOrUnknown as Entity<R>).id !== "undefined" &&
+    typeof (entityOrUnknown as Entity<R>).resource !== "undefined" &&
+    typeof (entityOrUnknown as Entity<R>).resource.id !== "undefined"
   )
 }
