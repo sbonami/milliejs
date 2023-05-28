@@ -1,8 +1,7 @@
 import { EventEmitter } from "node:events"
 import MillieJS, { Entity, LifecycleEvents, Resource } from "../../src/index"
 import MillieMemoryStore from "@milliejs/store-memory"
-import { makeMockResource } from "@milliejs/jest-utils"
-import asyncCallback from "./helpers/asyncCallback"
+import { asyncCallback, makeMockResource } from "@milliejs/jest-utils"
 
 const mockResource = makeMockResource({})
 

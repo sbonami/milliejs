@@ -6,11 +6,11 @@ import MillieJS, {
 } from "../../src/index"
 import MillieMemoryStore from "@milliejs/store-memory"
 import {
+  asyncCallback,
   makeMockEntity,
   makeMockQuery,
   makeMockResource,
 } from "@milliejs/jest-utils"
-import asyncCallback from "./helpers/asyncCallback"
 
 jest.mock("../../src/worker")
 
