@@ -30,6 +30,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "yarn"
       - run: yarn install --immutable --immutable-cache
+      - name: Cache yarn unplugged packages
+        uses: actions/cache@v3
+        id: yarn-unplugged-package-cache
+        with:
+          key: ${{ runner.os }}-yarn-unplugged-${{ github.ref_name }}-${{ hashFiles('yarn.lock') }}
+          path: |
+            ./.yarn/unplugged
       - run: yarn build
       - name: Cache build artifacts
         uses: actions/cache@v3
@@ -130,6 +137,17 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "yarn"
+      - name: Restore yarn unplugged package cache
+        uses: actions/cache/restore@v3
+        id: yarn-unplugged-package-cache-restore
+        with:
+          key: ${{ runner.os }}-yarn-unplugged-${{ github.ref_name }}-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-unplugged-${{ github.ref_name }}-
+            ${{ runner.os }}-yarn-unplugged-${{ github.head_ref }}-
+            ${{ runner.os }}-yarn-unplugged-main
+          path: |
+            ./.yarn/unplugged
       - name: Restore Build cache
         id: cache-build-restore
         uses: actions/cache/restore@v3
@@ -164,6 +182,17 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "yarn"
+      - name: Restore yarn unplugged package cache
+        uses: actions/cache/restore@v3
+        id: yarn-unplugged-package-cache-restore
+        with:
+          key: ${{ runner.os }}-yarn-unplugged-${{ github.ref_name }}-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-unplugged-${{ github.ref_name }}-
+            ${{ runner.os }}-yarn-unplugged-${{ github.head_ref }}-
+            ${{ runner.os }}-yarn-unplugged-main
+          path: |
+            ./.yarn/unplugged
       - name: Restore Build cache
         id: cache-build-restore
         uses: actions/cache/restore@v3
