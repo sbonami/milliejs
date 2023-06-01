@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@milliejs/jest-utils": "workspace:^",
-    "@types/node": "^20.2.3",
+    "@types/node": "^20.2.5",
     "typescript": "^4.9.5"
   },
   "dependencies": {

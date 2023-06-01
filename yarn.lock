@@ -811,7 +811,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@milliejs/core@workspace:packages/milliejs-core"
   dependencies:
-    "@types/node": ^20.2.3
+    "@types/node": ^20.2.5
     typescript: ^4.9.5
   languageName: unknown
   linkType: soft
@@ -823,7 +823,7 @@ __metadata:
     "@faker-js/faker": ^8.0.2
     "@milliejs/core": "workspace:^"
     "@types/jest": ^29.5.1
-    "@types/node": ^20.2.3
+    "@types/node": ^20.2.5
     jest: ^29.5.0
     typescript: ^4.9.5
   languageName: unknown
@@ -835,7 +835,7 @@ __metadata:
   dependencies:
     "@tsconfig/node14": ^1.0.3
     "@types/jest": ^29.5.1
-    "@types/node": ^20.2.3
+    "@types/node": ^20.2.5
     "@typescript-eslint/eslint-plugin": ^5.59.8
     "@typescript-eslint/parser": ^5.59.8
     eslint: ^8.41.0
@@ -857,7 +857,7 @@ __metadata:
   dependencies:
     "@milliejs/core": "workspace:^"
     "@milliejs/jest-utils": "workspace:^"
-    "@types/node": ^20.2.3
+    "@types/node": ^20.2.5
     typescript: ^4.9.5
   languageName: unknown
   linkType: soft
@@ -868,7 +868,7 @@ __metadata:
   dependencies:
     "@milliejs/jest-utils": "workspace:^"
     "@milliejs/store-base": "workspace:^"
-    "@types/node": ^20.2.3
+    "@types/node": ^20.2.5
     fast-json-patch: ^3.1.1
     tiny-invariant: ^1.3.1
     typescript: ^4.9.5
@@ -1097,10 +1097,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.2.3":
-  version: 20.2.3
-  resolution: "@types/node@npm:20.2.3"
-  checksum: 576065e8fc1fa45798c8f59a6bf809169582d04abc2e25fab1a048ffc734975b9992ae31be0d960cf705a21fb37112f7fcde11aa322beddf7491e73d5a5a988c
+"@types/node@npm:^20.2.5":
+  version: 20.2.5
+  resolution: "@types/node@npm:20.2.5"
+  checksum: 38ce7c7e9d76880dc632f71d71e0d5914fcda9d5e9a7095d6c339abda55ca4affb0f2a882aeb29398f8e09d2c5151f0b6586c81c8ccdfe529c34b1ea3337425e
   languageName: node
   linkType: hard
 
@@ -4128,7 +4128,7 @@ __metadata:
     "@milliejs/jest-utils": "workspace:^"
     "@milliejs/store-base": "workspace:^"
     "@milliejs/store-memory": "workspace:^"
-    "@types/node": ^20.2.3
+    "@types/node": ^20.2.5
     tiny-invariant: ^1.3.1
   languageName: unknown
   linkType: soft
