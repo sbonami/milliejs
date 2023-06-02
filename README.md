@@ -156,7 +156,7 @@ complex logic working behind the scenes to provide the most up-to-date data.
 const calculateBalance = (entity) => {
   const balance = entity.data.debit - entity.data.credit
   console.log(
-    "Account Balance for customer " + entity.customer + " is $" + balance,
+    "Account Balance for customer " + entity.data.customer + " is $" + balance,
   )
 }
 
