@@ -1,4 +1,28 @@
 <p align="center"><img src="docs/assets/logo-black.png" alt="MillieJS" width="80%"/></p>
+<p align="center">
+  <a href="https://github.com/sbonami/milliejs/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/sbonami/milliejs?style=for-the-badge" alt="project license">
+  </a>
+  <a href="https://snyk.io/test/github/sbonami/milliejs">
+    <img src="https://img.shields.io/snyk/vulnerabilities/github/sbonami/milliejs?logo=snyk&style=for-the-badge" alt="snyk vulnerabilities">
+  </a>
+  <a href="https://codecov.io/github/sbonami/milliejs">
+    <img src="https://img.shields.io/codecov/c/github/sbonami/milliejs?logo=codecov&style=for-the-badge" alt="codecoverage">
+  </a>
+</p>
+<p align="center">
+  <a href="https://api.securityscorecards.dev/projects/github.com/sbonami/milliejs">
+    <img src="https://img.shields.io/ossf-scorecard/github.com/sbonami/milliejs?label=OSSF%20Scorecard&style=for-the-badge" alt="ossf scorecard">
+  </a>
+  <a href="http://codeclimate.com/github/sbonami/milliejs">
+    <img src="https://img.shields.io/codeclimate/maintainability/sbonami/milliejs?logo=codeclimate&style=for-the-badge" alt="codeclimate rating">
+  </a>
+  <a href="https://github.com/sbonami/milliejs/blob/main/CODE_OF_CONDUCT.md">
+    <img src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg?style=for-the-badge" alt="project code of conduct">
+  </a>
+</p>
+
+#
 
 MillieJS is a Node.js library written in TypeScript that provides an incremental
 store inspired by Apple's iOS NSIncrementalStore. MillieJS is designed to be
