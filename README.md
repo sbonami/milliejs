@@ -1,4 +1,4 @@
-# MillieJS
+<p align="center"><img src="docs/assets/logo-black.png" alt="MillieJS" width="80%"/></p>
 
 MillieJS is a Node.js library written in TypeScript that provides an incremental
 store inspired by Apple's iOS NSIncrementalStore. MillieJS is designed to be
