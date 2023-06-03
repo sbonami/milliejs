@@ -9,7 +9,7 @@ describe("mocks/entity.ts", () => {
     describe("[id]", () => {
       describe("when an override is provided", () => {
         it("accepts the id override", () => {
-          const id = faker.datatype.uuid()
+          const id = faker.string.uuid()
 
           expect(makeMockEntity({ id })).toHaveProperty("id", id)
         })

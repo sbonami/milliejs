@@ -5,7 +5,7 @@ import { makeMockResource } from "./resource"
 export const makeMockEntity = <R extends Resource = Resource>(
   partial?: Partial<Entity<R>>,
 ): Entity<R | Resource> => ({
-  id: faker.datatype.uuid(),
+  id: faker.string.uuid(),
   resource: makeMockResource(),
   data: {},
   ...partial,
