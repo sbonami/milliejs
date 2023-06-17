@@ -22,6 +22,7 @@ jobs:
       - run: yarn install --immutable --immutable-cache
       - run: yarn build
   publish:
+    needs: build
     runs-on: ubuntu-latest
     permissions:
       contents: write # to be able to publish a GitHub release
