@@ -972,6 +972,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@milliejs/monorepo@workspace:."
   dependencies:
+    "@semantic-release/commit-analyzer": ^10.0.1
     "@semantic-release/git": ^10.0.1
     "@tsconfig/node14": ^1.0.3
     "@types/jest": ^29.5.2
@@ -1543,7 +1544,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/commit-analyzer@npm:^10.0.0":
+"@semantic-release/commit-analyzer@npm:^10.0.0, @semantic-release/commit-analyzer@npm:^10.0.1":
   version: 10.0.1
   resolution: "@semantic-release/commit-analyzer@npm:10.0.1"
   dependencies:

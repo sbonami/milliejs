@@ -58,6 +58,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
+            ["@semantic-release/commit-analyzer", "virtual:81db8f8193a40128f6724243646439d02aad227c558def82980b05f24e65c4d0a0d60ff63d55ec3b226866f95f9f05de9d08044105aee3b95c39608b68d0dda9#npm:10.0.1"],\
             ["@semantic-release/git", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:10.0.1"],\
             ["@tsconfig/node14", "npm:1.0.3"],\
             ["@types/jest", "npm:29.5.2"],\
@@ -1517,6 +1518,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@milliejs/monorepo", "workspace:."],\
+            ["@semantic-release/commit-analyzer", "virtual:81db8f8193a40128f6724243646439d02aad227c558def82980b05f24e65c4d0a0d60ff63d55ec3b226866f95f9f05de9d08044105aee3b95c39608b68d0dda9#npm:10.0.1"],\
             ["@semantic-release/git", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:10.0.1"],\
             ["@tsconfig/node14", "npm:1.0.3"],\
             ["@types/jest", "npm:29.5.2"],\
