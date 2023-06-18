@@ -504,9 +504,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@google-cloud/pubsub@npm:^3.7.0":
-  version: 3.7.0
-  resolution: "@google-cloud/pubsub@npm:3.7.0"
+"@google-cloud/pubsub@npm:^3.7.1":
+  version: 3.7.1
+  resolution: "@google-cloud/pubsub@npm:3.7.1"
   dependencies:
     "@google-cloud/paginator": ^4.0.0
     "@google-cloud/precise-date": ^3.0.0
@@ -524,7 +524,7 @@ __metadata:
     is-stream-ended: ^0.1.4
     lodash.snakecase: ^4.1.1
     p-defer: ^3.0.0
-  checksum: 0d4eb4278a1dea965f0affcc967d77b86add153aa9ea7a9f649ea549790220792d3e5f263b5daee00fc1cb725ed5521dabdc33f7ced63fadfeb2742fe28961aa
+  checksum: 922c870b3b6957c271033cfa01ed2b21989dc64e08c83ed175dd8c4c6174c552387297dc06cd7713d6fcfa3504a098bd0d0032c30ff61f2f45c82a5682fce6db
   languageName: node
   linkType: hard
 
@@ -980,7 +980,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@milliejs/store-google-pubsub@workspace:packages/milliejs-store-google-pubsub"
   dependencies:
-    "@google-cloud/pubsub": ^3.7.0
+    "@google-cloud/pubsub": ^3.7.1
     "@milliejs/jest-utils": "workspace:^"
     "@milliejs/store-base": "workspace:^"
     "@milliejs/store-memory": "workspace:^"
