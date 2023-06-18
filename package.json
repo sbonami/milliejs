@@ -86,5 +86,6 @@
       "@semantic-release/git",
       "@semantic-release/github"
     ]
-  }
+  },
+  "version": "1.0.0"
 }
