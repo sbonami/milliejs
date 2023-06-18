@@ -20,6 +20,13 @@ jobs:
           node-version: "lts/*"
           cache: "yarn"
       - run: yarn install --immutable --immutable-cache
+      - name: Cache yarn unplugged packages
+        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        id: yarn-unplugged-package-cache
+        with:
+          key: ${{ runner.os }}-yarn-unplugged-${{ github.ref_name }}-${{ hashFiles('yarn.lock') }}
+          path: |
+            ./.yarn/unplugged
       - run: yarn build
   publish:
     needs: build
@@ -36,6 +43,17 @@ jobs:
       - uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
         with:
           cache: "yarn"
+      - name: Restore yarn unplugged package cache
+        uses: actions/cache/restore@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        id: yarn-unplugged-package-cache-restore
+        with:
+          key: ${{ runner.os }}-yarn-unplugged-${{ github.ref_name }}-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-unplugged-${{ github.ref_name }}-
+            ${{ runner.os }}-yarn-unplugged-${{ github.head_ref }}-
+            ${{ runner.os }}-yarn-unplugged-main
+          path: |
+            ./.yarn/unplugged
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
