@@ -29,6 +29,7 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^10.0.1",
     "@semantic-release/git": "^10.0.1",
     "@tsconfig/node14": "^1.0.3",
@@ -77,6 +78,7 @@
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
       "semantic-release-yarn",
       "@semantic-release/git",
       "@semantic-release/github"
