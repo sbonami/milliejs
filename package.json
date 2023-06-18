@@ -54,6 +54,9 @@
   "dependenciesMeta": {
     "protobufjs@7.2.3": {
       "unplugged": true
+    },
+    "semantic-release-monorepo@7.0.5": {
+      "unplugged": true
     }
   },
   "release": {
@@ -73,7 +76,7 @@
     ],
     "dryRun": true,
     "extends": [
-      "semantic-release-monorepo"
+      "./.yarn/unplugged/semantic-release-monorepo-virtual-0fecb1f330/node_modules/semantic-release-monorepo/package.json"
     ],
     "plugins": [
       "@semantic-release/commit-analyzer",

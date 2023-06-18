@@ -960,6 +960,8 @@ __metadata:
   dependenciesMeta:
     protobufjs@7.2.3:
       unplugged: true
+    semantic-release-monorepo@7.0.5:
+      unplugged: true
   languageName: unknown
   linkType: soft
 
