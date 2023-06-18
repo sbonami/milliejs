@@ -2,10 +2,6 @@
   "name": "@milliejs/monorepo",
   "private": true,
   "author": "Scott BonAmi",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sbonami/milliejs.git"
-  },
   "scripts": {
     "build": "yarn workspaces foreach --parallel --verbose run build",
     "clean": "yarn clean:dist && yarn clean:test",
