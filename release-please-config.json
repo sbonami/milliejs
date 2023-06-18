@@ -24,6 +24,18 @@
       "component": "@milliejs/store-memory"
     }
   },
-  "plugins": ["node-workspace", "sentence-case"],
+  "plugins": [
+    {
+      "type": "node-workspace",
+      "merge": false
+    },
+    {
+      "type": "linked-versions",
+      "groupName": "milliejs"
+    },
+    {
+      "type": "sentence-case"
+    }
+  ],
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
 }
