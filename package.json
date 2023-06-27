@@ -45,7 +45,7 @@
     "semantic-release-monorepo": "^7.0.5",
     "semantic-release-yarn": "^2.0.0",
     "ts-jest": "^29.1.0",
-    "typescript": "^4.9.5"
+    "typescript": "^5.1.3"
   },
   "dependenciesMeta": {
     "protobufjs@7.2.3": {
