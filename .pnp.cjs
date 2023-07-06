@@ -61,7 +61,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/changelog", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:6.0.3"],\
             ["@semantic-release/commit-analyzer", "virtual:d1fdced38f1aa38264f0fc7edbf672cc0faca4077abc48836b631bba58d472fb99aba7211f9578aa4b33bcfb84eaf2a48c97177c21a642bf29a5ad8dc333a8aa#npm:10.0.1"],\
             ["@semantic-release/git", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:10.0.1"],\
-            ["@tsconfig/node14", "npm:1.0.3"],\
+            ["@tsconfig/node14", "npm:14.1.0"],\
             ["@types/jest", "npm:29.5.2"],\
             ["@types/node", "npm:20.3.2"],\
             ["@typescript-eslint/eslint-plugin", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:5.61.0"],\
@@ -1489,7 +1489,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/changelog", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:6.0.3"],\
             ["@semantic-release/commit-analyzer", "virtual:d1fdced38f1aa38264f0fc7edbf672cc0faca4077abc48836b631bba58d472fb99aba7211f9578aa4b33bcfb84eaf2a48c97177c21a642bf29a5ad8dc333a8aa#npm:10.0.1"],\
             ["@semantic-release/git", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:10.0.1"],\
-            ["@tsconfig/node14", "npm:1.0.3"],\
+            ["@tsconfig/node14", "npm:14.1.0"],\
             ["@types/jest", "npm:29.5.2"],\
             ["@types/node", "npm:20.3.2"],\
             ["@typescript-eslint/eslint-plugin", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:5.61.0"],\
@@ -2422,10 +2422,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@tsconfig/node14", [\
-        ["npm:1.0.3", {\
-          "packageLocation": "./.yarn/cache/@tsconfig-node14-npm-1.0.3-15321421d2-19275fe80c.zip/node_modules/@tsconfig/node14/",\
+        ["npm:14.1.0", {\
+          "packageLocation": "./.yarn/cache/@tsconfig-node14-npm-14.1.0-db5025d686-8342dc30ed.zip/node_modules/@tsconfig/node14/",\
           "packageDependencies": [\
-            ["@tsconfig/node14", "npm:1.0.3"]\
+            ["@tsconfig/node14", "npm:14.1.0"]\
           ],\
           "linkType": "HARD"\
         }]\
