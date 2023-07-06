@@ -1,5 +1,5 @@
 {
-  "extends": "@tsconfig/node14/tsconfig.json",
+  "extends": "@tsconfig/node16/tsconfig.json",
   "compilerOptions": {
     // build entire project tree
     "composite": true,
@@ -11,20 +11,12 @@
     "declarationMap": true,
     // output .js.map sourcemap files for consumers
     "sourceMap": true,
-    // stricter type-checking for stronger correctness. Recommended by TS
-    "strict": true,
     // linter checks for common issues
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     // use Node's module resolution algorithm, instead of the legacy TS one
-    "moduleResolution": "node",
-    // interop between ESM and CJS modules. Recommended by TS
-    "esModuleInterop": true,
-    // significant perf increase by skipping checking .d.ts files, particularly those in node_modules. Recommended by TS
-    "skipLibCheck": true,
+    "moduleResolution": "node16",
 
-    // error out if import and file system have a casing mismatch. Recommended by TS
-    "forceConsistentCasingInFileNames": true,
     // error out if type-only imports are used as values
     "importsNotUsedAsValues": "error"
   }
