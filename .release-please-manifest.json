@@ -1,3 +1,4 @@
 {
-  ".": "0.0.0"
+  ".": "0.0.0",
+  "packages/milliejs-jest-utils": "1.0.0"
 }
