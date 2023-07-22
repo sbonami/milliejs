@@ -1034,7 +1034,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/long", "npm:4.0.2"],\
             ["lodash.camelcase", "npm:4.3.0"],\
             ["long", "npm:4.0.0"],\
-            ["protobufjs", "npm:7.2.3"],\
+            ["protobufjs", "npm:7.2.4"],\
             ["yargs", "npm:17.7.2"]\
           ],\
           "linkType": "HARD"\
@@ -9623,7 +9623,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/proto3-json-serializer-npm-1.1.1-3b67d27ff8-0cd94cb635.zip/node_modules/proto3-json-serializer/",\
           "packageDependencies": [\
             ["proto3-json-serializer", "npm:1.1.1"],\
-            ["protobufjs", "npm:7.2.3"]\
+            ["protobufjs", "npm:7.2.4"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -9633,6 +9633,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/unplugged/protobufjs-npm-7.2.3-c8e4e8bc20/node_modules/protobufjs/",\
           "packageDependencies": [\
             ["protobufjs", "npm:7.2.3"],\
+            ["@protobufjs/aspromise", "npm:1.1.2"],\
+            ["@protobufjs/base64", "npm:1.1.2"],\
+            ["@protobufjs/codegen", "npm:2.0.4"],\
+            ["@protobufjs/eventemitter", "npm:1.1.0"],\
+            ["@protobufjs/fetch", "npm:1.1.0"],\
+            ["@protobufjs/float", "npm:1.0.2"],\
+            ["@protobufjs/inquire", "npm:1.1.0"],\
+            ["@protobufjs/path", "npm:1.1.2"],\
+            ["@protobufjs/pool", "npm:1.1.0"],\
+            ["@protobufjs/utf8", "npm:1.1.0"],\
+            ["@types/node", "npm:20.4.1"],\
+            ["long", "npm:5.2.3"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:7.2.4", {\
+          "packageLocation": "./.yarn/unplugged/protobufjs-npm-7.2.4-c40bd79e8d/node_modules/protobufjs/",\
+          "packageDependencies": [\
+            ["protobufjs", "npm:7.2.4"],\
             ["@protobufjs/aspromise", "npm:1.1.2"],\
             ["@protobufjs/base64", "npm:1.1.2"],\
             ["@protobufjs/codegen", "npm:2.0.4"],\
