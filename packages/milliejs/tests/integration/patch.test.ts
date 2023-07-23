@@ -158,7 +158,7 @@ describe("Millie patch", () => {
         describe("after the source succeeds with the patch and returns the patched entities", () => {
           it.skip.each([[LifecycleEvents.Save], [LifecycleEvents.Delta]])(
             "emits a %s event with the source's patched entity",
-            // eslint-disable-next-line @typescript-eslint/no-empty-function
+
             () => {},
           )
 
