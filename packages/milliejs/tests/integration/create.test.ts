@@ -134,7 +134,7 @@ describe("Millie create", () => {
       describe("after the source succeeds with the create and returns the resource", () => {
         it.skip.each([[LifecycleEvents.Save], [LifecycleEvents.Delta]])(
           "emits a %s event with the source's created entity",
-          // eslint-disable-next-line @typescript-eslint/no-empty-function
+
           () => {},
         )
 

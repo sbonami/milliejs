@@ -7,6 +7,7 @@ export class ReadAction<R extends Resource>
   extends ActionBase
   implements Pick<PublisherActionInterface<R>, "read">
 {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async read(query: Query, track = true): Promise<Entity<R>[]> {
     invariant(this.store.replicaStore, "Replica Store cannot be undefined")
 

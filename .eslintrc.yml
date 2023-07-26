@@ -16,6 +16,8 @@ overrides:
       - plugin:import/typescript
     plugins:
       - "@typescript-eslint/eslint-plugin"
+    rules:
+      "@typescript-eslint/no-explicit-any": "warn"
   - files: ["**/*.md/*.js"]
     rules:
       "import/default": "off"

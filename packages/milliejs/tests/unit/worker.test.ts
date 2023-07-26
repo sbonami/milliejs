@@ -3,9 +3,8 @@ import { Worker } from "../../src/worker"
 import EventEmitter from "events"
 
 class MockStoreConnection implements StoreLifecycleInterface {
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   async connect() {}
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
+
   async disconnect() {}
 }
 

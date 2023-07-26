@@ -125,7 +125,6 @@ class InMemoryStore<R extends Resource>
   ): Map<Entity<R>["id"], Entity<R>> {
     if (!this.store.has(resource.id)) this.store.set(resource.id, new Map())
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     return this.store.get(resource.id)!
   }
 }

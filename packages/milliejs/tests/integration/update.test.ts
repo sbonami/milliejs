@@ -156,7 +156,7 @@ describe("Millie update", () => {
         describe("after the source succeeds with the update and returns the updated entities", () => {
           it.skip.each([[LifecycleEvents.Save], [LifecycleEvents.Delta]])(
             "emits a %s event with the source's updated entity",
-            // eslint-disable-next-line @typescript-eslint/no-empty-function
+
             () => {},
           )
 
