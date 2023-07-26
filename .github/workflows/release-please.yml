@@ -15,7 +15,7 @@ jobs:
       contents: write # to be able to publish a GitHub release
       pull-requests: write # to be able to comment on released pull requests
     steps:
-      - uses: google-github-actions/release-please-action@8016a6649226f2ec88ed05441c11bb5410a22d29 # v3.7.10
+      - uses: google-github-actions/release-please-action@ca6063f4ed81b55db15b8c42d1b6f7925866342d # v3.7.11
         with:
           release-type: node
           command: manifest
