@@ -15,6 +15,7 @@ export const makeMockPublisher = <R extends Resource>(
 })
 
 export const makeMockPublisherWithEvents = <R extends Resource>(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   partial?: Partial<PublisherActionEventInterface<R>>,
 ): PublisherActionEventInterface<R> => {
   let publisher = makeMockPublisher()

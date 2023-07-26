@@ -7,6 +7,7 @@ export class CreateAction<R extends Resource>
   extends ActionBase
   implements Pick<PublisherActionInterface<R>, "create">
 {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async create(data: Entity<R>["data"], track = true): Promise<Entity<R>> {
     invariant(this.store.replicaStore, "Replica Store cannot be undefined")
 
