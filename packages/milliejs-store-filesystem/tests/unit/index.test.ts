@@ -1,7 +1,7 @@
 import fs from "fs"
 import fsAsync from "node:fs/promises"
 import { makeMockEntity, makeMockResource } from "@milliejs/jest-utils"
-import type { Entity, Query, Resource } from "@milliejs/store-base"
+import { Entity, LifecycleEvents, Query, Resource } from "@milliejs/store-base"
 import InMemoryStore from "@milliejs/store-memory"
 import tempfs from "temp-fs"
 import FileSystemStore from "../../src"
@@ -719,6 +719,35 @@ describe("@millie/store-filesystem", () => {
             ]
           }"
         `)
+      })
+    })
+  })
+
+  describe("events", () => {
+    beforeEach(async () => {
+      await store.connect()
+    })
+
+    describe.each([
+      [LifecycleEvents.Delta],
+      [LifecycleEvents.Save],
+      [LifecycleEvents.Delete],
+    ])("when the InMemoryStore emits a '%s' event", (event) => {
+      it(`re-emits the '${event}' event from the FileSystemStore`, (done) => {
+        expect.assertions(1)
+
+        const mockEntity = makeMockEntity()
+
+        store.once(event, (entity: typeof mockEntity) => {
+          try {
+            expect(entity).toBe(mockEntity)
+            done()
+          } catch (error) {
+            done(error)
+          }
+        })
+
+        store["memoryStore"].emit(event, mockEntity)
       })
     })
   })

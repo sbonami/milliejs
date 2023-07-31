@@ -1,7 +1,8 @@
 import EventEmitter from "node:events"
 import fs from "node:fs"
-import type {
+import {
   Entity,
+  LifecycleEvents,
   PublisherActionInterface,
   Query,
   Resource,
@@ -31,6 +32,12 @@ class FileSystemStore<R extends Resource>
 
   async connect() {
     await this.memoryStore.connect()
+
+    Object.values(LifecycleEvents).forEach((eventName) => {
+      this.memoryStore.addListener(eventName, (...args: any[]) => {
+        this.emit(eventName, ...args)
+      })
+    })
 
     if (fs.existsSync(this.filepath)) {
       this.unmarshal()
