@@ -989,6 +989,7 @@ __metadata:
   dependencies:
     "@milliejs/jest-utils": "workspace:^"
     "@milliejs/store-base": "workspace:^"
+    "@milliejs/store-memory": "workspace:^"
     "@types/node": ^20.4.4
     typescript: ^4.9.5
   languageName: unknown

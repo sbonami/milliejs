@@ -1545,6 +1545,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@milliejs/store-filesystem", "workspace:packages/milliejs-store-filesystem"],\
             ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
             ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
+            ["@milliejs/store-memory", "workspace:packages/milliejs-store-memory"],\
             ["@types/node", "npm:20.4.4"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
           ],\
