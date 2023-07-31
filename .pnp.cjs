@@ -1547,6 +1547,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
             ["@milliejs/store-memory", "workspace:packages/milliejs-store-memory"],\
             ["@types/node", "npm:20.4.4"],\
+            ["@types/temp-fs", "npm:0.9.30"],\
+            ["temp-fs", "npm:0.9.9"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
           ],\
           "linkType": "SOFT"\
@@ -2721,6 +2723,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-stack-utils-npm-2.0.1-867718ab70-205fdbe332.zip/node_modules/@types/stack-utils/",\
           "packageDependencies": [\
             ["@types/stack-utils", "npm:2.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/temp-fs", [\
+        ["npm:0.9.30", {\
+          "packageLocation": "./.yarn/cache/@types-temp-fs-npm-0.9.30-92433c064b-1b1e71832b.zip/node_modules/@types/temp-fs/",\
+          "packageDependencies": [\
+            ["@types/temp-fs", "npm:0.9.30"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -10091,6 +10102,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["rimraf", [\
+        ["npm:2.5.4", {\
+          "packageLocation": "./.yarn/cache/rimraf-npm-2.5.4-c980b05862-3d217997a3.zip/node_modules/rimraf/",\
+          "packageDependencies": [\
+            ["rimraf", "npm:2.5.4"],\
+            ["glob", "npm:7.2.3"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:3.0.2", {\
           "packageLocation": "./.yarn/cache/rimraf-npm-3.0.2-2cb7dac69a-87f4164e39.zip/node_modules/rimraf/",\
           "packageDependencies": [\
@@ -10871,6 +10890,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/temp-dir-npm-2.0.0-e8af180805-cc4f0404bf.zip/node_modules/temp-dir/",\
           "packageDependencies": [\
             ["temp-dir", "npm:2.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["temp-fs", [\
+        ["npm:0.9.9", {\
+          "packageLocation": "./.yarn/cache/temp-fs-npm-0.9.9-ae2769e700-308a3fc881.zip/node_modules/temp-fs/",\
+          "packageDependencies": [\
+            ["temp-fs", "npm:0.9.9"],\
+            ["rimraf", "npm:2.5.4"]\
           ],\
           "linkType": "HARD"\
         }]\
