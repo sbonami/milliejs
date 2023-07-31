@@ -32,6 +32,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/milliejs-store-base"\
       },\
       {\
+        "name": "@milliejs/store-filesystem",\
+        "reference": "workspace:packages/milliejs-store-filesystem"\
+      },\
+      {\
         "name": "@milliejs/store-google-pubsub",\
         "reference": "workspace:packages/milliejs-store-google-pubsub"\
       },\
@@ -47,6 +51,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@milliejs/jest-utils", ["workspace:packages/milliejs-jest-utils"]],\
       ["@milliejs/monorepo", ["workspace:."]],\
       ["@milliejs/store-base", ["workspace:packages/milliejs-store-base"]],\
+      ["@milliejs/store-filesystem", ["workspace:packages/milliejs-store-filesystem"]],\
       ["@milliejs/store-google-pubsub", ["workspace:packages/milliejs-store-google-pubsub"]],\
       ["@milliejs/store-memory", ["workspace:packages/milliejs-store-memory"]],\
       ["milliejs", ["workspace:packages/milliejs"]]\
@@ -1527,6 +1532,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
             ["@milliejs/core", "workspace:packages/milliejs-core"],\
             ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
+            ["@types/node", "npm:20.4.4"],\
+            ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["@milliejs/store-filesystem", [\
+        ["workspace:packages/milliejs-store-filesystem", {\
+          "packageLocation": "./packages/milliejs-store-filesystem/",\
+          "packageDependencies": [\
+            ["@milliejs/store-filesystem", "workspace:packages/milliejs-store-filesystem"],\
+            ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
+            ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
             ["@types/node", "npm:20.4.4"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
           ],\

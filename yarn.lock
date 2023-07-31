@@ -983,6 +983,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@milliejs/store-filesystem@workspace:packages/milliejs-store-filesystem":
+  version: 0.0.0-use.local
+  resolution: "@milliejs/store-filesystem@workspace:packages/milliejs-store-filesystem"
+  dependencies:
+    "@milliejs/jest-utils": "workspace:^"
+    "@milliejs/store-base": "workspace:^"
+    "@types/node": ^20.4.4
+    typescript: ^4.9.5
+  languageName: unknown
+  linkType: soft
+
 "@milliejs/store-google-pubsub@workspace:packages/milliejs-store-google-pubsub":
   version: 0.0.0-use.local
   resolution: "@milliejs/store-google-pubsub@workspace:packages/milliejs-store-google-pubsub"
