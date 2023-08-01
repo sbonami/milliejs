@@ -70,7 +70,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-prettier", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:8.9.0"],\
             ["eslint-import-resolver-typescript", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:3.5.5"],\
             ["eslint-plugin-import", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:2.27.5"],\
-            ["eslint-plugin-markdown", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:3.0.0"],\
+            ["eslint-plugin-markdown", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:3.0.1"],\
             ["jest", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:29.5.0"],\
             ["prettier", "npm:3.0.0"],\
             ["rimraf", "npm:5.0.1"],\
@@ -1507,7 +1507,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-prettier", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:8.9.0"],\
             ["eslint-import-resolver-typescript", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:3.5.5"],\
             ["eslint-plugin-import", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:2.27.5"],\
-            ["eslint-plugin-markdown", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:3.0.0"],\
+            ["eslint-plugin-markdown", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:3.0.1"],\
             ["jest", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:29.5.0"],\
             ["prettier", "npm:3.0.0"],\
             ["rimraf", "npm:5.0.1"],\
@@ -4969,17 +4969,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["eslint-plugin-markdown", [\
-        ["npm:3.0.0", {\
-          "packageLocation": "./.yarn/cache/eslint-plugin-markdown-npm-3.0.0-64f9b44f42-ea9e8613cf.zip/node_modules/eslint-plugin-markdown/",\
+        ["npm:3.0.1", {\
+          "packageLocation": "./.yarn/cache/eslint-plugin-markdown-npm-3.0.1-2fe3758b6e-91233d3577.zip/node_modules/eslint-plugin-markdown/",\
           "packageDependencies": [\
-            ["eslint-plugin-markdown", "npm:3.0.0"]\
+            ["eslint-plugin-markdown", "npm:3.0.1"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:3.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/eslint-plugin-markdown-virtual-747b85206a/0/cache/eslint-plugin-markdown-npm-3.0.0-64f9b44f42-ea9e8613cf.zip/node_modules/eslint-plugin-markdown/",\
+        ["virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:3.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/eslint-plugin-markdown-virtual-eb036d6d32/0/cache/eslint-plugin-markdown-npm-3.0.1-2fe3758b6e-91233d3577.zip/node_modules/eslint-plugin-markdown/",\
           "packageDependencies": [\
-            ["eslint-plugin-markdown", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:3.0.0"],\
+            ["eslint-plugin-markdown", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:3.0.1"],\
             ["@types/eslint", null],\
             ["eslint", "npm:8.45.0"],\
             ["mdast-util-from-markdown", "npm:0.8.5"]\
