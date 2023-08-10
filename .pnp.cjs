@@ -16,6 +16,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:."\
       },\
       {\
+        "name": "@example/hello-world",\
+        "reference": "workspace:examples/hello-world"\
+      },\
+      {\
         "name": "milliejs",\
         "reference": "workspace:packages/milliejs"\
       },\
@@ -47,6 +51,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
+      ["@example/hello-world", ["workspace:examples/hello-world"]],\
       ["@milliejs/core", ["workspace:packages/milliejs-core"]],\
       ["@milliejs/jest-utils", ["workspace:packages/milliejs-jest-utils"]],\
       ["@milliejs/monorepo", ["workspace:."]],\
@@ -946,6 +951,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@eslint/js", "npm:8.46.0"]\
           ],\
           "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@example/hello-world", [\
+        ["workspace:examples/hello-world", {\
+          "packageLocation": "./examples/hello-world/",\
+          "packageDependencies": [\
+            ["@example/hello-world", "workspace:examples/hello-world"],\
+            ["milliejs", "workspace:packages/milliejs"]\
+          ],\
+          "linkType": "SOFT"\
         }]\
       ]],\
       ["@faker-js/faker", [\

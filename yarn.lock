@@ -466,6 +466,14 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@example/hello-world@workspace:examples/hello-world":
+  version: 0.0.0-use.local
+  resolution: "@example/hello-world@workspace:examples/hello-world"
+  dependencies:
+    milliejs: "workspace:^"
+  languageName: unknown
+  linkType: soft
+
 "@faker-js/faker@npm:^8.0.2":
   version: 8.0.2
   resolution: "@faker-js/faker@npm:8.0.2"

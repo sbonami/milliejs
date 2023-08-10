@@ -1,0 +1,11 @@
+{
+  "name": "@example/hello-world",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "milliejs": "workspace:^"
+  },
+  "packageManager": "yarn@3.4.1"
+}
