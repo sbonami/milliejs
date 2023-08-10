@@ -1,5 +1,6 @@
 import EventEmitter from "node:events"
 import fs from "node:fs"
+import fsAsync from "node:fs/promises"
 import {
   Entity,
   LifecycleEvents,
@@ -40,9 +41,9 @@ class FileSystemStore<R extends Resource>
     })
 
     if (fs.existsSync(this.filepath)) {
-      this.unmarshal()
+      await this.unmarshal()
     } else {
-      this.marshal()
+      await this.marshal()
     }
   }
 
@@ -85,12 +86,12 @@ class FileSystemStore<R extends Resource>
     return JSON.stringify(this.memoryStore.store, serialize, 2)
   }
 
-  private marshal() {
-    fs.writeFileSync(this.filepath, this.toJSON(), this.encoding)
+  private async marshal() {
+    await fsAsync.writeFile(this.filepath, this.toJSON(), this.encoding)
   }
 
-  private unmarshal() {
-    const data = fs.readFileSync(this.filepath, { encoding: this.encoding })
+  private async unmarshal() {
+    const data = await fsAsync.readFile(this.filepath, this.encoding)
     this.memoryStore.store = JSON.parse(data, deserialize)
   }
 }
