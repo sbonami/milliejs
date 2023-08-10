@@ -470,6 +470,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@example/hello-world@workspace:examples/hello-world"
   dependencies:
+    "@milliejs/store-filesystem": "workspace:^"
+    "@milliejs/store-memory": "workspace:^"
     milliejs: "workspace:^"
   languageName: unknown
   linkType: soft
@@ -991,7 +993,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@milliejs/store-filesystem@workspace:packages/milliejs-store-filesystem":
+"@milliejs/store-filesystem@workspace:^, @milliejs/store-filesystem@workspace:packages/milliejs-store-filesystem":
   version: 0.0.0-use.local
   resolution: "@milliejs/store-filesystem@workspace:packages/milliejs-store-filesystem"
   dependencies:

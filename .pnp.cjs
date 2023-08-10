@@ -958,6 +958,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./examples/hello-world/",\
           "packageDependencies": [\
             ["@example/hello-world", "workspace:examples/hello-world"],\
+            ["@milliejs/store-filesystem", "workspace:packages/milliejs-store-filesystem"],\
+            ["@milliejs/store-memory", "workspace:packages/milliejs-store-memory"],\
             ["milliejs", "workspace:packages/milliejs"]\
           ],\
           "linkType": "SOFT"\
