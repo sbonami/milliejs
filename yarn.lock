@@ -489,6 +489,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@example/server-side-transactional@workspace:examples/server-side"
   dependencies:
+    "@google-cloud/pubsub": ^3.7.1
     "@milliejs/store-filesystem": "workspace:^"
     "@types/json-server": ^0.14.4
     "@types/node": ^20.4.4
@@ -545,8 +546,8 @@ __metadata:
   linkType: hard
 
 "@google-cloud/pubsub@npm:^3.7.1":
-  version: 3.7.1
-  resolution: "@google-cloud/pubsub@npm:3.7.1"
+  version: 3.7.3
+  resolution: "@google-cloud/pubsub@npm:3.7.3"
   dependencies:
     "@google-cloud/paginator": ^4.0.0
     "@google-cloud/precise-date": ^3.0.0
@@ -559,12 +560,12 @@ __metadata:
     arrify: ^2.0.0
     extend: ^3.0.2
     google-auth-library: ^8.0.2
-    google-gax: ^3.5.6
+    google-gax: ^3.6.1
     heap-js: ^2.2.0
     is-stream-ended: ^0.1.4
     lodash.snakecase: ^4.1.1
     p-defer: ^3.0.0
-  checksum: 922c870b3b6957c271033cfa01ed2b21989dc64e08c83ed175dd8c4c6174c552387297dc06cd7713d6fcfa3504a098bd0d0032c30ff61f2f45c82a5682fce6db
+  checksum: 925b1080f38c05699b2807b62e9837644d957e609119b8d11d11670de59d483f7ff878e4e784ef3b71812f0b8db5176cc5eddd59534060ff1e49567b3d31172e
   languageName: node
   linkType: hard
 
@@ -5186,9 +5187,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"google-gax@npm:^3.5.6":
-  version: 3.6.0
-  resolution: "google-gax@npm:3.6.0"
+"google-gax@npm:^3.6.1":
+  version: 3.6.1
+  resolution: "google-gax@npm:3.6.1"
   dependencies:
     "@grpc/grpc-js": ~1.8.0
     "@grpc/proto-loader": ^0.7.0
@@ -5202,13 +5203,13 @@ __metadata:
     node-fetch: ^2.6.1
     object-hash: ^3.0.0
     proto3-json-serializer: ^1.0.0
-    protobufjs: 7.2.3
+    protobufjs: 7.2.4
     protobufjs-cli: 1.1.1
     retry-request: ^5.0.0
   bin:
     compileProtos: build/tools/compileProtos.js
     minifyProtoJson: build/tools/minify.js
-  checksum: 4c7b1b5a278ffda3eaa92e7f25a9e0ea2d0a76aca704aca4baee4fe9d109916e97e83062ad751006ed93ac675a7fd74028061204fa9ed92833a853e6657a71a1
+  checksum: 16e5fb211d75c6a4cb4d2e62adba7bbf41d160feba74fe39435a70fc31ef8ebc740af4527a2897abab39a1806d131792b2a761da432ae1b916198c9c43aab36e
   languageName: node
   linkType: hard
 
@@ -8999,27 +9000,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"protobufjs@npm:7.2.3":
-  version: 7.2.3
-  resolution: "protobufjs@npm:7.2.3"
-  dependencies:
-    "@protobufjs/aspromise": ^1.1.2
-    "@protobufjs/base64": ^1.1.2
-    "@protobufjs/codegen": ^2.0.4
-    "@protobufjs/eventemitter": ^1.1.0
-    "@protobufjs/fetch": ^1.1.0
-    "@protobufjs/float": ^1.0.2
-    "@protobufjs/inquire": ^1.1.0
-    "@protobufjs/path": ^1.1.2
-    "@protobufjs/pool": ^1.1.0
-    "@protobufjs/utf8": ^1.1.0
-    "@types/node": ">=13.7.0"
-    long: ^5.0.0
-  checksum: 9afa6de5fced0139a5180c063718508fac3ea734a9f1aceb99712367b15473a83327f91193f16b63540f9112b09a40912f5f0441a9b0d3f3c6a1c7f707d78249
-  languageName: node
-  linkType: hard
-
-"protobufjs@npm:^7.0.0":
+"protobufjs@npm:7.2.4, protobufjs@npm:^7.0.0":
   version: 7.2.4
   resolution: "protobufjs@npm:7.2.4"
   dependencies:

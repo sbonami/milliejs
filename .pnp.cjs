@@ -985,6 +985,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./examples/server-side/",\
           "packageDependencies": [\
             ["@example/server-side-transactional", "workspace:examples/server-side"],\
+            ["@google-cloud/pubsub", "npm:3.7.3"],\
             ["@milliejs/store-filesystem", "workspace:packages/milliejs-store-filesystem"],\
             ["@types/json-server", "npm:0.14.4"],\
             ["@types/node", "npm:20.4.4"],\
@@ -1053,10 +1054,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@google-cloud/pubsub", [\
-        ["npm:3.7.1", {\
-          "packageLocation": "./.yarn/cache/@google-cloud-pubsub-npm-3.7.1-58a705402c-922c870b3b.zip/node_modules/@google-cloud/pubsub/",\
+        ["npm:3.7.3", {\
+          "packageLocation": "./.yarn/cache/@google-cloud-pubsub-npm-3.7.3-cea7d184f9-925b1080f3.zip/node_modules/@google-cloud/pubsub/",\
           "packageDependencies": [\
-            ["@google-cloud/pubsub", "npm:3.7.1"],\
+            ["@google-cloud/pubsub", "npm:3.7.3"],\
             ["@google-cloud/paginator", "npm:4.0.1"],\
             ["@google-cloud/precise-date", "npm:3.0.1"],\
             ["@google-cloud/projectify", "npm:3.0.0"],\
@@ -1068,7 +1069,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["arrify", "npm:2.0.1"],\
             ["extend", "npm:3.0.2"],\
             ["google-auth-library", "npm:8.8.0"],\
-            ["google-gax", "npm:3.6.0"],\
+            ["google-gax", "npm:3.6.1"],\
             ["heap-js", "npm:2.2.0"],\
             ["is-stream-ended", "npm:0.1.4"],\
             ["lodash.snakecase", "npm:4.1.1"],\
@@ -1623,7 +1624,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/milliejs-store-google-pubsub/",\
           "packageDependencies": [\
             ["@milliejs/store-google-pubsub", "workspace:packages/milliejs-store-google-pubsub"],\
-            ["@google-cloud/pubsub", "npm:3.7.1"],\
+            ["@google-cloud/pubsub", "npm:3.7.3"],\
             ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
             ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
             ["@milliejs/store-memory", "workspace:packages/milliejs-store-memory"],\
@@ -6765,10 +6766,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["google-gax", [\
-        ["npm:3.6.0", {\
-          "packageLocation": "./.yarn/cache/google-gax-npm-3.6.0-e214ee0d6b-4c7b1b5a27.zip/node_modules/google-gax/",\
+        ["npm:3.6.1", {\
+          "packageLocation": "./.yarn/cache/google-gax-npm-3.6.1-c45baf133b-16e5fb211d.zip/node_modules/google-gax/",\
           "packageDependencies": [\
-            ["google-gax", "npm:3.6.0"],\
+            ["google-gax", "npm:3.6.1"],\
             ["@grpc/grpc-js", "npm:1.8.14"],\
             ["@grpc/proto-loader", "npm:0.7.7"],\
             ["@types/long", "npm:4.0.2"],\
@@ -6781,8 +6782,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["node-fetch", "virtual:d6072ba3241fedbded84166396afebb3b7dd0723e1b50ee8f282f3defb68f0be716abc846ee97db697cb28a7cefc8947d5622d1ef5a7107ef81bfb75a8b5e47f#npm:2.6.11"],\
             ["object-hash", "npm:3.0.0"],\
             ["proto3-json-serializer", "npm:1.1.1"],\
-            ["protobufjs", "npm:7.2.3"],\
-            ["protobufjs-cli", "virtual:e214ee0d6bf04b967b5fd7757a9d8f0e1d01b50c6f9ee0d16715b22dd80e44352ce7a51073f6ba75986ef90726aa67684e6d054cfd5ba5fe0cac319baa9b4792#npm:1.1.1"],\
+            ["protobufjs", "npm:7.2.4"],\
+            ["protobufjs-cli", "virtual:c45baf133bf138daa86db2bbd9204e47010eb8bb2a7344594f41ab9a722673129e1b9dac31096fa149ded4c85646cc3df2ceeb62d89af723d0532d6825a803d6#npm:1.1.1"],\
             ["retry-request", "npm:5.0.2"]\
           ],\
           "linkType": "HARD"\
@@ -11009,25 +11010,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["protobufjs", [\
-        ["npm:7.2.3", {\
-          "packageLocation": "./.yarn/unplugged/protobufjs-npm-7.2.3-c8e4e8bc20/node_modules/protobufjs/",\
-          "packageDependencies": [\
-            ["protobufjs", "npm:7.2.3"],\
-            ["@protobufjs/aspromise", "npm:1.1.2"],\
-            ["@protobufjs/base64", "npm:1.1.2"],\
-            ["@protobufjs/codegen", "npm:2.0.4"],\
-            ["@protobufjs/eventemitter", "npm:1.1.0"],\
-            ["@protobufjs/fetch", "npm:1.1.0"],\
-            ["@protobufjs/float", "npm:1.0.2"],\
-            ["@protobufjs/inquire", "npm:1.1.0"],\
-            ["@protobufjs/path", "npm:1.1.2"],\
-            ["@protobufjs/pool", "npm:1.1.0"],\
-            ["@protobufjs/utf8", "npm:1.1.0"],\
-            ["@types/node", "npm:20.4.4"],\
-            ["long", "npm:5.2.3"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:7.2.4", {\
           "packageLocation": "./.yarn/unplugged/protobufjs-npm-7.2.4-c40bd79e8d/node_modules/protobufjs/",\
           "packageDependencies": [\
@@ -11056,10 +11038,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:e214ee0d6bf04b967b5fd7757a9d8f0e1d01b50c6f9ee0d16715b22dd80e44352ce7a51073f6ba75986ef90726aa67684e6d054cfd5ba5fe0cac319baa9b4792#npm:1.1.1", {\
-          "packageLocation": "./.yarn/__virtual__/protobufjs-cli-virtual-93eeda075f/0/cache/protobufjs-cli-npm-1.1.1-3eeadc2e09-124a2cb10d.zip/node_modules/protobufjs-cli/",\
+        ["virtual:c45baf133bf138daa86db2bbd9204e47010eb8bb2a7344594f41ab9a722673129e1b9dac31096fa149ded4c85646cc3df2ceeb62d89af723d0532d6825a803d6#npm:1.1.1", {\
+          "packageLocation": "./.yarn/__virtual__/protobufjs-cli-virtual-0505f8790d/0/cache/protobufjs-cli-npm-1.1.1-3eeadc2e09-124a2cb10d.zip/node_modules/protobufjs-cli/",\
           "packageDependencies": [\
-            ["protobufjs-cli", "virtual:e214ee0d6bf04b967b5fd7757a9d8f0e1d01b50c6f9ee0d16715b22dd80e44352ce7a51073f6ba75986ef90726aa67684e6d054cfd5ba5fe0cac319baa9b4792#npm:1.1.1"],\
+            ["protobufjs-cli", "virtual:c45baf133bf138daa86db2bbd9204e47010eb8bb2a7344594f41ab9a722673129e1b9dac31096fa149ded4c85646cc3df2ceeb62d89af723d0532d6825a803d6#npm:1.1.1"],\
             ["@types/protobufjs", null],\
             ["chalk", "npm:4.1.2"],\
             ["escodegen", "npm:1.14.3"],\
@@ -11068,7 +11050,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["glob", "npm:8.1.0"],\
             ["jsdoc", "npm:4.0.2"],\
             ["minimist", "npm:1.2.8"],\
-            ["protobufjs", "npm:7.2.3"],\
+            ["protobufjs", "npm:7.2.4"],\
             ["semver", "npm:7.5.4"],\
             ["tmp", "npm:0.2.1"],\
             ["uglify-js", "npm:3.17.4"]\
