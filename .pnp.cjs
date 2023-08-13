@@ -985,6 +985,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./examples/server-side/",\
           "packageDependencies": [\
             ["@example/server-side-transactional", "workspace:examples/server-side"],\
+            ["@milliejs/store-filesystem", "workspace:packages/milliejs-store-filesystem"],\
             ["@types/node", "npm:20.4.4"],\
             ["milliejs", "workspace:packages/milliejs"],\
             ["ts-node", "virtual:d4941f80985358f9881d3c509d9d7d0acc14d4f32c9440e8910df268484e694bb624a7b17b791eaf75b1a69f051140f4563be14e120f4e86606c1aac9ff9bec7#npm:10.9.1"],\

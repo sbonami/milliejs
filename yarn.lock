@@ -489,6 +489,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@example/server-side-transactional@workspace:examples/server-side"
   dependencies:
+    "@milliejs/store-filesystem": "workspace:^"
     "@types/node": ^20.4.4
     milliejs: "workspace:^"
     ts-node: ^10.9.1
