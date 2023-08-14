@@ -491,6 +491,7 @@ __metadata:
   dependencies:
     "@google-cloud/pubsub": ^3.7.1
     "@milliejs/store-filesystem": "workspace:^"
+    "@milliejs/store-google-pubsub": "workspace:^"
     "@types/json-server": ^0.14.4
     "@types/node": ^20.4.4
     json-server: ^0.17.3
@@ -1048,7 +1049,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@milliejs/store-google-pubsub@workspace:packages/milliejs-store-google-pubsub":
+"@milliejs/store-google-pubsub@workspace:^, @milliejs/store-google-pubsub@workspace:packages/milliejs-store-google-pubsub":
   version: 0.0.0-use.local
   resolution: "@milliejs/store-google-pubsub@workspace:packages/milliejs-store-google-pubsub"
   dependencies:

@@ -1,5 +1,10 @@
 import type { Resource } from "milliejs"
 
-export default <Resource>{
+type PetResourceData = {
+  name: string
+}
+export type PetResource = Resource<PetResourceData>
+
+export default <PetResource>{
   id: "pet",
 }

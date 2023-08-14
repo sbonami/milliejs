@@ -2,6 +2,7 @@
   "name": "@example/server-side-transactional",
   "private": true,
   "scripts": {
+    "setup-subscription": "node ./script/setup-subscription.mjs",
     "start:client": "ts-node ./client/index.ts",
     "start:server": "ts-node ./server/index.ts"
   },
@@ -14,6 +15,7 @@
   "dependencies": {
     "@google-cloud/pubsub": "^3.7.1",
     "@milliejs/store-filesystem": "workspace:^",
+    "@milliejs/store-google-pubsub": "workspace:^",
     "json-server": "^0.17.3",
     "milliejs": "workspace:^"
   }

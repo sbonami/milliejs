@@ -987,6 +987,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@example/server-side-transactional", "workspace:examples/server-side"],\
             ["@google-cloud/pubsub", "npm:3.7.3"],\
             ["@milliejs/store-filesystem", "workspace:packages/milliejs-store-filesystem"],\
+            ["@milliejs/store-google-pubsub", "workspace:packages/milliejs-store-google-pubsub"],\
             ["@types/json-server", "npm:0.14.4"],\
             ["@types/node", "npm:20.4.4"],\
             ["json-server", "npm:0.17.3"],\
