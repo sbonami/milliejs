@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  google-pubsub:
+    container_name: server-side-example-google-pubsub
+    image: gcr.io/google.com/cloudsdktool/google-cloud-cli:emulators
+    entrypoint: gcloud beta emulators pubsub
+    command: start --host-port=0.0.0.0:8538 --data-dir=/data --verbosity=debug
+    ports:
+      - "8538:8538"
+    environment:
+      - PUBSUB_PROJECT_ID=milliejs-server-side-example
+      - GODEBUG=http2debug=2
+    volumes:
+      - google-pubsub-data:/data
+
+volumes:
+  google-pubsub-data:
