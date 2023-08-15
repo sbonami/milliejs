@@ -78,7 +78,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/git", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:10.0.1"],\
             ["@tsconfig/node16", "npm:16.1.0"],\
             ["@types/jest", "npm:29.5.3"],\
-            ["@types/node", "npm:20.4.4"],\
+            ["@types/node", "npm:20.5.0"],\
             ["@typescript-eslint/eslint-plugin", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:6.4.0"],\
             ["@typescript-eslint/parser", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:6.4.0"],\
             ["eslint", "npm:8.47.0"],\
@@ -989,7 +989,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@milliejs/store-filesystem", "workspace:packages/milliejs-store-filesystem"],\
             ["@milliejs/store-google-pubsub", "workspace:packages/milliejs-store-google-pubsub"],\
             ["@types/json-server", "npm:0.14.4"],\
-            ["@types/node", "npm:20.4.4"],\
+            ["@types/node", "npm:20.5.0"],\
             ["json-server", "npm:0.17.3"],\
             ["milliejs", "workspace:packages/milliejs"],\
             ["ts-node", "virtual:d4941f80985358f9881d3c509d9d7d0acc14d4f32c9440e8910df268484e694bb624a7b17b791eaf75b1a69f051140f4563be14e120f4e86606c1aac9ff9bec7#npm:10.9.1"],\
@@ -1540,7 +1540,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/milliejs-core/",\
           "packageDependencies": [\
             ["@milliejs/core", "workspace:packages/milliejs-core"],\
-            ["@types/node", "npm:20.4.4"],\
+            ["@types/node", "npm:20.5.0"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
           ],\
           "linkType": "SOFT"\
@@ -1554,7 +1554,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@faker-js/faker", "npm:8.0.2"],\
             ["@milliejs/core", "workspace:packages/milliejs-core"],\
             ["@types/jest", "npm:29.5.3"],\
-            ["@types/node", "npm:20.4.4"],\
+            ["@types/node", "npm:20.5.0"],\
             ["jest", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:29.6.2"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
           ],\
@@ -1571,7 +1571,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/git", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:10.0.1"],\
             ["@tsconfig/node16", "npm:16.1.0"],\
             ["@types/jest", "npm:29.5.3"],\
-            ["@types/node", "npm:20.4.4"],\
+            ["@types/node", "npm:20.5.0"],\
             ["@typescript-eslint/eslint-plugin", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:6.4.0"],\
             ["@typescript-eslint/parser", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:6.4.0"],\
             ["eslint", "npm:8.47.0"],\
@@ -1598,7 +1598,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
             ["@milliejs/core", "workspace:packages/milliejs-core"],\
             ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
-            ["@types/node", "npm:20.4.4"],\
+            ["@types/node", "npm:20.5.0"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
           ],\
           "linkType": "SOFT"\
@@ -1612,7 +1612,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
             ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
             ["@milliejs/store-memory", "workspace:packages/milliejs-store-memory"],\
-            ["@types/node", "npm:20.4.4"],\
+            ["@types/node", "npm:20.5.0"],\
             ["@types/temp-fs", "npm:0.9.30"],\
             ["temp-fs", "npm:0.9.9"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
@@ -1629,7 +1629,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
             ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
             ["@milliejs/store-memory", "workspace:packages/milliejs-store-memory"],\
-            ["@types/node", "npm:20.4.4"],\
+            ["@types/node", "npm:20.5.0"],\
             ["milliejs", "workspace:packages/milliejs"],\
             ["tiny-invariant", "npm:1.3.1"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
@@ -1644,7 +1644,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@milliejs/store-memory", "workspace:packages/milliejs-store-memory"],\
             ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
             ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
-            ["@types/node", "npm:20.4.4"],\
+            ["@types/node", "npm:20.5.0"],\
             ["fast-json-patch", "npm:3.1.1"],\
             ["tiny-invariant", "npm:1.3.1"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"]\
@@ -2888,6 +2888,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-node-npm-20.4.4-6c302e7a15-43f3c4a8ac.zip/node_modules/@types/node/",\
           "packageDependencies": [\
             ["@types/node", "npm:20.4.4"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:20.5.0", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-20.5.0-ea170d5dd7-659bc5fc93.zip/node_modules/@types/node/",\
+          "packageDependencies": [\
+            ["@types/node", "npm:20.5.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -9363,7 +9370,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
             ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
             ["@milliejs/store-memory", "workspace:packages/milliejs-store-memory"],\
-            ["@types/node", "npm:20.4.4"],\
+            ["@types/node", "npm:20.5.0"],\
             ["tiny-invariant", "npm:1.3.1"]\
           ],\
           "linkType": "SOFT"\
@@ -12662,7 +12669,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@tsconfig/node12", "npm:1.0.11"],\
             ["@tsconfig/node14", "npm:1.0.3"],\
             ["@tsconfig/node16", "npm:1.0.4"],\
-            ["@types/node", "npm:20.4.4"],\
+            ["@types/node", "npm:20.5.0"],\
             ["@types/swc__core", null],\
             ["@types/swc__wasm", null],\
             ["@types/typescript", null],\
