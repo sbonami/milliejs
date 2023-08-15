@@ -1,0 +1,13 @@
+{
+  "name": "@example/hello-world",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@milliejs/store-filesystem": "workspace:^",
+    "@milliejs/store-memory": "workspace:^",
+    "milliejs": "workspace:^"
+  },
+  "packageManager": "yarn@3.4.1"
+}

@@ -18,7 +18,9 @@ type ParsedMessage<R extends Resource> = {
   entity: Entity<R>
 }
 
-type MessageParser<R extends Resource> = (message: Message) => ParsedMessage<R>
+export type MessageParser<R extends Resource> = (
+  message: Message,
+) => ParsedMessage<R>
 
 export class GooglePubSubSubscriber<R extends Resource = Resource<unknown>>
   extends EventEmitter

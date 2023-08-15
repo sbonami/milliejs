@@ -1,0 +1,22 @@
+{
+  "name": "@example/server-side-transactional",
+  "private": true,
+  "scripts": {
+    "setup-subscription": "node ./script/setup-subscription.mjs",
+    "start:client": "ts-node ./client/index.ts",
+    "start:server": "ts-node ./server/index.ts"
+  },
+  "devDependencies": {
+    "@types/json-server": "^0.14.4",
+    "@types/node": "^20.4.4",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "@google-cloud/pubsub": "^3.7.1",
+    "@milliejs/store-filesystem": "workspace:^",
+    "@milliejs/store-google-pubsub": "workspace:^",
+    "json-server": "^0.17.3",
+    "milliejs": "workspace:^"
+  }
+}
