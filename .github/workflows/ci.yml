@@ -78,7 +78,7 @@ jobs:
           path: |
             ./packages/*/dist
             ./packages/*/*.tsbuildinfo
-      - run: yarn lint
+      - run: yarn lint:code
 
   lint-prettier:
     needs: build
