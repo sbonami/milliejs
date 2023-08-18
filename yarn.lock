@@ -444,6 +444,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@commitlint/config-conventional@npm:^17.7.0":
+  version: 17.7.0
+  resolution: "@commitlint/config-conventional@npm:17.7.0"
+  dependencies:
+    conventional-changelog-conventionalcommits: ^6.1.0
+  checksum: 932cf35c12855e360c750bc19ffedc0925f8658f316aaacdf5441ce775712934386643a9ac418f18e24e5bb1bf71ed721b8ae452a13d04908b0e55cd3d2d988f
+  languageName: node
+  linkType: hard
+
 "@commitlint/config-validator@npm:^17.6.7":
   version: 17.6.7
   resolution: "@commitlint/config-validator@npm:17.6.7"
@@ -1184,6 +1193,7 @@ __metadata:
   resolution: "@milliejs/monorepo@workspace:."
   dependencies:
     "@commitlint/cli": ^17.7.1
+    "@commitlint/config-conventional": ^17.7.0
     "@semantic-release/changelog": ^6.0.3
     "@semantic-release/commit-analyzer": ^10.0.1
     "@semantic-release/git": ^10.0.1
@@ -3600,6 +3610,15 @@ __metadata:
   dependencies:
     compare-func: ^2.0.0
   checksum: ddc59ead53a45b817d83208200967f5340866782b8362d5e2e34105fdfa3d3a31585ebbdec7750bdb9de53da869f847e8ca96634a9801f51e27ecf4e7ffe2bad
+  languageName: node
+  linkType: hard
+
+"conventional-changelog-conventionalcommits@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "conventional-changelog-conventionalcommits@npm:6.1.0"
+  dependencies:
+    compare-func: ^2.0.0
+  checksum: 4383a35cdf72f5964e194a1146e7f78276e301f73bd993b71627bb93586b6470d411b9613507ceb37e0fed0b023199c95e941541fa47172b4e6a7916fc3a53ff
   languageName: node
   linkType: hard
 

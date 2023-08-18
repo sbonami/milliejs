@@ -74,6 +74,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@commitlint/cli", "npm:17.7.1"],\
+            ["@commitlint/config-conventional", "npm:17.7.0"],\
             ["@semantic-release/changelog", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:6.0.3"],\
             ["@semantic-release/commit-analyzer", "virtual:d1fdced38f1aa38264f0fc7edbf672cc0faca4077abc48836b631bba58d472fb99aba7211f9578aa4b33bcfb84eaf2a48c97177c21a642bf29a5ad8dc333a8aa#npm:10.0.1"],\
             ["@semantic-release/git", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:10.0.1"],\
@@ -915,6 +916,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["resolve-from", "npm:5.0.0"],\
             ["resolve-global", "npm:1.0.0"],\
             ["yargs", "npm:17.7.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@commitlint/config-conventional", [\
+        ["npm:17.7.0", {\
+          "packageLocation": "./.yarn/cache/@commitlint-config-conventional-npm-17.7.0-291cc2bbe4-932cf35c12.zip/node_modules/@commitlint/config-conventional/",\
+          "packageDependencies": [\
+            ["@commitlint/config-conventional", "npm:17.7.0"],\
+            ["conventional-changelog-conventionalcommits", "npm:6.1.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -1773,6 +1784,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@milliejs/monorepo", "workspace:."],\
             ["@commitlint/cli", "npm:17.7.1"],\
+            ["@commitlint/config-conventional", "npm:17.7.0"],\
             ["@semantic-release/changelog", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:6.0.3"],\
             ["@semantic-release/commit-analyzer", "virtual:d1fdced38f1aa38264f0fc7edbf672cc0faca4077abc48836b631bba58d472fb99aba7211f9578aa4b33bcfb84eaf2a48c97177c21a642bf29a5ad8dc333a8aa#npm:10.0.1"],\
             ["@semantic-release/git", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:10.0.1"],\
@@ -4714,6 +4726,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/conventional-changelog-angular-npm-6.0.0-7d83e24a10-ddc59ead53.zip/node_modules/conventional-changelog-angular/",\
           "packageDependencies": [\
             ["conventional-changelog-angular", "npm:6.0.0"],\
+            ["compare-func", "npm:2.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["conventional-changelog-conventionalcommits", [\
+        ["npm:6.1.0", {\
+          "packageLocation": "./.yarn/cache/conventional-changelog-conventionalcommits-npm-6.1.0-10dd027396-4383a35cdf.zip/node_modules/conventional-changelog-conventionalcommits/",\
+          "packageDependencies": [\
+            ["conventional-changelog-conventionalcommits", "npm:6.1.0"],\
             ["compare-func", "npm:2.0.0"]\
           ],\
           "linkType": "HARD"\
