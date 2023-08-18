@@ -10,7 +10,9 @@
     "format:script": "prettier --ignore-path .prettierignore .",
     "format": "yarn format:script --write",
     "format:ci": "yarn format:script --check",
-    "lint": "eslint --ignore-path .gitignore .",
+    "lint": "yarn lint:code && yarn lint:commit",
+    "lint:code": "eslint --ignore-path .gitignore .",
+    "lint:commit": "commitlint",
     "test": "yarn test:unit && yarn test:integration",
     "test:unit": "jest --config=jest.config.unit.js",
     "test:integration": "jest --config=jest.config.integration.js",
@@ -25,6 +27,8 @@
     "packages/*"
   ],
   "devDependencies": {
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^10.0.1",
     "@semantic-release/git": "^10.0.1",
