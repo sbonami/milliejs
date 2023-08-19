@@ -9,6 +9,12 @@
       "options": {
         "parser": "json"
       }
+    },
+    {
+      "files": ["lerna.json"],
+      "options": {
+        "parser": "json-stringify"
+      }
     }
   ]
 }
