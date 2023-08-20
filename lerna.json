@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/lerna/lerna/v7/packages/lerna/schemas/lerna-schema.json",
+  "version": "0.0.0",
+  "packages": [
+    "packages/*"
+  ],
+  "npmClient": "yarn",
+  "command": {
+    "version": {
+      "allowBranch": "main",
+      "conventionalCommits": true,
+      "createRelease": "github",
+      "exact": true,
+      "message": "chore(release): %s",
+      "signGitTag": true,
+      "signGitCommit": true
+    },
+    "publish": {
+      "summaryFile": "true"
+    }
+  }
+}
