@@ -51,6 +51,12 @@ gen_enforced_field(WorkspaceCwd, 'publishConfig.access', 'public') :-
 gen_enforced_field(WorkspaceCwd, 'publishConfig.access', null) :-
   workspace_field(WorkspaceCwd, 'private', true).
 
+% Enforces 'publishConfig.provenance' is set to true for public workspaces while removing it from private workspaces
+gen_enforced_field(WorkspaceCwd, 'publishConfig.provenance', 'true') :-
+  \+ workspace_field(WorkspaceCwd, 'private', true).
+gen_enforced_field(WorkspaceCwd, 'publishConfig.provenance', null) :-
+  workspace_field(WorkspaceCwd, 'private', true).
+
 % Enforces the engines.node field for public workspace
 gen_enforced_field(WorkspaceCwd, 'engines.node', '>=16.0.0 || >=18.0.0 || >=19.0.0 || >=20.0.0') :-
   \+ workspace_field(WorkspaceCwd, 'private', true).
