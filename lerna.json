@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/lerna/lerna/v7/packages/lerna/schemas/lerna-schema.json",
-  "version": "0.0.0",
+  "version": "0.1.0-alpha.0",
   "packages": [
     "packages/*"
   ],
