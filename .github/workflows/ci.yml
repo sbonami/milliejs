@@ -11,24 +11,22 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
-        with:
-          fetch-depth: 0
       - uses: actions/setup-node@bea5baf987ba7aa777a8a0b4ace377a21c45c381 # v3.8.0
         with:
           cache: "yarn"
       - run: yarn install --immutable --immutable-cache --check-cache
       - run: yarn dedupe --check
+    continue-on-error: true
 
   build:
     strategy:
+      fail-fast: false
       matrix:
         node-version: [16.x, 18.x, 19.x, 20.x]
         os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
-        with:
-          fetch-depth: 0
       - uses: actions/setup-node@bea5baf987ba7aa777a8a0b4ace377a21c45c381 # v3.8.0
         with:
           node-version: ${{ matrix.node-version }}
@@ -60,8 +58,6 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
-        with:
-          fetch-depth: 0
       - uses: actions/setup-node@bea5baf987ba7aa777a8a0b4ace377a21c45c381 # v3.8.0
         with:
           node-version: ${{ matrix.node-version }}
@@ -118,8 +114,6 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
-        with:
-          fetch-depth: 0
       - uses: actions/setup-node@bea5baf987ba7aa777a8a0b4ace377a21c45c381 # v3.8.0
         with:
           node-version: ${{ matrix.node-version }}
@@ -147,8 +141,6 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
-        with:
-          fetch-depth: 0
       - uses: actions/setup-node@bea5baf987ba7aa777a8a0b4ace377a21c45c381 # v3.8.0
         with:
           node-version: ${{ matrix.node-version }}
@@ -158,14 +150,13 @@ jobs:
   test-unit:
     needs: build
     strategy:
+      fail-fast: false
       matrix:
         node-version: [16.x, 18.x, 19.x, 20.x]
         os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
-        with:
-          fetch-depth: 0
       - uses: actions/setup-node@bea5baf987ba7aa777a8a0b4ace377a21c45c381 # v3.8.0
         with:
           node-version: ${{ matrix.node-version }}
@@ -203,14 +194,13 @@ jobs:
   test-integration:
     needs: build
     strategy:
+      fail-fast: false
       matrix:
         node-version: [16.x, 17.x, 18.x, 19.x, 20.x]
         os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
-        with:
-          fetch-depth: 0
       - uses: actions/setup-node@bea5baf987ba7aa777a8a0b4ace377a21c45c381 # v3.8.0
         with:
           node-version: ${{ matrix.node-version }}

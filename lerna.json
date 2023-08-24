@@ -16,7 +16,7 @@
       "signGitCommit": true
     },
     "publish": {
-      "summaryFile": "true"
+      "summaryFile": "./"
     }
   }
 }

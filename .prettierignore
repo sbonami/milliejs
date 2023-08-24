@@ -8,5 +8,9 @@ node_modules/
 # Built packages
 **/packages/**/dist
 
+# Changelogs
+CHANGELOG.md
+**/packages/**/CHANGELOG.md
+
 # Test artifacts
 coverage/

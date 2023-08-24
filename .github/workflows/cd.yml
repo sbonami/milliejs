@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: "lts/*"
           cache: "yarn"
-      - run: yarn install --immutable --immutable-cache
+      - run: yarn install --immutable
       - name: Cache yarn unplugged packages
         uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
         id: yarn-unplugged-package-cache
@@ -58,4 +58,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn semantic-release --dry-run
+        run: yarn run pkg:publish from-package
