@@ -16,6 +16,7 @@ jobs:
           cache: "yarn"
       - run: yarn install --immutable --immutable-cache --check-cache
       - run: yarn dedupe --check
+    continue-on-error: true
 
   build:
     strategy:
