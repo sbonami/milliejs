@@ -1,6 +1,6 @@
 {
   "name": "milliejs",
-  "version": "0.2.0-alpha.0",
+  "version": "0.2.0-alpha.1",
   "description": "A composable, multi-platform library delivering progressive data synchronization over familiar interfaces",
   "author": "Scott BonAmi",
   "license": "MIT",
