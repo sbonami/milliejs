@@ -21,7 +21,20 @@ const millie = new MillieJS()
 const replicaStore = new MillieMemoryStore({})
 
 const muUpstreamCRUDInterface = new MillieCRUDStore({})
-const myUpstreadGooglePubSubInterface = new GooglePubSubStore({})
+const myUpstreadGooglePubSubInterface = new GooglePubSubStore(
+  {
+    // ... Google PubSub options ...
+  },
+  ["person-subscription"],
+  (message) => {
+    const { attributes, data } = message
+    const entiry = JSON.parse(data.toString())
+    return {
+      eventName: "millie:save", // or "millie:delete"
+      entity,
+    }
+  },
+)
 
 const personResource = { id: "person" }
 millie.registerResource(personResource, replicaStore, {
@@ -30,7 +43,36 @@ millie.registerResource(personResource, replicaStore, {
 })
 ```
 
-### Subscription interface
+#### Configuration
+
+##### PubSub Client
+
+The first argument of the GooglePubSub Store follows the shape of the Google
+PubSub SDK's PubSub configuration. More information can be found in the
+[Google documentation](https://cloud.google.com/nodejs/docs/reference/pubsub/latest/pubsub/pubsub).
+
+##### Subscriptions
+
+The second argument is an array of subscription names the Google PubSub Store
+should attach to. These subscriptions should exist prior to the invocation
+of the class so that the Google PubSub Store can find it.
+
+##### Message Parser
+
+The third argument is a callback for processing incoming PubSub messages,
+providing you the opportunity to integrate with any Google PubSub system.
+The message processor is invoked with incoming messages matching the
+Google PubSub Message shape. More information can be found in the [Google documentation](https://cloud.google.com/nodejs/docs/reference/pubsub/latest/pubsub/message).
+
+The parser should return an object with two properties: eventName and entity.
+The event name should be one of "millie:save" or "millie:delete" depending on
+the lifecycle of the underlying entity. The entity itself should follow the
+MillieJS Entity shape.
+
+MillieJS takes care to acknowledge the message after parsing and processing
+has completed.
+
+#### Subscription interface
 
 MillieJS provides a simple interface between your stores with all of the
 complex logic working behind the scenes to provide the most up-to-date data.
