@@ -72,5 +72,6 @@ jobs:
         uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
         with:
           name: dist
+          path: packages
       - name: Publish
         run: yarn run pkg:publish from-package --yes --loglevel=debug
