@@ -73,5 +73,7 @@ jobs:
         with:
           name: dist
           path: packages
+      - name: Copy root README to milliejs package
+        run: cp README.md packages/milliejs
       - name: Publish
         run: yarn run pkg:publish from-package --yes --loglevel=debug
