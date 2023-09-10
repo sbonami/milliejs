@@ -33,7 +33,7 @@ jobs:
           cache: "yarn"
       - run: yarn install --immutable
       - name: Cache yarn unplugged packages
-        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
         id: yarn-unplugged-package-cache
         with:
           key: ${{ runner.os }}-yarn-unplugged-${{ github.ref_name }}-${{ hashFiles('yarn.lock') }}
@@ -41,7 +41,7 @@ jobs:
             ./.yarn/unplugged
       - run: yarn build
       - name: Cache build artifacts
-        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
         id: build-cache
         with:
           key: ${{ runner.os }}-build-${{ github.ref_name }}-${{ hashFiles('./packages/*/*.tsbuildinfo') }}
@@ -64,7 +64,7 @@ jobs:
           cache: "yarn"
       - name: Restore Build cache
         id: cache-build-restore
-        uses: actions/cache/restore@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        uses: actions/cache/restore@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
         with:
           key: ${{ runner.os }}-build-${{ github.ref_name }}-${{ hashFiles('./packages/*/*.tsbuildinfo') }}
           restore-keys: |
@@ -93,7 +93,7 @@ jobs:
           cache: "yarn"
       - name: Restore Build cache
         id: cache-build-restore
-        uses: actions/cache/restore@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        uses: actions/cache/restore@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
         with:
           key: ${{ runner.os }}-build-${{ github.ref_name }}-${{ hashFiles('./packages/*/*.tsbuildinfo') }}
           restore-keys: |
@@ -120,7 +120,7 @@ jobs:
           cache: "yarn"
       - name: Restore Build cache
         id: cache-build-restore
-        uses: actions/cache/restore@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        uses: actions/cache/restore@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
         with:
           key: ${{ runner.os }}-build-${{ github.ref_name }}-${{ hashFiles('./packages/*/*.tsbuildinfo') }}
           restore-keys: |
@@ -162,7 +162,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "yarn"
       - name: Restore yarn unplugged package cache
-        uses: actions/cache/restore@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        uses: actions/cache/restore@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
         id: yarn-unplugged-package-cache-restore
         with:
           key: ${{ runner.os }}-yarn-unplugged-${{ github.ref_name }}-${{ hashFiles('yarn.lock') }}
@@ -174,7 +174,7 @@ jobs:
             ./.yarn/unplugged
       - name: Restore Build cache
         id: cache-build-restore
-        uses: actions/cache/restore@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        uses: actions/cache/restore@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
         with:
           key: ${{ runner.os }}-build-${{ github.ref_name }}-${{ hashFiles('./packages/*/*.tsbuildinfo') }}
           restore-keys: |
@@ -206,7 +206,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "yarn"
       - name: Restore yarn unplugged package cache
-        uses: actions/cache/restore@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        uses: actions/cache/restore@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
         id: yarn-unplugged-package-cache-restore
         with:
           key: ${{ runner.os }}-yarn-unplugged-${{ github.ref_name }}-${{ hashFiles('yarn.lock') }}
@@ -218,7 +218,7 @@ jobs:
             ./.yarn/unplugged
       - name: Restore Build cache
         id: cache-build-restore
-        uses: actions/cache/restore@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        uses: actions/cache/restore@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
         with:
           key: ${{ runner.os }}-build-${{ github.ref_name }}-${{ hashFiles('./packages/*/*.tsbuildinfo') }}
           restore-keys: |
