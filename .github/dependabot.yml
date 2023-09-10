@@ -13,3 +13,12 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+groups:
+  eslint:
+    patterns:
+      - "eslint*"
+      - "@typescript-eslint*"
+  lerna:
+    patterns:
+      - "lerna*"
+      - "nx*"
