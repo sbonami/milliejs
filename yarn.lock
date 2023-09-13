@@ -737,8 +737,8 @@ __metadata:
   linkType: hard
 
 "@google-cloud/pubsub@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "@google-cloud/pubsub@npm:4.0.1"
+  version: 4.0.5
+  resolution: "@google-cloud/pubsub@npm:4.0.5"
   dependencies:
     "@google-cloud/paginator": ^5.0.0
     "@google-cloud/precise-date": ^4.0.0
@@ -756,7 +756,7 @@ __metadata:
     is-stream-ended: ^0.1.4
     lodash.snakecase: ^4.1.1
     p-defer: ^3.0.0
-  checksum: 2a092ad5d230d283e0c2a84994acd03db8d47c4347ebd25e083d09831bf324ebb07e0a8acc8db2cd48fce578d9cf71bb695b52fd86efd8f0d5892fda90126755
+  checksum: 2b60a32a61a2e02ec59a44c5242d9bfb02624955ce934fe747cd76325cca6cb71a9e03307190290028cf85d9cc2395eda1d4cf776591bed0e7c066c9d9b16973
   languageName: node
   linkType: hard
 
