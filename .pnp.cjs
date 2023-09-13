@@ -76,7 +76,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@commitlint/cli", "npm:17.7.1"],\
             ["@commitlint/config-conventional", "npm:17.7.0"],\
             ["@commitlint/types", "npm:17.4.4"],\
-            ["@tsconfig/node16", "npm:16.1.0"],\
+            ["@tsconfig/node16", "npm:16.1.1"],\
             ["@types/jest", "npm:29.5.3"],\
             ["@types/node", "npm:20.6.0"],\
             ["@typescript-eslint/eslint-plugin", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:6.7.0"],\
@@ -1850,7 +1850,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@commitlint/cli", "npm:17.7.1"],\
             ["@commitlint/config-conventional", "npm:17.7.0"],\
             ["@commitlint/types", "npm:17.4.4"],\
-            ["@tsconfig/node16", "npm:16.1.0"],\
+            ["@tsconfig/node16", "npm:16.1.1"],\
             ["@types/jest", "npm:29.5.3"],\
             ["@types/node", "npm:20.6.0"],\
             ["@typescript-eslint/eslint-plugin", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:6.7.0"],\
@@ -2642,10 +2642,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:16.1.0", {\
-          "packageLocation": "./.yarn/cache/@tsconfig-node16-npm-16.1.0-058e6fabe7-a0a176492e.zip/node_modules/@tsconfig/node16/",\
+        ["npm:16.1.1", {\
+          "packageLocation": "./.yarn/cache/@tsconfig-node16-npm-16.1.1-72d05feaf8-26d83db068.zip/node_modules/@tsconfig/node16/",\
           "packageDependencies": [\
-            ["@tsconfig/node16", "npm:16.1.0"]\
+            ["@tsconfig/node16", "npm:16.1.1"]\
           ],\
           "linkType": "HARD"\
         }]\
