@@ -1190,7 +1190,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./examples/server-side/",\
           "packageDependencies": [\
             ["@example/server-side-transactional", "workspace:examples/server-side"],\
-            ["@google-cloud/pubsub", "npm:4.0.1"],\
+            ["@google-cloud/pubsub", "npm:4.0.5"],\
             ["@milliejs/store-filesystem", "workspace:packages/milliejs-store-filesystem"],\
             ["@milliejs/store-google-pubsub", "workspace:packages/milliejs-store-google-pubsub"],\
             ["@types/json-server", "npm:0.14.4"],\
@@ -1260,10 +1260,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@google-cloud/pubsub", [\
-        ["npm:4.0.1", {\
-          "packageLocation": "./.yarn/cache/@google-cloud-pubsub-npm-4.0.1-7672019465-2a092ad5d2.zip/node_modules/@google-cloud/pubsub/",\
+        ["npm:4.0.5", {\
+          "packageLocation": "./.yarn/cache/@google-cloud-pubsub-npm-4.0.5-deecd74fd5-2b60a32a61.zip/node_modules/@google-cloud/pubsub/",\
           "packageDependencies": [\
-            ["@google-cloud/pubsub", "npm:4.0.1"],\
+            ["@google-cloud/pubsub", "npm:4.0.5"],\
             ["@google-cloud/paginator", "npm:5.0.0"],\
             ["@google-cloud/precise-date", "npm:4.0.0"],\
             ["@google-cloud/projectify", "npm:4.0.0"],\
@@ -1905,7 +1905,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/milliejs-store-google-pubsub/",\
           "packageDependencies": [\
             ["@milliejs/store-google-pubsub", "workspace:packages/milliejs-store-google-pubsub"],\
-            ["@google-cloud/pubsub", "npm:4.0.1"],\
+            ["@google-cloud/pubsub", "npm:4.0.5"],\
             ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
             ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
             ["@milliejs/store-memory", "workspace:packages/milliejs-store-memory"],\
