@@ -6259,18 +6259,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["fast-glob", [\
-        ["npm:3.2.12", {\
-          "packageLocation": "./.yarn/cache/fast-glob-npm-3.2.12-162763bbae-0b1990f6ce.zip/node_modules/fast-glob/",\
-          "packageDependencies": [\
-            ["fast-glob", "npm:3.2.12"],\
-            ["@nodelib/fs.stat", "npm:2.0.5"],\
-            ["@nodelib/fs.walk", "npm:1.2.8"],\
-            ["glob-parent", "npm:5.1.2"],\
-            ["merge2", "npm:1.4.1"],\
-            ["micromatch", "npm:4.0.5"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:3.2.7", {\
           "packageLocation": "./.yarn/cache/fast-glob-npm-3.2.7-a2f0a45f5b-2f4708ff11.zip/node_modules/fast-glob/",\
           "packageDependencies": [\
@@ -6976,7 +6964,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["globby", "npm:11.1.0"],\
             ["array-union", "npm:2.1.0"],\
             ["dir-glob", "npm:3.0.1"],\
-            ["fast-glob", "npm:3.2.12"],\
+            ["fast-glob", "npm:3.3.1"],\
             ["ignore", "npm:5.2.4"],\
             ["merge2", "npm:1.4.1"],\
             ["slash", "npm:3.0.0"]\
