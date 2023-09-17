@@ -1190,7 +1190,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./examples/server-side/",\
           "packageDependencies": [\
             ["@example/server-side-transactional", "workspace:examples/server-side"],\
-            ["@google-cloud/pubsub", "npm:4.0.5"],\
+            ["@google-cloud/pubsub", "npm:4.0.6"],\
             ["@milliejs/store-filesystem", "workspace:packages/milliejs-store-filesystem"],\
             ["@milliejs/store-google-pubsub", "workspace:packages/milliejs-store-google-pubsub"],\
             ["@types/json-server", "npm:0.14.5"],\
@@ -1260,22 +1260,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@google-cloud/pubsub", [\
-        ["npm:4.0.5", {\
-          "packageLocation": "./.yarn/cache/@google-cloud-pubsub-npm-4.0.5-deecd74fd5-2b60a32a61.zip/node_modules/@google-cloud/pubsub/",\
+        ["npm:4.0.6", {\
+          "packageLocation": "./.yarn/cache/@google-cloud-pubsub-npm-4.0.6-77a78ea298-45cdddf67b.zip/node_modules/@google-cloud/pubsub/",\
           "packageDependencies": [\
-            ["@google-cloud/pubsub", "npm:4.0.5"],\
+            ["@google-cloud/pubsub", "npm:4.0.6"],\
             ["@google-cloud/paginator", "npm:5.0.0"],\
             ["@google-cloud/precise-date", "npm:4.0.0"],\
             ["@google-cloud/projectify", "npm:4.0.0"],\
             ["@google-cloud/promisify", "npm:4.0.0"],\
-            ["@opentelemetry/api", "npm:1.4.1"],\
-            ["@opentelemetry/semantic-conventions", "npm:1.3.1"],\
+            ["@opentelemetry/api", "npm:1.6.0"],\
+            ["@opentelemetry/semantic-conventions", "npm:1.17.0"],\
             ["@types/duplexify", "npm:3.6.1"],\
             ["@types/long", "npm:4.0.2"],\
             ["arrify", "npm:2.0.1"],\
             ["extend", "npm:3.0.2"],\
             ["google-auth-library", "npm:9.0.0"],\
-            ["google-gax", "npm:4.0.3"],\
+            ["google-gax", "npm:4.0.4"],\
             ["heap-js", "npm:2.2.0"],\
             ["is-stream-ended", "npm:0.1.4"],\
             ["lodash.snakecase", "npm:4.1.1"],\
@@ -1285,11 +1285,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@grpc/grpc-js", [\
-        ["npm:1.8.14", {\
-          "packageLocation": "./.yarn/cache/@grpc-grpc-js-npm-1.8.14-16a696d45f-7b889ae67c.zip/node_modules/@grpc/grpc-js/",\
+        ["npm:1.9.3", {\
+          "packageLocation": "./.yarn/cache/@grpc-grpc-js-npm-1.9.3-b38a8b3401-09634de9f8.zip/node_modules/@grpc/grpc-js/",\
           "packageDependencies": [\
-            ["@grpc/grpc-js", "npm:1.8.14"],\
-            ["@grpc/proto-loader", "npm:0.7.7"],\
+            ["@grpc/grpc-js", "npm:1.9.3"],\
+            ["@grpc/proto-loader", "npm:0.7.9"],\
             ["@types/node", "npm:20.6.2"]\
           ],\
           "linkType": "HARD"\
@@ -1304,6 +1304,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lodash.camelcase", "npm:4.3.0"],\
             ["long", "npm:4.0.0"],\
             ["protobufjs", "npm:7.2.4"],\
+            ["yargs", "npm:17.7.2"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:0.7.9", {\
+          "packageLocation": "./.yarn/cache/@grpc-proto-loader-npm-0.7.9-77eda22884-80df62eca9.zip/node_modules/@grpc/proto-loader/",\
+          "packageDependencies": [\
+            ["@grpc/proto-loader", "npm:0.7.9"],\
+            ["lodash.camelcase", "npm:4.3.0"],\
+            ["long", "npm:5.2.3"],\
+            ["protobufjs", "npm:7.2.5"],\
             ["yargs", "npm:17.7.2"]\
           ],\
           "linkType": "HARD"\
@@ -1905,7 +1916,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/milliejs-store-google-pubsub/",\
           "packageDependencies": [\
             ["@milliejs/store-google-pubsub", "workspace:packages/milliejs-store-google-pubsub"],\
-            ["@google-cloud/pubsub", "npm:4.0.5"],\
+            ["@google-cloud/pubsub", "npm:4.0.6"],\
             ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
             ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
             ["@milliejs/store-memory", "workspace:packages/milliejs-store-memory"],\
@@ -2418,19 +2429,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@opentelemetry/api", [\
-        ["npm:1.4.1", {\
-          "packageLocation": "./.yarn/cache/@opentelemetry-api-npm-1.4.1-067620a8fa-e783c40d1a.zip/node_modules/@opentelemetry/api/",\
+        ["npm:1.6.0", {\
+          "packageLocation": "./.yarn/cache/@opentelemetry-api-npm-1.6.0-58fdf34ce1-3283b78b62.zip/node_modules/@opentelemetry/api/",\
           "packageDependencies": [\
-            ["@opentelemetry/api", "npm:1.4.1"]\
+            ["@opentelemetry/api", "npm:1.6.0"]\
           ],\
           "linkType": "HARD"\
         }]\
       ]],\
       ["@opentelemetry/semantic-conventions", [\
-        ["npm:1.3.1", {\
-          "packageLocation": "./.yarn/cache/@opentelemetry-semantic-conventions-npm-1.3.1-3ba3c4558c-83fa3b8a81.zip/node_modules/@opentelemetry/semantic-conventions/",\
+        ["npm:1.17.0", {\
+          "packageLocation": "./.yarn/cache/@opentelemetry-semantic-conventions-npm-1.17.0-5e667b4874-3cb99118b3.zip/node_modules/@opentelemetry/semantic-conventions/",\
           "packageDependencies": [\
-            ["@opentelemetry/semantic-conventions", "npm:1.3.1"]\
+            ["@opentelemetry/semantic-conventions", "npm:1.17.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6999,11 +7010,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["google-gax", [\
-        ["npm:4.0.3", {\
-          "packageLocation": "./.yarn/cache/google-gax-npm-4.0.3-ca34104c67-c7e5ae305f.zip/node_modules/google-gax/",\
+        ["npm:4.0.4", {\
+          "packageLocation": "./.yarn/cache/google-gax-npm-4.0.4-8919a37682-95121b0636.zip/node_modules/google-gax/",\
           "packageDependencies": [\
-            ["google-gax", "npm:4.0.3"],\
-            ["@grpc/grpc-js", "npm:1.8.14"],\
+            ["google-gax", "npm:4.0.4"],\
+            ["@grpc/grpc-js", "npm:1.9.3"],\
             ["@grpc/proto-loader", "npm:0.7.7"],\
             ["@types/long", "npm:4.0.2"],\
             ["abort-controller", "npm:3.0.0"],\
@@ -7011,8 +7022,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["google-auth-library", "npm:9.0.0"],\
             ["node-fetch", "virtual:d6072ba3241fedbded84166396afebb3b7dd0723e1b50ee8f282f3defb68f0be716abc846ee97db697cb28a7cefc8947d5622d1ef5a7107ef81bfb75a8b5e47f#npm:2.7.0"],\
             ["object-hash", "npm:3.0.0"],\
-            ["proto3-json-serializer", "npm:1.1.1"],\
-            ["protobufjs", "npm:7.2.4"],\
+            ["proto3-json-serializer", "npm:2.0.0"],\
+            ["protobufjs", "npm:7.2.5"],\
             ["retry-request", "npm:6.0.0"]\
           ],\
           "linkType": "HARD"\
@@ -10986,10 +10997,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["proto3-json-serializer", [\
-        ["npm:1.1.1", {\
-          "packageLocation": "./.yarn/cache/proto3-json-serializer-npm-1.1.1-3b67d27ff8-0cd94cb635.zip/node_modules/proto3-json-serializer/",\
+        ["npm:2.0.0", {\
+          "packageLocation": "./.yarn/cache/proto3-json-serializer-npm-2.0.0-e56b1adc86-aea3433d5e.zip/node_modules/proto3-json-serializer/",\
           "packageDependencies": [\
-            ["proto3-json-serializer", "npm:1.1.1"],\
+            ["proto3-json-serializer", "npm:2.0.0"],\
             ["protobufjs", "npm:7.2.4"]\
           ],\
           "linkType": "HARD"\
@@ -11000,6 +11011,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/unplugged/protobufjs-npm-7.2.4-c40bd79e8d/node_modules/protobufjs/",\
           "packageDependencies": [\
             ["protobufjs", "npm:7.2.4"],\
+            ["@protobufjs/aspromise", "npm:1.1.2"],\
+            ["@protobufjs/base64", "npm:1.1.2"],\
+            ["@protobufjs/codegen", "npm:2.0.4"],\
+            ["@protobufjs/eventemitter", "npm:1.1.0"],\
+            ["@protobufjs/fetch", "npm:1.1.0"],\
+            ["@protobufjs/float", "npm:1.0.2"],\
+            ["@protobufjs/inquire", "npm:1.1.0"],\
+            ["@protobufjs/path", "npm:1.1.2"],\
+            ["@protobufjs/pool", "npm:1.1.0"],\
+            ["@protobufjs/utf8", "npm:1.1.0"],\
+            ["@types/node", "npm:20.6.2"],\
+            ["long", "npm:5.2.3"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:7.2.5", {\
+          "packageLocation": "./.yarn/unplugged/protobufjs-npm-7.2.5-3439c554a5/node_modules/protobufjs/",\
+          "packageDependencies": [\
+            ["protobufjs", "npm:7.2.5"],\
             ["@protobufjs/aspromise", "npm:1.1.2"],\
             ["@protobufjs/base64", "npm:1.1.2"],\
             ["@protobufjs/codegen", "npm:2.0.4"],\
