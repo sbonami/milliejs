@@ -2068,13 +2068,13 @@ __metadata:
   linkType: hard
 
 "@types/json-server@npm:^0.14.4":
-  version: 0.14.4
-  resolution: "@types/json-server@npm:0.14.4"
+  version: 0.14.5
+  resolution: "@types/json-server@npm:0.14.5"
   dependencies:
     "@types/connect": "*"
     "@types/express": "*"
     "@types/lowdb": "*"
-  checksum: 7060874245b5101840d5f348e3c5e52eed36553293b59bbdd07c58af671d7ce2a97d14ed7ded65c3e0a48e3e37f6fac5f30486a82346b4347056f7edef7194fd
+  checksum: c7c7428a74d081fd071a7dcfb464bdb2928be441f598fbea768e6f08208a2d53a4f5da7c92c1b694b3a793fe5ed39bb68acaa2f1b6232f35287a8e49b80d541c
   languageName: node
   linkType: hard
 
