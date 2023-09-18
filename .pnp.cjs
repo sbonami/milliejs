@@ -1296,18 +1296,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@grpc/proto-loader", [\
-        ["npm:0.7.7", {\
-          "packageLocation": "./.yarn/cache/@grpc-proto-loader-npm-0.7.7-3c0a27e6a6-6015d99d36.zip/node_modules/@grpc/proto-loader/",\
-          "packageDependencies": [\
-            ["@grpc/proto-loader", "npm:0.7.7"],\
-            ["@types/long", "npm:4.0.2"],\
-            ["lodash.camelcase", "npm:4.3.0"],\
-            ["long", "npm:4.0.0"],\
-            ["protobufjs", "npm:7.2.4"],\
-            ["yargs", "npm:17.7.2"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:0.7.9", {\
           "packageLocation": "./.yarn/cache/@grpc-proto-loader-npm-0.7.9-77eda22884-80df62eca9.zip/node_modules/@grpc/proto-loader/",\
           "packageDependencies": [\
@@ -7015,7 +7003,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["google-gax", "npm:4.0.4"],\
             ["@grpc/grpc-js", "npm:1.9.3"],\
-            ["@grpc/proto-loader", "npm:0.7.7"],\
+            ["@grpc/proto-loader", "npm:0.7.9"],\
             ["@types/long", "npm:4.0.2"],\
             ["abort-controller", "npm:3.0.0"],\
             ["duplexify", "npm:4.1.2"],\
@@ -9157,13 +9145,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["long", [\
-        ["npm:4.0.0", {\
-          "packageLocation": "./.yarn/cache/long-npm-4.0.0-ecd96a31ed-16afbe8f74.zip/node_modules/long/",\
-          "packageDependencies": [\
-            ["long", "npm:4.0.0"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:5.2.3", {\
           "packageLocation": "./.yarn/cache/long-npm-5.2.3-61dddb7586-885ede7c3d.zip/node_modules/long/",\
           "packageDependencies": [\
@@ -11001,31 +10982,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/proto3-json-serializer-npm-2.0.0-e56b1adc86-aea3433d5e.zip/node_modules/proto3-json-serializer/",\
           "packageDependencies": [\
             ["proto3-json-serializer", "npm:2.0.0"],\
-            ["protobufjs", "npm:7.2.4"]\
+            ["protobufjs", "npm:7.2.5"]\
           ],\
           "linkType": "HARD"\
         }]\
       ]],\
       ["protobufjs", [\
-        ["npm:7.2.4", {\
-          "packageLocation": "./.yarn/unplugged/protobufjs-npm-7.2.4-c40bd79e8d/node_modules/protobufjs/",\
-          "packageDependencies": [\
-            ["protobufjs", "npm:7.2.4"],\
-            ["@protobufjs/aspromise", "npm:1.1.2"],\
-            ["@protobufjs/base64", "npm:1.1.2"],\
-            ["@protobufjs/codegen", "npm:2.0.4"],\
-            ["@protobufjs/eventemitter", "npm:1.1.0"],\
-            ["@protobufjs/fetch", "npm:1.1.0"],\
-            ["@protobufjs/float", "npm:1.0.2"],\
-            ["@protobufjs/inquire", "npm:1.1.0"],\
-            ["@protobufjs/path", "npm:1.1.2"],\
-            ["@protobufjs/pool", "npm:1.1.0"],\
-            ["@protobufjs/utf8", "npm:1.1.0"],\
-            ["@types/node", "npm:20.6.2"],\
-            ["long", "npm:5.2.3"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:7.2.5", {\
           "packageLocation": "./.yarn/unplugged/protobufjs-npm-7.2.5-3439c554a5/node_modules/protobufjs/",\
           "packageDependencies": [\
