@@ -58,7 +58,7 @@ gen_enforced_field(WorkspaceCwd, 'publishConfig.provenance', null) :-
   workspace_field(WorkspaceCwd, 'private', true).
 
 % Enforces the engines.node field for public workspace
-gen_enforced_field(WorkspaceCwd, 'engines.node', '>=16.0.0 || >=18.0.0 || >=19.0.0 || >=20.0.0') :-
+gen_enforced_field(WorkspaceCwd, 'engines.node', '>=18.0.0 || >=20.0.0') :-
   \+ workspace_field(WorkspaceCwd, 'private', true).
 
 % Enforces the main and types field to start with ./

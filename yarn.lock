@@ -1262,7 +1262,7 @@ __metadata:
     "@commitlint/cli": ^17.7.1
     "@commitlint/config-conventional": ^17.7.0
     "@commitlint/types": ^17.4.4
-    "@tsconfig/node16": ^16.1.0
+    "@tsconfig/node18": ^18.2.2
     "@types/jest": ^29.5.3
     "@types/node": ^20.5.0
     "@typescript-eslint/eslint-plugin": ^6.4.0
@@ -1891,10 +1891,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/node16@npm:^16.1.0":
-  version: 16.1.0
-  resolution: "@tsconfig/node16@npm:16.1.0"
-  checksum: a0a176492e3802a5340eda1e61eabc8d4767e46496bc080ce9c381993ce8c5fb3df8f65267c3a9af4335bc00a85028845f795ea27545f63d62b93ab6675cf8fa
+"@tsconfig/node18@npm:^18.2.2":
+  version: 18.2.2
+  resolution: "@tsconfig/node18@npm:18.2.2"
+  checksum: 1c4b04b570e33de14bf518492e077079db2dcfba738c8d40c6ff916d94c9410246f4cb56f0802d9771423862140bf714c35d4a5f6cec2446d851cf61d3f8f9df
   languageName: node
   linkType: hard
 
