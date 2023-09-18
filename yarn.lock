@@ -737,51 +737,50 @@ __metadata:
   linkType: hard
 
 "@google-cloud/pubsub@npm:^4.0.1":
-  version: 4.0.5
-  resolution: "@google-cloud/pubsub@npm:4.0.5"
+  version: 4.0.6
+  resolution: "@google-cloud/pubsub@npm:4.0.6"
   dependencies:
     "@google-cloud/paginator": ^5.0.0
     "@google-cloud/precise-date": ^4.0.0
     "@google-cloud/projectify": ^4.0.0
     "@google-cloud/promisify": ^4.0.0
-    "@opentelemetry/api": ^1.0.0
-    "@opentelemetry/semantic-conventions": ~1.3.0
+    "@opentelemetry/api": ^1.6.0
+    "@opentelemetry/semantic-conventions": ~1.17.0
     "@types/duplexify": ^3.6.0
     "@types/long": ^4.0.0
     arrify: ^2.0.0
     extend: ^3.0.2
     google-auth-library: ^9.0.0
-    google-gax: ^4.0.2
+    google-gax: ^4.0.4
     heap-js: ^2.2.0
     is-stream-ended: ^0.1.4
     lodash.snakecase: ^4.1.1
     p-defer: ^3.0.0
-  checksum: 2b60a32a61a2e02ec59a44c5242d9bfb02624955ce934fe747cd76325cca6cb71a9e03307190290028cf85d9cc2395eda1d4cf776591bed0e7c066c9d9b16973
+  checksum: 45cdddf67bb019d30eac05f1b7370282fe40da9cb17d196209b19cd5593a62c1b2524feabb4bd4623e4fdd397db55d9ce2e628301fe494e8671bc3613fe2847d
   languageName: node
   linkType: hard
 
-"@grpc/grpc-js@npm:~1.8.0":
-  version: 1.8.14
-  resolution: "@grpc/grpc-js@npm:1.8.14"
+"@grpc/grpc-js@npm:~1.9.0":
+  version: 1.9.3
+  resolution: "@grpc/grpc-js@npm:1.9.3"
   dependencies:
-    "@grpc/proto-loader": ^0.7.0
+    "@grpc/proto-loader": ^0.7.8
     "@types/node": ">=12.12.47"
-  checksum: 7b889ae67cde5eb9b4feb92d54e73945d881309b9b879a2dde478fa7850b99835efa7592a8154a0f923851d7a18a177c106f5f52b45061180bb04aef7783c1c9
+  checksum: 09634de9f871a17c95db95338fe472522d5dca0f77b622e3a497ef806262813445ba1a1f3261f03461d84ac985e420317d5638b3314fcb524ee2e47e512ffa64
   languageName: node
   linkType: hard
 
-"@grpc/proto-loader@npm:^0.7.0":
-  version: 0.7.7
-  resolution: "@grpc/proto-loader@npm:0.7.7"
+"@grpc/proto-loader@npm:^0.7.0, @grpc/proto-loader@npm:^0.7.8":
+  version: 0.7.9
+  resolution: "@grpc/proto-loader@npm:0.7.9"
   dependencies:
-    "@types/long": ^4.0.1
     lodash.camelcase: ^4.3.0
-    long: ^4.0.0
-    protobufjs: ^7.0.0
+    long: ^5.0.0
+    protobufjs: ^7.2.4
     yargs: ^17.7.2
   bin:
     proto-loader-gen-types: build/bin/proto-loader-gen-types.js
-  checksum: 6015d99d36d0451075a53e5c5842e8912235973a515677afca038269969ad84f22a4c9fbc9badf52f034736b3f1bf864739f7c4238ba8a7e6fd3bba75cfce0ee
+  checksum: 80df62eca98c8ff2bc584f3739d0d432b99b765489359cb2928fa36c699b5c728f633af330279b109cad9b8ec93c744d66bbb683f0d879fe1e51e5c79c95266b
   languageName: node
   linkType: hard
 
@@ -1709,17 +1708,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@opentelemetry/api@npm:^1.0.0":
-  version: 1.4.1
-  resolution: "@opentelemetry/api@npm:1.4.1"
-  checksum: e783c40d1a518abf9c4c5d65223237c1392cd9a6c53ac6e2c3ef0c05ff7266e3dfc4fd9874316dae0dcb7a97950878deb513bcbadfaad653d48f0215f2a0911b
+"@opentelemetry/api@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "@opentelemetry/api@npm:1.6.0"
+  checksum: 3283b78b62a39f6568eaa050ac7045fcca747679e255874f6d2107cb8e1a3b2e10bfbf553c3e82a72500fb5fdca49dc07a5fe27fd6980debac24506cca638859
   languageName: node
   linkType: hard
 
-"@opentelemetry/semantic-conventions@npm:~1.3.0":
-  version: 1.3.1
-  resolution: "@opentelemetry/semantic-conventions@npm:1.3.1"
-  checksum: 83fa3b8a8198f6a5265a4191a89cfcce042240b92e034cf29631b0fe749993f4f74f4d21d89b10f6b05984246424adf8d037f8be507fcf0adf60933ab7143f07
+"@opentelemetry/semantic-conventions@npm:~1.17.0":
+  version: 1.17.0
+  resolution: "@opentelemetry/semantic-conventions@npm:1.17.0"
+  checksum: 3cb99118b3720aed37fa71d9b6c38847a481d5287653275477d30126de9e548f63a302efbd8a2086a747442880598bbde95ef17f8016dce45b85798696f12be4
   languageName: node
   linkType: hard
 
@@ -2092,7 +2091,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/long@npm:^4.0.0, @types/long@npm:^4.0.1":
+"@types/long@npm:^4.0.0":
   version: 4.0.2
   resolution: "@types/long@npm:4.0.2"
   checksum: d16cde7240d834cf44ba1eaec49e78ae3180e724cd667052b194a372f350d024cba8dd3f37b0864931683dab09ca935d52f0c4c1687178af5ada9fc85b0635f4
@@ -5383,11 +5382,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"google-gax@npm:^4.0.2":
-  version: 4.0.3
-  resolution: "google-gax@npm:4.0.3"
+"google-gax@npm:^4.0.4":
+  version: 4.0.4
+  resolution: "google-gax@npm:4.0.4"
   dependencies:
-    "@grpc/grpc-js": ~1.8.0
+    "@grpc/grpc-js": ~1.9.0
     "@grpc/proto-loader": ^0.7.0
     "@types/long": ^4.0.0
     abort-controller: ^3.0.0
@@ -5395,10 +5394,10 @@ __metadata:
     google-auth-library: ^9.0.0
     node-fetch: ^2.6.1
     object-hash: ^3.0.0
-    proto3-json-serializer: ^1.1.1
-    protobufjs: 7.2.4
+    proto3-json-serializer: ^2.0.0
+    protobufjs: 7.2.5
     retry-request: ^6.0.0
-  checksum: c7e5ae305fe92a3ce1a3446ada35d5607187d752281e445a74d1b7b6cc037a061922712432761ea3ae5091c11e9416c839a5cb1e07fedca26040db02d6bf89cf
+  checksum: 95121b0636fdc60ba34583f49d98baaff3c2e27b1d0a880c8f5f3c41567b871f1243d278747842b4c4b2139357838cb03cb6b0ce420145c78e04cd074b26cb0f
   languageName: node
   linkType: hard
 
@@ -7277,13 +7276,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"long@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "long@npm:4.0.0"
-  checksum: 16afbe8f749c7c849db1f4de4e2e6a31ac6e617cead3bdc4f9605cb703cd20e1e9fc1a7baba674ffcca57d660a6e5b53a9e236d7b25a295d3855cca79cc06744
-  languageName: node
-  linkType: hard
-
 "long@npm:^5.0.0":
   version: 5.2.3
   resolution: "long@npm:5.2.3"
@@ -8970,18 +8962,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"proto3-json-serializer@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "proto3-json-serializer@npm:1.1.1"
+"proto3-json-serializer@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "proto3-json-serializer@npm:2.0.0"
   dependencies:
     protobufjs: ^7.0.0
-  checksum: 0cd94cb635a9b9b3a2d047700175be4a6c7b7a43e2698826edad17604793764bcdfc270585ea58cb94aa690211b6cdaae5bf7a22522bea68ca67a2844773b4b7
+  checksum: aea3433d5e0204625b97bda53001f71fc060eb83709d58d001c5bf75728f14b5ebfca39b54d81e7c90e4de363f68aecf1d203a410f33ebda9590a812f8f30b13
   languageName: node
   linkType: hard
 
-"protobufjs@npm:7.2.4, protobufjs@npm:^7.0.0":
-  version: 7.2.4
-  resolution: "protobufjs@npm:7.2.4"
+"protobufjs@npm:7.2.5, protobufjs@npm:^7.0.0, protobufjs@npm:^7.2.4":
+  version: 7.2.5
+  resolution: "protobufjs@npm:7.2.5"
   dependencies:
     "@protobufjs/aspromise": ^1.1.2
     "@protobufjs/base64": ^1.1.2
@@ -8995,7 +8987,7 @@ __metadata:
     "@protobufjs/utf8": ^1.1.0
     "@types/node": ">=13.7.0"
     long: ^5.0.0
-  checksum: a952cdf2a5e5250c16ae651b570849b6f5b20a5475c3eef63ffb290ad239aa2916adfc1cc676f7fc93c69f48113df268761c0c246f7f023118c85bdd1a170044
+  checksum: 3770a072114061faebbb17cfd135bc4e187b66bc6f40cd8bac624368b0270871ec0cfb43a02b9fb4f029c8335808a840f1afba3c2e7ede7063b98ae6b98a703f
   languageName: node
   linkType: hard
 
