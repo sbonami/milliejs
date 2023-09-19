@@ -48,6 +48,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/milliejs-store-google-pubsub"\
       },\
       {\
+        "name": "@milliejs/store-kafka",\
+        "reference": "workspace:packages/milliejs-store-kafka"\
+      },\
+      {\
         "name": "@milliejs/store-memory",\
         "reference": "workspace:packages/milliejs-store-memory"\
       }\
@@ -63,6 +67,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@milliejs/store-base", ["workspace:packages/milliejs-store-base"]],\
       ["@milliejs/store-filesystem", ["workspace:packages/milliejs-store-filesystem"]],\
       ["@milliejs/store-google-pubsub", ["workspace:packages/milliejs-store-google-pubsub"]],\
+      ["@milliejs/store-kafka", ["workspace:packages/milliejs-store-kafka"]],\
       ["@milliejs/store-memory", ["workspace:packages/milliejs-store-memory"]],\
       ["milliejs", ["workspace:packages/milliejs"]]\
     ],\
@@ -1911,6 +1916,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:20.7.0"],\
             ["milliejs", "workspace:packages/milliejs"],\
             ["tiny-invariant", "npm:1.3.1"],\
+            ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=289587"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["@milliejs/store-kafka", [\
+        ["workspace:packages/milliejs-store-kafka", {\
+          "packageLocation": "./packages/milliejs-store-kafka/",\
+          "packageDependencies": [\
+            ["@milliejs/store-kafka", "workspace:packages/milliejs-store-kafka"],\
+            ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
+            ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
+            ["@milliejs/store-memory", "workspace:packages/milliejs-store-memory"],\
+            ["@types/node", "npm:20.7.0"],\
+            ["kafkajs", "npm:2.2.4"],\
+            ["milliejs", "workspace:packages/milliejs"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=289587"]\
           ],\
           "linkType": "SOFT"\
@@ -8767,6 +8788,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jws", "npm:4.0.0"],\
             ["jwa", "npm:2.0.0"],\
             ["safe-buffer", "npm:5.2.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["kafkajs", [\
+        ["npm:2.2.4", {\
+          "packageLocation": "./.yarn/cache/kafkajs-npm-2.2.4-8837bee290-83e9e8bc50.zip/node_modules/kafkajs/",\
+          "packageDependencies": [\
+            ["kafkajs", "npm:2.2.4"]\
           ],\
           "linkType": "HARD"\
         }]\

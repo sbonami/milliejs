@@ -1,0 +1,41 @@
+{
+  "name": "@milliejs/store-kafka",
+  "version": "0.3.0-alpha.0",
+  "description": "A Kafka adapter for the MillieJS incremental store utility",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sbonami/milliejs.git",
+    "directory": "packages/milliejs-store-kafka"
+  },
+  "bugs": {
+    "url": "https://github.com/sbonami/milliejs/issues"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@milliejs/store-base": "workspace:^",
+    "kafkajs": "^2.2.4"
+  },
+  "devDependencies": {
+    "@milliejs/jest-utils": "workspace:^",
+    "@milliejs/store-memory": "workspace:^",
+    "@types/node": "^20.5.0",
+    "milliejs": "workspace:^",
+    "typescript": "^4.9.5"
+  },
+  "engines": {
+    "node": ">=18.0.0 || >=20.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}
