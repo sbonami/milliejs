@@ -1204,10 +1204,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@faker-js/faker", [\
-        ["npm:8.0.2", {\
-          "packageLocation": "./.yarn/cache/@faker-js-faker-npm-8.0.2-093b9ec0b2-cf73daf9a5.zip/node_modules/@faker-js/faker/",\
+        ["npm:8.1.0", {\
+          "packageLocation": "./.yarn/cache/@faker-js-faker-npm-8.1.0-ae99443acc-76036cbad2.zip/node_modules/@faker-js/faker/",\
           "packageDependencies": [\
-            ["@faker-js/faker", "npm:8.0.2"]\
+            ["@faker-js/faker", "npm:8.1.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -1831,7 +1831,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/milliejs-jest-utils/",\
           "packageDependencies": [\
             ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
-            ["@faker-js/faker", "npm:8.0.2"],\
+            ["@faker-js/faker", "npm:8.1.0"],\
             ["@milliejs/core", "workspace:packages/milliejs-core"],\
             ["@types/jest", "npm:29.5.3"],\
             ["@types/node", "npm:20.6.2"],\
