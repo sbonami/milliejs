@@ -30,7 +30,7 @@
     "@milliejs/store-memory": "workspace:^",
     "@types/node": "^20.5.0",
     "milliejs": "workspace:^",
-    "typescript": "^4.9.5"
+    "typescript": "^5.2.2"
   },
   "engines": {
     "node": ">=18.0.0 || >=20.0.0"
