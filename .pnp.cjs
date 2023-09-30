@@ -1932,6 +1932,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:20.7.0"],\
             ["kafkajs", "npm:2.2.4"],\
             ["milliejs", "workspace:packages/milliejs"],\
+            ["tiny-invariant", "npm:1.3.1"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=289587"]\
           ],\
           "linkType": "SOFT"\
