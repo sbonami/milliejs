@@ -7,6 +7,7 @@
     "clean": "yarn clean:dist && yarn clean:test",
     "clean:dist": "rimraf -- ./packages/*/dist ./packages/*/tsconfig.tsbuildinfo",
     "clean:test": "rimraf -- ./coverage",
+    "docs": "typedoc --out docs/reference",
     "format:script": "prettier --ignore-path .prettierignore .",
     "format": "yarn format:script --write",
     "format:ci": "yarn format:script --check",
@@ -47,6 +48,7 @@
     "prettier": "^3.0.1",
     "rimraf": "^5.0.1",
     "ts-jest": "^29.1.1",
+    "typedoc": "^0.25.1",
     "typescript": "^5.2.2"
   },
   "dependenciesMeta": {

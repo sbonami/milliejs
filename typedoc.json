@@ -1,0 +1,10 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "name": "MillieJS",
+
+  "entryPoints": ["packages/*"],
+  "entryPointStrategy": "packages",
+
+  "includeVersion": true,
+  "excludePrivate": true
+}
