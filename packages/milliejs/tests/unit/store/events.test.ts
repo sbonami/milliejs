@@ -15,6 +15,11 @@ type MockResource = Resource
 const mockResource = makeMockResource()
 
 describe("events", () => {
+  afterEach(() => {
+    jest.resetModules()
+    jest.restoreAllMocks()
+  })
+
   describe("isEventEmitter", () => {
     const { isEventEmitter } = StoreEventModule
     const conformingObject: EventEmitter = new EventEmitter()

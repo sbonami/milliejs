@@ -18,6 +18,9 @@ describe("@millie/store-filesystem", () => {
   afterEach(async () => {
     await store.disconnect()
     fs.rmSync(filepath)
+
+    jest.resetModules()
+    jest.restoreAllMocks()
   })
   afterAll(() => {
     tempfs.clearSync()
