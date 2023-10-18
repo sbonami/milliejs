@@ -74,7 +74,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@commitlint/cli", "npm:17.7.2"],\
-            ["@commitlint/config-conventional", "npm:17.7.0"],\
+            ["@commitlint/config-conventional", "npm:17.8.0"],\
             ["@commitlint/types", "npm:17.4.4"],\
             ["@tsconfig/node18", "npm:18.2.2"],\
             ["@types/jest", "npm:29.5.5"],\
@@ -909,10 +909,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@commitlint/config-conventional", [\
-        ["npm:17.7.0", {\
-          "packageLocation": "./.yarn/cache/@commitlint-config-conventional-npm-17.7.0-291cc2bbe4-932cf35c12.zip/node_modules/@commitlint/config-conventional/",\
+        ["npm:17.8.0", {\
+          "packageLocation": "./.yarn/cache/@commitlint-config-conventional-npm-17.8.0-07ca612a56-33a6f7867e.zip/node_modules/@commitlint/config-conventional/",\
           "packageDependencies": [\
-            ["@commitlint/config-conventional", "npm:17.7.0"],\
+            ["@commitlint/config-conventional", "npm:17.8.0"],\
             ["conventional-changelog-conventionalcommits", "npm:6.1.0"]\
           ],\
           "linkType": "HARD"\
@@ -1847,7 +1847,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@milliejs/monorepo", "workspace:."],\
             ["@commitlint/cli", "npm:17.7.2"],\
-            ["@commitlint/config-conventional", "npm:17.7.0"],\
+            ["@commitlint/config-conventional", "npm:17.8.0"],\
             ["@commitlint/types", "npm:17.4.4"],\
             ["@tsconfig/node18", "npm:18.2.2"],\
             ["@types/jest", "npm:29.5.5"],\
