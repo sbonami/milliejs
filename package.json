@@ -4,8 +4,9 @@
   "author": "Scott BonAmi",
   "scripts": {
     "build": "yarn workspaces foreach --all --parallel --verbose run build",
-    "clean": "yarn clean:dist && yarn clean:test",
+    "clean": "yarn clean:dist && yarn clean:docs && yarn clean:test",
     "clean:dist": "rimraf -- ./packages/*/dist ./packages/*/tsconfig.tsbuildinfo",
+    "clean:docs": "rimraf -- ./docs/reference",
     "clean:test": "rimraf -- ./coverage",
     "docs": "typedoc --out docs/reference",
     "format:script": "prettier --ignore-path .prettierignore .",
