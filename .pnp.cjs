@@ -1194,7 +1194,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@google-cloud/pubsub", "npm:4.0.6"],\
             ["@milliejs/store-filesystem", "workspace:packages/milliejs-store-filesystem"],\
             ["@milliejs/store-google-pubsub", "workspace:packages/milliejs-store-google-pubsub"],\
-            ["@types/json-server", "npm:0.14.5"],\
+            ["@types/json-server", "npm:0.14.6"],\
             ["@types/node", "npm:20.8.6"],\
             ["json-server", "npm:0.17.4"],\
             ["milliejs", "workspace:packages/milliejs"],\
@@ -2843,10 +2843,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/json-server", [\
-        ["npm:0.14.5", {\
-          "packageLocation": "./.yarn/cache/@types-json-server-npm-0.14.5-f524dc67ac-c7c7428a74.zip/node_modules/@types/json-server/",\
+        ["npm:0.14.6", {\
+          "packageLocation": "./.yarn/cache/@types-json-server-npm-0.14.6-188cad257b-66343eeba9.zip/node_modules/@types/json-server/",\
           "packageDependencies": [\
-            ["@types/json-server", "npm:0.14.5"],\
+            ["@types/json-server", "npm:0.14.6"],\
             ["@types/connect", "npm:3.4.35"],\
             ["@types/express", "npm:4.17.17"],\
             ["@types/lowdb", "npm:1.0.11"]\
