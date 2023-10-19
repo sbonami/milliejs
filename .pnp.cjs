@@ -91,6 +91,8 @@ const RAW_RUNTIME_STATE =
           ["rimraf", "npm:5.0.5"],\
           ["ts-jest", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:29.1.1"],\
           ["typedoc", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:0.25.1"],\
+          ["typedoc-plugin-coverage", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:2.2.0"],\
+          ["typedoc-plugin-rename-defaults", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:0.6.6"],\
           ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"]\
         ],\
         "linkType": "SOFT"\
@@ -1909,6 +1911,8 @@ const RAW_RUNTIME_STATE =
           ["rimraf", "npm:5.0.5"],\
           ["ts-jest", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:29.1.1"],\
           ["typedoc", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:0.25.1"],\
+          ["typedoc-plugin-coverage", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:2.2.0"],\
+          ["typedoc-plugin-rename-defaults", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:0.6.6"],\
           ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"]\
         ],\
         "linkType": "SOFT"\
@@ -12556,6 +12560,50 @@ const RAW_RUNTIME_STATE =
         "packagePeers": [\
           "@types/typescript",\
           "typescript"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["typedoc-plugin-coverage", [\
+      ["npm:2.2.0", {\
+        "packageLocation": "./.yarn/cache/typedoc-plugin-coverage-npm-2.2.0-d6a508a127-5436176091.zip/node_modules/typedoc-plugin-coverage/",\
+        "packageDependencies": [\
+          ["typedoc-plugin-coverage", "npm:2.2.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:2.2.0", {\
+        "packageLocation": "./.yarn/__virtual__/typedoc-plugin-coverage-virtual-7e0cb12084/0/cache/typedoc-plugin-coverage-npm-2.2.0-d6a508a127-5436176091.zip/node_modules/typedoc-plugin-coverage/",\
+        "packageDependencies": [\
+          ["typedoc-plugin-coverage", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:2.2.0"],\
+          ["@types/typedoc", null],\
+          ["typedoc", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:0.25.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/typedoc",\
+          "typedoc"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["typedoc-plugin-rename-defaults", [\
+      ["npm:0.6.6", {\
+        "packageLocation": "./.yarn/cache/typedoc-plugin-rename-defaults-npm-0.6.6-196992b546-f080664f87.zip/node_modules/typedoc-plugin-rename-defaults/",\
+        "packageDependencies": [\
+          ["typedoc-plugin-rename-defaults", "npm:0.6.6"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:0.6.6", {\
+        "packageLocation": "./.yarn/__virtual__/typedoc-plugin-rename-defaults-virtual-cbcf53b392/0/cache/typedoc-plugin-rename-defaults-npm-0.6.6-196992b546-f080664f87.zip/node_modules/typedoc-plugin-rename-defaults/",\
+        "packageDependencies": [\
+          ["typedoc-plugin-rename-defaults", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:0.6.6"],\
+          ["@types/typedoc", null],\
+          ["typedoc", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:0.25.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/typedoc",\
+          "typedoc"\
         ],\
         "linkType": "HARD"\
       }]\

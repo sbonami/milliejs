@@ -1,4 +1,13 @@
 {
   "$schema": "https://typedoc.org/schema.json",
-  "includeVersion": true
+  "exclude": ["dist/*"],
+
+  "excludeInternal": true,
+  "excludePrivate": true,
+  "excludeReferences": true,
+
+  "plugin": [
+    "typedoc-plugin-coverage",
+    "typedoc-plugin-rename-defaults",
+  ]
 }
