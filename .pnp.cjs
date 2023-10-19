@@ -1893,7 +1893,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
             ["@milliejs/store-memory", "workspace:packages/milliejs-store-memory"],\
             ["@types/node", "npm:20.8.6"],\
-            ["@types/temp-fs", "npm:0.9.31"],\
+            ["@types/temp-fs", "npm:0.9.32"],\
             ["temp-fs", "npm:0.9.9"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=289587"]\
           ],\
@@ -3021,10 +3021,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/temp-fs", [\
-        ["npm:0.9.31", {\
-          "packageLocation": "./.yarn/cache/@types-temp-fs-npm-0.9.31-0180a97a17-399f26331c.zip/node_modules/@types/temp-fs/",\
+        ["npm:0.9.32", {\
+          "packageLocation": "./.yarn/cache/@types-temp-fs-npm-0.9.32-d9463b8d78-8dfbd81db8.zip/node_modules/@types/temp-fs/",\
           "packageDependencies": [\
-            ["@types/temp-fs", "npm:0.9.31"]\
+            ["@types/temp-fs", "npm:0.9.32"]\
           ],\
           "linkType": "HARD"\
         }]\
