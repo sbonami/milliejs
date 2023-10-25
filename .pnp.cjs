@@ -75,7 +75,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@commitlint/cli", "npm:18.0.0"],\
             ["@commitlint/config-conventional", "npm:18.0.0"],\
-            ["@commitlint/types", "npm:17.4.4"],\
+            ["@commitlint/types", "npm:18.0.0"],\
             ["@tsconfig/node18", "npm:18.2.2"],\
             ["@types/jest", "npm:29.5.6"],\
             ["@types/node", "npm:20.8.7"],\
@@ -1096,14 +1096,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@commitlint/types", [\
-        ["npm:17.4.4", {\
-          "packageLocation": "./.yarn/cache/@commitlint-types-npm-17.4.4-378d320505-03c5242905.zip/node_modules/@commitlint/types/",\
-          "packageDependencies": [\
-            ["@commitlint/types", "npm:17.4.4"],\
-            ["chalk", "npm:4.1.2"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:18.0.0", {\
           "packageLocation": "./.yarn/cache/@commitlint-types-npm-18.0.0-1193cce054-b32b80c241.zip/node_modules/@commitlint/types/",\
           "packageDependencies": [\
@@ -1857,7 +1849,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@milliejs/monorepo", "workspace:."],\
             ["@commitlint/cli", "npm:18.0.0"],\
             ["@commitlint/config-conventional", "npm:18.0.0"],\
-            ["@commitlint/types", "npm:17.4.4"],\
+            ["@commitlint/types", "npm:18.0.0"],\
             ["@tsconfig/node18", "npm:18.2.2"],\
             ["@types/jest", "npm:29.5.6"],\
             ["@types/node", "npm:20.8.7"],\

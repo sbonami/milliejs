@@ -606,15 +606,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/types@npm:^17.4.4":
-  version: 17.4.4
-  resolution: "@commitlint/types@npm:17.4.4"
-  dependencies:
-    chalk: ^4.1.0
-  checksum: 03c52429052d161710896d198000196bd2e60be0fd71459b22133dd83dee43e8d05ea8ee703c8369823bc40f77a54881b80d8aa4368ac52aea7f30fb234b73d2
-  languageName: node
-  linkType: hard
-
 "@commitlint/types@npm:^18.0.0":
   version: 18.0.0
   resolution: "@commitlint/types@npm:18.0.0"
@@ -1271,7 +1262,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": ^18.0.0
     "@commitlint/config-conventional": ^18.0.0
-    "@commitlint/types": ^17.4.4
+    "@commitlint/types": ^18.0.0
     "@tsconfig/node18": ^18.2.2
     "@types/jest": ^29.5.3
     "@types/node": ^20.5.0
