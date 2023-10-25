@@ -74,7 +74,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@commitlint/cli", "npm:17.8.0"],\
-            ["@commitlint/config-conventional", "npm:17.8.0"],\
+            ["@commitlint/config-conventional", "npm:18.0.0"],\
             ["@commitlint/types", "npm:17.4.4"],\
             ["@tsconfig/node18", "npm:18.2.2"],\
             ["@types/jest", "npm:29.5.6"],\
@@ -910,11 +910,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@commitlint/config-conventional", [\
-        ["npm:17.8.0", {\
-          "packageLocation": "./.yarn/cache/@commitlint-config-conventional-npm-17.8.0-07ca612a56-33a6f7867e.zip/node_modules/@commitlint/config-conventional/",\
+        ["npm:18.0.0", {\
+          "packageLocation": "./.yarn/cache/@commitlint-config-conventional-npm-18.0.0-747046a548-24bc2e3733.zip/node_modules/@commitlint/config-conventional/",\
           "packageDependencies": [\
-            ["@commitlint/config-conventional", "npm:17.8.0"],\
-            ["conventional-changelog-conventionalcommits", "npm:6.1.0"]\
+            ["@commitlint/config-conventional", "npm:18.0.0"],\
+            ["conventional-changelog-conventionalcommits", "npm:7.0.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -1848,7 +1848,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@milliejs/monorepo", "workspace:."],\
             ["@commitlint/cli", "npm:17.8.0"],\
-            ["@commitlint/config-conventional", "npm:17.8.0"],\
+            ["@commitlint/config-conventional", "npm:18.0.0"],\
             ["@commitlint/types", "npm:17.4.4"],\
             ["@tsconfig/node18", "npm:18.2.2"],\
             ["@types/jest", "npm:29.5.6"],\
@@ -4617,10 +4617,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["conventional-changelog-conventionalcommits", [\
-        ["npm:6.1.0", {\
-          "packageLocation": "./.yarn/cache/conventional-changelog-conventionalcommits-npm-6.1.0-10dd027396-4383a35cdf.zip/node_modules/conventional-changelog-conventionalcommits/",\
+        ["npm:7.0.2", {\
+          "packageLocation": "./.yarn/cache/conventional-changelog-conventionalcommits-npm-7.0.2-f878f86efe-e17ac5970a.zip/node_modules/conventional-changelog-conventionalcommits/",\
           "packageDependencies": [\
-            ["conventional-changelog-conventionalcommits", "npm:6.1.0"],\
+            ["conventional-changelog-conventionalcommits", "npm:7.0.2"],\
             ["compare-func", "npm:2.0.0"]\
           ],\
           "linkType": "HARD"\
