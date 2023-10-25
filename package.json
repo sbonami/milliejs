@@ -30,7 +30,7 @@
   "devDependencies": {
     "@commitlint/cli": "^18.0.0",
     "@commitlint/config-conventional": "^18.0.0",
-    "@commitlint/types": "^17.4.4",
+    "@commitlint/types": "^18.0.0",
     "@tsconfig/node18": "^18.2.2",
     "@types/jest": "^29.5.3",
     "@types/node": "^20.5.0",
