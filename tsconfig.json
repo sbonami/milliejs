@@ -27,6 +27,7 @@
     "noFallthroughCasesInSwitch": true,
 
     // error out if type-only imports are used as values
-    "importsNotUsedAsValues": "error"
+    "importsNotUsedAsValues": "error",
+    "ignoreDeprecations": "5.0"
   }
 }

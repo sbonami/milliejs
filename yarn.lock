@@ -688,7 +688,7 @@ __metadata:
     json-server: ^0.17.3
     milliejs: "workspace:^"
     ts-node: ^10.9.1
-    typescript: ^4.9.5
+    typescript: ^5.2.2
   languageName: unknown
   linkType: soft
 
@@ -1239,7 +1239,7 @@ __metadata:
   resolution: "@milliejs/core@workspace:packages/milliejs-core"
   dependencies:
     "@types/node": ^20.5.0
-    typescript: ^4.9.5
+    typescript: ^5.2.2
   languageName: unknown
   linkType: soft
 
@@ -1252,7 +1252,7 @@ __metadata:
     "@types/jest": ^29.5.3
     "@types/node": ^20.5.0
     jest: ^29.6.2
-    typescript: ^4.9.5
+    typescript: ^5.2.2
   languageName: unknown
   linkType: soft
 
@@ -1279,7 +1279,7 @@ __metadata:
     prettier: ^3.0.1
     rimraf: ^5.0.1
     ts-jest: ^29.1.1
-    typescript: ^4.9.5
+    typescript: ^5.2.2
   dependenciesMeta:
     prettier@3.0.3:
       unplugged: true
@@ -1293,7 +1293,7 @@ __metadata:
     "@milliejs/core": "workspace:^"
     "@milliejs/jest-utils": "workspace:^"
     "@types/node": ^20.5.0
-    typescript: ^4.9.5
+    typescript: ^5.2.2
   languageName: unknown
   linkType: soft
 
@@ -1307,7 +1307,7 @@ __metadata:
     "@types/node": ^20.5.0
     "@types/temp-fs": ^0.9.30
     temp-fs: ^0.9.9
-    typescript: ^4.9.5
+    typescript: ^5.2.2
   languageName: unknown
   linkType: soft
 
@@ -1322,7 +1322,7 @@ __metadata:
     "@types/node": ^20.5.0
     milliejs: "workspace:^"
     tiny-invariant: ^1.3.1
-    typescript: ^4.9.5
+    typescript: ^5.2.2
   languageName: unknown
   linkType: soft
 
@@ -1335,7 +1335,7 @@ __metadata:
     "@types/node": ^20.5.0
     fast-json-patch: ^3.1.1
     tiny-invariant: ^1.3.1
-    typescript: ^4.9.5
+    typescript: ^5.2.2
   languageName: unknown
   linkType: soft
 
@@ -10438,16 +10438,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.9.5":
-  version: 4.9.5
-  resolution: "typescript@npm:4.9.5"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: ee000bc26848147ad423b581bd250075662a354d84f0e06eb76d3b892328d8d4440b7487b5a83e851b12b255f55d71835b008a66cbf8f255a11e4400159237db
-  languageName: node
-  linkType: hard
-
 "typescript@patch:typescript@>=3 < 6#~builtin<compat/typescript>, typescript@patch:typescript@^5.2.2#~builtin<compat/typescript>":
   version: 5.2.2
   resolution: "typescript@patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=f3b441"
@@ -10455,16 +10445,6 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 0f4da2f15e6f1245e49db15801dbee52f2bbfb267e1c39225afdab5afee1a72839cd86000e65ee9d7e4dfaff12239d28beaf5ee431357fcced15fb08583d72ca
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@^4.9.5#~builtin<compat/typescript>":
-  version: 4.9.5
-  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=289587"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 1f8f3b6aaea19f0f67cba79057674ba580438a7db55057eb89cc06950483c5d632115c14077f6663ea76fd09fce3c190e6414bb98582ec80aa5a4eaf345d5b68
   languageName: node
   linkType: hard
 
