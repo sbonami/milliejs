@@ -1326,6 +1326,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@milliejs/store-kafka@workspace:packages/milliejs-store-kafka":
+  version: 0.0.0-use.local
+  resolution: "@milliejs/store-kafka@workspace:packages/milliejs-store-kafka"
+  dependencies:
+    "@milliejs/jest-utils": "workspace:^"
+    "@milliejs/store-base": "workspace:^"
+    "@milliejs/store-memory": "workspace:^"
+    "@types/node": ^20.5.0
+    kafkajs: ^2.2.4
+    milliejs: "workspace:^"
+    tiny-invariant: ^1.3.1
+    typescript: ^4.9.5
+  languageName: unknown
+  linkType: soft
+
 "@milliejs/store-memory@workspace:^, @milliejs/store-memory@workspace:packages/milliejs-store-memory":
   version: 0.0.0-use.local
   resolution: "@milliejs/store-memory@workspace:packages/milliejs-store-memory"
@@ -6925,6 +6940,13 @@ __metadata:
     jwa: ^2.0.0
     safe-buffer: ^5.0.1
   checksum: d68d07aa6d1b8cb35c363a9bd2b48f15064d342a5d9dc18a250dbbce8dc06bd7e4792516c50baa16b8d14f61167c19e851fd7f66b59ecc68b7f6a013759765f7
+  languageName: node
+  linkType: hard
+
+"kafkajs@npm:^2.2.4":
+  version: 2.2.4
+  resolution: "kafkajs@npm:2.2.4"
+  checksum: 83e9e8bc50a09b142f4ff79f6a2bd88ecc21b83bcefe6621ab1716118d624886befb7371731274f67812ce35dd50b53140ff3b49a06e5d9169fe6b164d72fea5
   languageName: node
   linkType: hard
 
