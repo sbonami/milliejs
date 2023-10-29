@@ -3,7 +3,7 @@
   "private": true,
   "author": "Scott BonAmi",
   "scripts": {
-    "build": "yarn workspaces foreach --parallel --verbose run build",
+    "build": "yarn workspaces foreach --all --parallel --verbose run build",
     "clean": "yarn clean:dist && yarn clean:test",
     "clean:dist": "rimraf -- ./packages/*/dist ./packages/*/tsconfig.tsbuildinfo",
     "clean:test": "rimraf -- ./coverage",
@@ -22,7 +22,7 @@
   "engines": {
     "node": ">=18.0.0 || >=20.0.0"
   },
-  "packageManager": "yarn@3.6.3",
+  "packageManager": "yarn@4.0.1",
   "workspaces": [
     "examples/*",
     "packages/*"
