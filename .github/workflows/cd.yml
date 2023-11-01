@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - docs-generate-docs-automatically
 
 permissions:
   contents: read # for checkout
@@ -77,3 +78,40 @@ jobs:
         run: cp README.md packages/milliejs
       - name: Publish
         run: yarn run pkg:publish from-package --yes --loglevel=debug
+  update-docs:
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # to be able to publish a GitHub release
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4.0.0
+        with:
+          cache: "yarn"
+      - name: Restore yarn unplugged package cache
+        uses: actions/cache/restore@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
+        id: yarn-unplugged-package-cache-restore
+        with:
+          key: ${{ runner.os }}-yarn-unplugged-${{ github.ref_name }}-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-unplugged-${{ github.ref_name }}-
+            ${{ runner.os }}-yarn-unplugged-${{ github.head_ref }}-
+            ${{ runner.os }}-yarn-unplugged-main
+          path: |
+            ./.yarn/unplugged
+      - name: Download production artifacts
+        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
+        with:
+          name: dist
+          path: packages
+      - name: Create the docs directory locally in CI
+        run: yarn docs
+      - name: Deploy Docs 🚀
+        uses: JamesIves/github-pages-deploy-action@a1ea191d508feb8485aceba848389d49f80ca2dc # v4.4.3
+        with:
+          branch: gh-pages
+          folder: docs
