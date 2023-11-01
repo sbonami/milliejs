@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - docs-generate-docs-automatically
 
 permissions:
   contents: read # for checkout
