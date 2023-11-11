@@ -1,6 +1,6 @@
 {
   "name": "@milliejs/store-google-pubsub",
-  "version": "0.3.0-alpha.0",
+  "version": "0.3.1-alpha.0",
   "description": "A Google PubSub adapter for the MillieJS incremental store utility",
   "license": "MIT",
   "main": "./dist/index.js",
