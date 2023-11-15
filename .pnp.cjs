@@ -1190,7 +1190,7 @@ const RAW_RUNTIME_STATE =
           ["@google-cloud/pubsub", "npm:4.0.6"],\
           ["@milliejs/store-filesystem", "workspace:packages/milliejs-store-filesystem"],\
           ["@milliejs/store-google-pubsub", "workspace:packages/milliejs-store-google-pubsub"],\
-          ["@types/json-server", "npm:0.14.6"],\
+          ["@types/json-server", "npm:0.14.7"],\
           ["@types/node", "npm:20.8.10"],\
           ["json-server", "npm:0.17.4"],\
           ["milliejs", "workspace:packages/milliejs"],\
@@ -2918,10 +2918,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@types/json-server", [\
-      ["npm:0.14.6", {\
-        "packageLocation": "./.yarn/cache/@types-json-server-npm-0.14.6-188cad257b-66343eeba9.zip/node_modules/@types/json-server/",\
+      ["npm:0.14.7", {\
+        "packageLocation": "./.yarn/cache/@types-json-server-npm-0.14.7-4f9b364e11-7c582b3261.zip/node_modules/@types/json-server/",\
         "packageDependencies": [\
-          ["@types/json-server", "npm:0.14.6"],\
+          ["@types/json-server", "npm:0.14.7"],\
           ["@types/connect", "npm:3.4.35"],\
           ["@types/express", "npm:4.17.17"],\
           ["@types/lowdb", "npm:1.0.11"]\
