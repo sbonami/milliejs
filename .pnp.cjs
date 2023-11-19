@@ -1755,7 +1755,7 @@ const RAW_RUNTIME_STATE =
           ["columnify", "npm:1.6.0"],\
           ["conventional-changelog-core", "npm:5.0.1"],\
           ["conventional-recommended-bump", "npm:7.0.1"],\
-          ["cosmiconfig", "npm:8.2.0"],\
+          ["cosmiconfig", "virtual:45de4fbd29d1cd02043b2be1dc84ca85622c263f602c2eb6c1bccaa65e3fa4c8291b4bce5024b118515f514f78017adb9a33e24cd152a4c7a3e711138295b9a5#npm:8.3.6"],\
           ["dedent", "npm:0.7.0"],\
           ["execa", "npm:5.0.0"],\
           ["fs-extra", "npm:11.1.1"],\
@@ -4861,17 +4861,6 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["cosmiconfig", [\
-      ["npm:8.2.0", {\
-        "packageLocation": "./.yarn/cache/cosmiconfig-npm-8.2.0-9b42f8a44e-e0b188f9a6.zip/node_modules/cosmiconfig/",\
-        "packageDependencies": [\
-          ["cosmiconfig", "npm:8.2.0"],\
-          ["import-fresh", "npm:3.3.0"],\
-          ["js-yaml", "npm:4.1.0"],\
-          ["parse-json", "npm:5.2.0"],\
-          ["path-type", "npm:4.0.0"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["npm:8.3.6", {\
         "packageLocation": "./.yarn/cache/cosmiconfig-npm-8.3.6-a5566e2779-91d082baca.zip/node_modules/cosmiconfig/",\
         "packageDependencies": [\
@@ -4889,6 +4878,23 @@ const RAW_RUNTIME_STATE =
           ["parse-json", "npm:5.2.0"],\
           ["path-type", "npm:4.0.0"],\
           ["typescript", null]\
+        ],\
+        "packagePeers": [\
+          "@types/typescript",\
+          "typescript"\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["virtual:863b7710cfbc8289c46de7dfb45280d184ffc32e8c3f22824c25131a4da5da9a27ac54dbb76318e0b2c554a7fa75520e7d9c4fedcf3744ba39f5f931c33a7cbc#npm:8.3.6", {\
+        "packageLocation": "./.yarn/__virtual__/cosmiconfig-virtual-1643f573b9/0/cache/cosmiconfig-npm-8.3.6-a5566e2779-91d082baca.zip/node_modules/cosmiconfig/",\
+        "packageDependencies": [\
+          ["cosmiconfig", "virtual:863b7710cfbc8289c46de7dfb45280d184ffc32e8c3f22824c25131a4da5da9a27ac54dbb76318e0b2c554a7fa75520e7d9c4fedcf3744ba39f5f931c33a7cbc#npm:8.3.6"],\
+          ["@types/typescript", null],\
+          ["import-fresh", "npm:3.3.0"],\
+          ["js-yaml", "npm:4.1.0"],\
+          ["parse-json", "npm:5.2.0"],\
+          ["path-type", "npm:4.0.0"],\
+          ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"]\
         ],\
         "packagePeers": [\
           "@types/typescript",\
@@ -8661,7 +8667,7 @@ const RAW_RUNTIME_STATE =
           ["conventional-changelog-angular", "npm:7.0.0"],\
           ["conventional-changelog-core", "npm:5.0.1"],\
           ["conventional-recommended-bump", "npm:7.0.1"],\
-          ["cosmiconfig", "npm:8.2.0"],\
+          ["cosmiconfig", "virtual:863b7710cfbc8289c46de7dfb45280d184ffc32e8c3f22824c25131a4da5da9a27ac54dbb76318e0b2c554a7fa75520e7d9c4fedcf3744ba39f5f931c33a7cbc#npm:8.3.6"],\
           ["dedent", "npm:0.7.0"],\
           ["envinfo", "npm:7.8.1"],\
           ["execa", "npm:5.0.0"],\
