@@ -2303,9 +2303,9 @@ __metadata:
   linkType: hard
 
 "@types/temp-fs@npm:^0.9.30":
-  version: 0.9.32
-  resolution: "@types/temp-fs@npm:0.9.32"
-  checksum: c59cdb311d69485c6d0bc77dcc057a2258ec20d4297d84c4723058695c6e7633a014d0d76d7dde29665e5267e3793f229ee8077859e1b65cea814bdb9ea2068c
+  version: 0.9.33
+  resolution: "@types/temp-fs@npm:0.9.33"
+  checksum: 71adec92ba2d92f2d3bbd5b3e4ee93850cb9172969985d5f469f7f698d5297d9c60c78c75a30271725ffeab319725bc81f5ec7f8314f261152d94baa9e990e0a
   languageName: node
   linkType: hard
 

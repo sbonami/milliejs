@@ -1889,7 +1889,7 @@ const RAW_RUNTIME_STATE =
           ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
           ["@milliejs/store-memory", "workspace:packages/milliejs-store-memory"],\
           ["@types/node", "npm:20.8.10"],\
-          ["@types/temp-fs", "npm:0.9.32"],\
+          ["@types/temp-fs", "npm:0.9.33"],\
           ["temp-fs", "npm:0.9.9"],\
           ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"]\
         ],\
@@ -3097,10 +3097,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@types/temp-fs", [\
-      ["npm:0.9.32", {\
-        "packageLocation": "./.yarn/cache/@types-temp-fs-npm-0.9.32-d9463b8d78-c59cdb311d.zip/node_modules/@types/temp-fs/",\
+      ["npm:0.9.33", {\
+        "packageLocation": "./.yarn/cache/@types-temp-fs-npm-0.9.33-d3f8edefe9-71adec92ba.zip/node_modules/@types/temp-fs/",\
         "packageDependencies": [\
-          ["@types/temp-fs", "npm:0.9.32"]\
+          ["@types/temp-fs", "npm:0.9.33"]\
         ],\
         "linkType": "HARD"\
       }]\
