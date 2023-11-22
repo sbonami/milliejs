@@ -1201,10 +1201,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@faker-js/faker", [\
-      ["npm:8.2.0", {\
-        "packageLocation": "./.yarn/cache/@faker-js-faker-npm-8.2.0-77752e0651-8be9ce5053.zip/node_modules/@faker-js/faker/",\
+      ["npm:8.3.1", {\
+        "packageLocation": "./.yarn/cache/@faker-js-faker-npm-8.3.1-80494d2a5c-66b25cb82a.zip/node_modules/@faker-js/faker/",\
         "packageDependencies": [\
-          ["@faker-js/faker", "npm:8.2.0"]\
+          ["@faker-js/faker", "npm:8.3.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -1828,7 +1828,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/milliejs-jest-utils/",\
         "packageDependencies": [\
           ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
-          ["@faker-js/faker", "npm:8.2.0"],\
+          ["@faker-js/faker", "npm:8.3.1"],\
           ["@milliejs/core", "workspace:packages/milliejs-core"],\
           ["@types/jest", "npm:29.5.8"],\
           ["@types/node", "npm:20.8.10"],\
