@@ -1187,7 +1187,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./examples/server-side/",\
         "packageDependencies": [\
           ["@example/server-side-transactional", "workspace:examples/server-side"],\
-          ["@google-cloud/pubsub", "npm:4.0.6"],\
+          ["@google-cloud/pubsub", "npm:4.0.7"],\
           ["@milliejs/store-filesystem", "workspace:packages/milliejs-store-filesystem"],\
           ["@milliejs/store-google-pubsub", "workspace:packages/milliejs-store-google-pubsub"],\
           ["@types/json-server", "npm:0.14.7"],\
@@ -1257,16 +1257,16 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@google-cloud/pubsub", [\
-      ["npm:4.0.6", {\
-        "packageLocation": "./.yarn/cache/@google-cloud-pubsub-npm-4.0.6-77a78ea298-31f560228f.zip/node_modules/@google-cloud/pubsub/",\
+      ["npm:4.0.7", {\
+        "packageLocation": "./.yarn/cache/@google-cloud-pubsub-npm-4.0.7-a003d5e4aa-3d13dc38e0.zip/node_modules/@google-cloud/pubsub/",\
         "packageDependencies": [\
-          ["@google-cloud/pubsub", "npm:4.0.6"],\
+          ["@google-cloud/pubsub", "npm:4.0.7"],\
           ["@google-cloud/paginator", "npm:5.0.0"],\
           ["@google-cloud/precise-date", "npm:4.0.0"],\
           ["@google-cloud/projectify", "npm:4.0.0"],\
           ["@google-cloud/promisify", "npm:4.0.0"],\
           ["@opentelemetry/api", "npm:1.6.0"],\
-          ["@opentelemetry/semantic-conventions", "npm:1.17.0"],\
+          ["@opentelemetry/semantic-conventions", "npm:1.18.1"],\
           ["@types/duplexify", "npm:3.6.1"],\
           ["@types/long", "npm:4.0.2"],\
           ["arrify", "npm:2.0.1"],\
@@ -1901,7 +1901,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/milliejs-store-google-pubsub/",\
         "packageDependencies": [\
           ["@milliejs/store-google-pubsub", "workspace:packages/milliejs-store-google-pubsub"],\
-          ["@google-cloud/pubsub", "npm:4.0.6"],\
+          ["@google-cloud/pubsub", "npm:4.0.7"],\
           ["@milliejs/jest-utils", "workspace:packages/milliejs-jest-utils"],\
           ["@milliejs/store-base", "workspace:packages/milliejs-store-base"],\
           ["@milliejs/store-memory", "workspace:packages/milliejs-store-memory"],\
@@ -2502,10 +2502,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@opentelemetry/semantic-conventions", [\
-      ["npm:1.17.0", {\
-        "packageLocation": "./.yarn/cache/@opentelemetry-semantic-conventions-npm-1.17.0-5e667b4874-1f6bbd4d54.zip/node_modules/@opentelemetry/semantic-conventions/",\
+      ["npm:1.18.1", {\
+        "packageLocation": "./.yarn/cache/@opentelemetry-semantic-conventions-npm-1.18.1-499d767b4f-00d46e3b61.zip/node_modules/@opentelemetry/semantic-conventions/",\
         "packageDependencies": [\
-          ["@opentelemetry/semantic-conventions", "npm:1.17.0"]\
+          ["@opentelemetry/semantic-conventions", "npm:1.18.1"]\
         ],\
         "linkType": "HARD"\
       }]\
