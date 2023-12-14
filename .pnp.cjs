@@ -87,7 +87,7 @@ const RAW_RUNTIME_STATE =
           ["jest", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:29.7.0"],\
           ["lerna", "npm:8.0.0"],\
           ["nx", "virtual:350095aba56d6ea01d6d7958449978350bb1321e651e7df690062cfd885857fdb60be567039a0030d2700f3b2224770fbb10c7ee460cae5dc0b3a757cc4cfd68#npm:17.1.3"],\
-          ["prettier", "npm:3.0.3"],\
+          ["prettier", "npm:3.1.1"],\
           ["rimraf", "npm:5.0.5"],\
           ["ts-jest", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:29.1.1"],\
           ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"]\
@@ -1846,7 +1846,7 @@ const RAW_RUNTIME_STATE =
           ["jest", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:29.7.0"],\
           ["lerna", "npm:8.0.0"],\
           ["nx", "virtual:350095aba56d6ea01d6d7958449978350bb1321e651e7df690062cfd885857fdb60be567039a0030d2700f3b2224770fbb10c7ee460cae5dc0b3a757cc4cfd68#npm:17.1.3"],\
-          ["prettier", "npm:3.0.3"],\
+          ["prettier", "npm:3.1.1"],\
           ["rimraf", "npm:5.0.5"],\
           ["ts-jest", "virtual:d00612077212b7b43cd5726427cdf302fb1f4846dd73a7030572567eb5647e015d4b875104f0052939cd6afeefd681c886b0ce2be8380237b38d03f73505b15b#npm:29.1.1"],\
           ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"]\
@@ -10528,10 +10528,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["prettier", [\
-      ["npm:3.0.3", {\
-        "packageLocation": "./.yarn/unplugged/prettier-npm-3.0.3-fced695dae/node_modules/prettier/",\
+      ["npm:3.1.1", {\
+        "packageLocation": "./.yarn/unplugged/prettier-npm-3.1.1-072c31ec21/node_modules/prettier/",\
         "packageDependencies": [\
-          ["prettier", "npm:3.0.3"]\
+          ["prettier", "npm:3.1.1"]\
         ],\
         "linkType": "HARD"\
       }]\
