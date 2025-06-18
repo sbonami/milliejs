@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@milliejs/core": "workspace:^",
-    "jest": "^29.6.2"
+    "jest": "^30.0.0"
   },
   "engines": {
     "node": ">=18.0.0 || >=20.0.0"
